@@ -3,7 +3,7 @@
     class="bg-gray-100 dark:bg-slate-600 px-4 sm:px-44 lg:px-80 pb-10 transition duration-300 ease-in-out selection:bg-teal-500 selection:text-white"
   >
     <div class="flex justify-between items-center mb-8">
-      <h2 class="text-2xl font-bold dark:text-white">Próximos eventos</h2>
+      <h2 class="text-3xl font-bold dark:text-white">Próximos eventos</h2>
       <button
         @click="toggleView"
         class="text-2xl text-gray-700 dark:text-teal-500"
@@ -52,7 +52,7 @@
         >
           <swiper-slide v-for="evento in eventos" :key="evento.fecha">
             <div
-              class="bg-white py-4 px-3 sm:px-6 rounded-lg shadow mx-auto mb-10"
+              class="bg-white py-4 px-2 sm:px-6 rounded-lg shadow mx-auto mb-10"
             >
               <div class="flex items-center justify-center p-4">
                 <div
@@ -70,7 +70,7 @@
                   </div>
                 </div>
               </div>
-              <h3 class="font-semibold mb-2 text-[18px] xl:text-xl">
+              <h3 class="font-semibold mb-2 text-[16px] xl:text-xl">
                 {{ evento.titulo }}
               </h3>
               <p class="text-sm text-gray-600 mb-2 flex items-center">
