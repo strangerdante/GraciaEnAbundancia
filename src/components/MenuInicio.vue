@@ -22,7 +22,7 @@
           Su Gracia es Mayor</span
         >
       </a>
-      
+
       <!-- Contenedor de botones (modo oscuro y hamburguesa) -->
       <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
         <!-- Botón de modo oscuro -->
@@ -88,7 +88,7 @@
         :class="[
           'items-center justify-between w-full md:flex md:w-auto md:order-1',
           'absolute md:static top-full left-0 right-0 bg-gray-800 md:bg-transparent',
-          { 'hidden': !menuVisible, 'block': menuVisible }
+          { hidden: !menuVisible, block: menuVisible },
         ]"
         id="navbar-sticky"
       >
@@ -96,15 +96,48 @@
         <ul
           class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 nav-menu"
         >
-          <!-- Enlaces individuales -->
           <li>
-            
+            <a
               href="/#inicio"
-              class="block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-teal-400 md:p-0 md:dark:hover:text-teal-400 hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              class="ease-in duration-150 block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-teal-400 md:p-0 md:dark:hover:text-teal-400 hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >Inicio</a
             >
           </li>
-          <!-- ... (otros enlaces similares) ... -->
+          <li>
+            <a
+              href="/#pastor"
+              class="ease-in duration-150 block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-teal-400 md:p-0 md:dark:hover:text-teal-400 hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              >Pastor</a
+            >
+          </li>
+          <li>
+            <a
+              href="/#servicio"
+              class="ease-in duration-150 block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-teal-400 md:p-0 md:dark:hover:text-teal-400 hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              >Servicios</a
+            >
+          </li>
+          <li>
+            <a
+              href="/#ministerios"
+              class="ease-in duration-150 block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-teal-400 md:p-0 md:dark:hover:text-teal-400 hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              >Ministerios</a
+            >
+          </li>
+          <li>
+            <a
+              href="/confesion"
+              class="ease-in duration-150 block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-teal-400 md:p-0 md:dark:hover:text-teal-400 hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              >Confesion de fe</a
+            >
+          </li>
+          <li>
+            <a
+              href="/preguntas"
+              class="ease-in duration-150 block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-teal-400 md:p-0 md:dark:hover:text-teal-400 hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              >Preguntas frecuentes</a
+            >
+          </li>
         </ul>
       </div>
     </div>
@@ -123,8 +156,8 @@ export default {
   name: "MenuInicio",
   data() {
     return {
-      menuVisible: false // Estado para controlar la visibilidad del menú en móviles
-    }
+      menuVisible: false, // Estado para controlar la visibilidad del menú en móviles
+    };
   },
   methods: {
     toggleMenu() {
@@ -133,8 +166,8 @@ export default {
     },
     toggleDarkMode() {
       // Método para cambiar entre modo claro y oscuro
-      document.documentElement.classList.toggle('dark');
-    }
+      document.documentElement.classList.toggle("dark");
+    },
   },
   mounted() {
     // Lifecycle hook, se ejecuta cuando el componente se monta en el DOM
