@@ -95,8 +95,9 @@
       <div
         :class="[
           'items-center justify-between w-full md:flex md:w-auto md:order-1',
-          'absolute md:static top-full left-0 right-0 bg-gray-800 md:bg-transparent bg-opacity-80 backdrop-filter backdrop-blur-md',
+          'absolute md:static top-full left-0 right-0',
           'pb-6 md:pb-0 p-4 sm:p-0',
+          'backdrop-filter backdrop-blur-lg bg-gray-800 bg-opacity-80',
           { hidden: !menuVisible, block: menuVisible },
         ]"
         id="navbar-sticky"

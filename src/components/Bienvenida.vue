@@ -17,7 +17,7 @@
             Un lugar de fe, comunidad y crecimiento espiritual
           </p>
           <!-- Redes sociales -->
-          <div class="flex justify-center space-x-6 mt-20">
+          <!-- <div class="flex justify-center space-x-6 mt-20">
             <a
               href="#"
               class="text-white hover:text-teal-300 transition-colors duration-300"
@@ -63,7 +63,7 @@
                 />
               </svg>
             </a>
-          </div>
+          </div> -->
         </div>
       </div>
       <!-- Scroll/Swipe Indicator -->
