@@ -1,9 +1,11 @@
 <template>
   <div
-    class="bg-gray-100 dark:bg-slate-600 px-4 sm:px-44 lg:px-80 pb-10 transition duration-300 ease-in-out selection:bg-teal-500 selection:text-white"
+    class="bg-gray-100 dark:bg-slate-600 px-2 sm:px-20 py-6 container mx-auto transition duration-300 ease-in-out rounded-b-lg"
   >
     <div class="flex justify-between items-center mb-8">
-      <h2 class="text-2xl font-bold dark:text-white">Próximos eventos</h2>
+      <h2 class="text-2xl font-bold dark:text-white sm:-ml-8">
+        Próximos eventos
+      </h2>
       <button
         @click="toggleView"
         class="text-2xl text-gray-700 dark:text-teal-500"
@@ -56,7 +58,7 @@
             >
               <div class="flex items-center justify-center p-4">
                 <div
-                  class="relative text-3xl font-bold text-black border py-2 px-6 rounded-md shadow-md border-t-teal-500 border-t-4"
+                  class="relative text-3xl font-bold text-black border py-2 px-6 rounded-md shadow-md"
                 >
                   <div
                     class="absolute top-1 left-3 w-1.5 h-1.5 bg-black rounded-full"
@@ -96,7 +98,7 @@
                 @click="abrirModal(evento)"
                 class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300 dark:bg-teal-500 dark:hover:bg-teal-700"
               >
-                Detalles
+                Leer más
               </button>
             </div>
           </swiper-slide>
@@ -113,7 +115,7 @@
             class="flex flex-col md:flex-row items-start md:items-center mb-4"
           >
             <div
-              class="text-5xl font-bold text-black border py-3 px-8 rounded-md shadow-md mr-6 mb-4 md:mb-0 border-t-teal-500 border-t-4"
+              class="text-5xl font-bold text-black border py-3 px-8 rounded-md shadow-md mr-6 mb-4 md:mb-0"
             >
               <div class="text-center">{{ proximoEvento.dia }}</div>
               <div class="text-lg text-gray-600 text-center">
@@ -143,7 +145,7 @@
 
               <!-- Leer mas -->
               <a href="#" class="text-blue-600 hover:text-blue-800 text-sm"
-                >Detalles</a
+                >Leer más</a
               >
               <p
                 class="text-base md:text-lg font-semibold text-red-600 mt-4 dark:text-teal-600 flex items-center"
@@ -193,9 +195,8 @@
             class="bg-white p-4 rounded-lg shadow flex items-center justify-between"
           >
             <div class="flex items-center">
-              <!-- cambiar colores -->
               <div
-                class="text-2xl font-bold text-black border py-2 px-4 rounded-md shadow-md mr-4 border-t-teal-500 border-t-4"
+                class="text-2xl font-bold text-black border py-2 px-4 rounded-md shadow-md mr-4"
               >
                 <div class="text-center">{{ evento.dia }}</div>
                 <div class="text-xs text-gray-600 text-center">
@@ -214,7 +215,7 @@
               @click="abrirModal(evento)"
               class="bg-red-500 dark:bg-teal-500 text-white px-3 py-1 rounded-lg hover:bg-red-700 transition duration-300 text-sm"
             >
-              Detalles
+              Leer más
             </button>
           </div>
         </div>
