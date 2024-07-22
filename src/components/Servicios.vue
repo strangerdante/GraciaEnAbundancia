@@ -1,6 +1,6 @@
 <template>
   <section
-    class="px-4 sm:px-44 lg:px-72 py-10 mt-4 bg-gray-100 dark:bg-slate-700 dark:border-slate-600 transition duration-300 ease-in-out selection:bg-teal-500 selection:text-white"
+    class="px-4 sm:px-6 lg:px-72 py-10 mt-4 bg-gray-100 dark:bg-slate-700 dark:border-slate-600 transition duration-300 ease-in-out selection:bg-teal-500 selection:text-white"
     id="servicio"
   >
     <article>

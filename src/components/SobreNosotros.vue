@@ -1,6 +1,6 @@
 <template>
   <section
-    class="px-4 sm:px-44 lg:px-80 py-10 sm:py-14 transition duration-300 ease-in-out selection:bg-teal-500 selection:text-white"
+    class="px-4 sm:px-6 lg:px-80 py-10 sm:py-14 transition duration-300 ease-in-out selection:bg-teal-500 selection:text-white"
     id="inicio"
   >
     <article>

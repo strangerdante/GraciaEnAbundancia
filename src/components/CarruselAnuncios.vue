@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mx-auto px-4 sm:px-44 lg:px-80 py-10 bg-gray-100 dark:bg-slate-600 transition duration-300 ease-in-out"
+    class="mx-auto px-4 sm:px-6 lg:px-80 py-10 bg-gray-100 dark:bg-slate-600 transition duration-300 ease-in-out"
   >
     <h2 class="text-3xl font-bold dark:text-white mb-8">Anuncios</h2>
     <swiper

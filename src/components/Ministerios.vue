@@ -3,7 +3,7 @@
     class="text-gray-700 body-font selection:bg-teal-500 selection:text-white"
     id="ministerios"
   >
-    <div class="px-4 sm:px-44 lg:px-80 py-10">
+    <div class="px-4 sm:px-6 lg:px-80 py-10">
       <div
         class="flex flex-wrap w-full mb-20 flex-col items-center text-center"
       >

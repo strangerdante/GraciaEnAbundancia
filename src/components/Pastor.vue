@@ -1,5 +1,5 @@
 <template>
-  <section class="px-4 sm:px-44 lg:px-80 py-10" id="pastor">
+  <section class="px-4 sm:px-6 lg:px-80 py-10" id="pastor">
     <div
       class="grid grid-cols-1 lg:h-screen lg:grid-cols-2 selection:bg-teal-500 selection:text-white"
     >
@@ -18,7 +18,7 @@
         <span
           class="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-gray-100 rounded-l-lg dark:bg-slate-600 transition duration-300 ease-in-out"
         ></span>
-        <div class="p-0 py-4 sm:py-0 sm:p-16 lg:p-14">
+        <div class="p-0 py-4 s sm:p-16 lg:p-14">
           <h2
             class="sm:text-4xl text-3xl font-bold text-center text-gray-800 dark:text-white mb-6"
           >
