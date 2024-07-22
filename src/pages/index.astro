@@ -1,0 +1,20 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import Principal from "../components/Principal.vue";
+import YoutubeVideos from "../components/YoutubeVideos.vue";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Iglesia</title>
+    <ViewTransitions />
+  </head>
+  <body class="dark:bg-gray-800">
+    <Principal client:load />
+    <!-- <YoutubeVideos client:load /> -->
+  </body>
+</html>
