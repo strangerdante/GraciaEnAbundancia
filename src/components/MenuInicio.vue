@@ -1,4 +1,3 @@
-<!-- src/App.vue -->
 <template>
   <!-- Barra de navegación principal -->
   <nav
@@ -97,7 +96,7 @@
           'items-center justify-between w-full md:flex md:w-auto md:order-1',
           'absolute md:static top-full left-0 right-0',
           'pb-6 md:pb-0 p-4 sm:p-0',
-          'backdrop-filter backdrop-blur-lg bg-gray-800 bg-opacity-80 sm:bg-transparent',
+          'backdrop-filter backdrop-blur-lg bg-gray-800 bg-opacity-100 sm:bg-transparent',
           { hidden: !menuVisible, block: menuVisible },
         ]"
         id="navbar-sticky"
@@ -193,6 +192,4 @@ export default {
 };
 </script>
 
-<style>
-/* Estilos generales si son necesarios */
-</style>
+<style></style>
