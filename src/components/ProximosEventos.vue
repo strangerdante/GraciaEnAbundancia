@@ -70,7 +70,7 @@
                   </div>
                 </div>
               </div>
-              <h3 class="font-semibold mb-2 text-[16px] xl:text-xl">
+              <h3 class="font-semibold mb-2 text-[14px] xl:text-xl">
                 {{ evento.titulo }}
               </h3>
               <p class="text-sm text-gray-600 mb-2 flex items-center">
