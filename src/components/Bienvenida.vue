@@ -19,7 +19,7 @@
         </div>
       </div>
       <!-- Scroll/Swipe Indicator -->
-      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20">
+      <div class="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-20">
         <div class="scroll-indicator">
           <!-- Indicador para móviles (deslizar) -->
           <div class="sm:hidden flex flex-col items-center">

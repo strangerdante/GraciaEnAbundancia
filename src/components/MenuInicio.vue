@@ -26,7 +26,7 @@
           ></div>
         </div>
         <span
-          class="self-center text-md font-semibold whitespace-nowrap text-white text-center transition-colors duration-300 ease-in-out group-hover:text-purple-500"
+          class="self-center text-md font-semibold whitespace-nowrap text-white text-center transition-colors duration-300 ease-in-out group-hover:text-orange-500"
           >Iglesia Bautista <br />
           Su Gracia es Mayor</span
         >
