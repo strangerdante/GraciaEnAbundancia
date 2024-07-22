@@ -10,7 +10,6 @@
       class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
     >
       <!-- Logo y nombre de la iglesia -->
-      <!-- Logo y nombre de la iglesia -->
       <a
         href="/"
         class="group flex items-center space-x-3 rtl:space-x-reverse relative overflow-hidden rounded-lg p-1"
@@ -96,7 +95,7 @@
       <div
         :class="[
           'items-center justify-between w-full md:flex md:w-auto md:order-1',
-          'absolute md:static top-full left-0 right-0 bg-gray-800 md:bg-transparent bg-opacity-80 backdrop-filter backdrop-blur-sm',
+          'absolute md:static top-full left-0 right-0 bg-gray-800 md:bg-transparent bg-opacity-80 backdrop-filter backdrop-blur-md',
           'pb-6 md:pb-0 p-4 sm:p-0',
           { hidden: !menuVisible, block: menuVisible },
         ]"
