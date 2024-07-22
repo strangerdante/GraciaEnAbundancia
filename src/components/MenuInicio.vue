@@ -22,7 +22,7 @@
           ></div>
         </div>
         <span
-          class="self-center text-md font-semibold whitespace-nowrap text-white text-center transition-colors duration-300 ease-in-out group-hover:text-teal-400"
+          class="self-center text-md font-semibold whitespace-nowrap text-white text-center transition-colors duration-300 ease-in-out group-hover:text-red-400"
           >Iglesia Bautista <br />
           Su Gracia es Mayor</span
         >
@@ -172,15 +172,6 @@ export default {
   methods: {
     toggleMenu() {
       this.menuVisible = !this.menuVisible;
-      if (this.menuVisible) {
-        // Permitimos que el menú se expanda a su altura completa
-        this.$nextTick(() => {
-          this.menuHeight = `${this.$refs.navMenu.scrollHeight}px`;
-        });
-      } else {
-        // Colapsamos el menú
-        this.menuHeight = "0px";
-      }
     },
     toggleDarkMode() {
       document.documentElement.classList.toggle("dark");
