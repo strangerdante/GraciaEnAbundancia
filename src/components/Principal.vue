@@ -5,7 +5,7 @@
     <SobreNosotros />
 
     <CarruselAnuncios />
-    <Calendario />
+    <ProximosEventos />
     <Pastor />
     <Servicios />
     <Ministerios />
@@ -22,7 +22,7 @@ import Servicios from "./Servicios.vue";
 import Pastor from "./Pastor.vue";
 import Bienvenida from "./Bienvenida.vue";
 import MenuInicio from "./MenuInicio.vue";
-import Calendario from "./Calendario.vue";
+import ProximosEventos from "./ProximosEventos.vue";
 import CarruselAnuncios from "./CarruselAnuncios.vue";
 import Ministerios from "./Ministerios.vue";
 import BotonTop from "./BotonTop.vue";
@@ -39,7 +39,7 @@ export default {
     Bienvenida,
     MenuInicio,
     SobreNosotros,
-    Calendario,
+    ProximosEventos,
     BotonTop,
   },
   data() {

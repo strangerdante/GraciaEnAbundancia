@@ -1,31 +1,41 @@
-<!-- src/App.vue -->
 <template>
   <nav
-    class="bg-gray-800 bg-opacity-80 backdrop-filter backdrop-blur-sm fixed w-full z-20 top-0 start-0 border-b border-gray-600 navbar"
+    class="bg-gray-800 bg-opacity-80 backdrop-filter backdrop-blur-sm fixed w-full z-20 top-0 start-0 border-b border-gray-600 navbar selection:bg-teal-500 selection:text-white"
     style="list-style-type: none"
   >
-    <!-- glassmorphing en menu -->
     <div
       class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
     >
-      <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img
-          src="https://i.ibb.co/HtyYRq5/logo.png"
-          class="h-12"
-          alt="Logo iglesia"
-        />
+      <!-- Logo y nombre de la iglesia -->
+      <a
+        href="/"
+        class="group flex items-center space-x-3 rtl:space-x-reverse relative overflow-hidden rounded-lg p-1"
+      >
+        <div class="relative">
+          <img
+            src="https://i.ibb.co/HtyYRq5/logo.png"
+            class="h-16 transition-transform duration-300 ease-in-out group-hover:scale-105"
+            alt="Logo iglesia"
+          />
+          <div
+            class="absolute inset-0 group-hover:opacity-20 transition-opacity duration-300 ease-in-out"
+          ></div>
+        </div>
         <span
-          class="self-center text-md font-semibold whitespace-nowrap text-white text-center"
+          class="self-center text-md font-semibold whitespace-nowrap text-white text-center transition-colors duration-300 ease-in-out group-hover:text-teal-400"
           >Iglesia Bautista <br />
           Su Gracia es Mayor</span
         >
       </a>
+
+      <!-- Contenedor de botones (modo oscuro y hamburguesa) -->
       <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-        <!-- boton modo oscuro -->
+        <!-- Botón de modo oscuro -->
         <button
-          onclick="(() => document.documentElement.classList.toggle('dark'))()"
+          @click="toggleDarkMode"
           class="h-10 w-10 rounded-lg p-2 hover:bg-gray-200 dark:hover:bg-gray-700 float-right"
         >
+          <!-- Ícono para modo claro -->
           <svg
             class="fill-teal-400 block dark:hidden"
             fill="currentColor"
@@ -35,6 +45,7 @@
               d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
             ></path>
           </svg>
+          <!-- Ícono para modo oscuro -->
           <svg
             class="fill-yellow-500 hidden dark:block"
             fill="currentColor"
@@ -48,16 +59,17 @@
           </svg>
         </button>
 
-        <!-- boton hamburguesa -->
+        <!-- Botón de hamburguesa para móviles -->
         <button
-          data-collapse-toggle="navbar-sticky"
+          @click="toggleMenu"
           type="button"
           class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-sticky"
-          aria-expanded="false"
+          :aria-expanded="menuVisible"
           id="boton-prueba"
         >
           <span class="sr-only">Abrir menu principal</span>
+          <!-- Ícono de hamburguesa -->
           <svg
             class="w-5 h-5"
             aria-hidden="true"
@@ -76,12 +88,22 @@
         </button>
       </div>
 
+      <!-- Menú de navegación -->
       <div
-        class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+        :class="[
+          'items-center justify-between w-full md:flex md:w-auto md:order-1',
+          'absolute md:static top-full left-0 right-0 bg-gray-800 md:bg-transparent bg-opacity-80 backdrop-filter backdrop-blur-sm',
+          'pb-6 md:pb-0 p-4 sm:p-0',
+          'transition-all duration-300 ease-in-out', // Añadimos estas clases
+          menuVisible
+            ? 'opacity-100 max-h-screen'
+            : 'opacity-0 max-h-0 md:opacity-100 md:max-h-screen',
+        ]"
         id="navbar-sticky"
       >
+        <!-- Enlaces de navegación -->
         <ul
-          class="flex flex-col p-4 md:p-0 mt-10 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 nav-menu"
+          class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 nav-menu"
         >
           <li>
             <a
@@ -129,7 +151,9 @@
       </div>
     </div>
   </nav>
+
   <BarraProgreso />
+  <!-- <BarraProgreso color="#FF5733" /> color personalizado -->
 </template>
 
 <script>
@@ -140,14 +164,30 @@ export default {
     BarraProgreso,
   },
   name: "MenuInicio",
-  mounted() {
-    const script = document.createElement("script");
-    script.src =
-      "https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js";
-    document.head.appendChild(script);
+  data() {
+    return {
+      menuVisible: false, // Estado para controlar la visibilidad del menú en móviles
+    };
   },
+  methods: {
+    toggleMenu() {
+      this.menuVisible = !this.menuVisible;
+      if (this.menuVisible) {
+        // Permitimos que el menú se expanda a su altura completa
+        this.$nextTick(() => {
+          this.menuHeight = `${this.$refs.navMenu.scrollHeight}px`;
+        });
+      } else {
+        // Colapsamos el menú
+        this.menuHeight = "0px";
+      }
+    },
+    toggleDarkMode() {
+      document.documentElement.classList.toggle("dark");
+    },
+  },
+  mounted() {},
 };
 </script>
-<style>
-/* Estilos generales */
-</style>
+
+<style></style>
