@@ -2,7 +2,7 @@
 <template>
   <!-- Barra de navegación principal -->
   <nav
-    class="bg-gray-800 bg-opacity-80 backdrop-filter backdrop-blur-sm fixed w-full z-20 top-0 start-0 border-b border-gray-600 navbar selection:bg-teal-500 selection:text-white"
+    class="bg-gray-800 bg-opacity-80 backdrop-filter backdrop-blur-sm fixed w-full z-30 top-0 start-0 border-b border-gray-600 navbar selection:bg-teal-500 selection:text-white"
     style="list-style-type: none"
   >
     <!-- Contenedor principal de la barra de navegación -->
@@ -97,7 +97,7 @@
           'items-center justify-between w-full md:flex md:w-auto md:order-1',
           'absolute md:static top-full left-0 right-0',
           'pb-6 md:pb-0 p-4 sm:p-0',
-          'backdrop-filter backdrop-blur-lg bg-gray-800 bg-opacity-80',
+          'backdrop-filter backdrop-blur-lg bg-gray-800 bg-opacity-80 sm:bg-transparent',
           { hidden: !menuVisible, block: menuVisible },
         ]"
         id="navbar-sticky"
