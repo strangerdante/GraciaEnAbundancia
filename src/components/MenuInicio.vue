@@ -10,14 +10,23 @@
       class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
     >
       <!-- Logo y nombre de la iglesia -->
-      <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img
-          src="https://i.ibb.co/HtyYRq5/logo.png"
-          class="h-12"
-          alt="Logo iglesia"
-        />
+      <!-- Logo y nombre de la iglesia -->
+      <a
+        href="/"
+        class="group flex items-center space-x-3 rtl:space-x-reverse relative overflow-hidden rounded-lg p-1"
+      >
+        <div class="relative">
+          <img
+            src="https://i.ibb.co/HtyYRq5/logo.png"
+            class="h-16 transition-transform duration-300 ease-in-out group-hover:scale-105"
+            alt="Logo iglesia"
+          />
+          <div
+            class="absolute inset-0 group-hover:opacity-20 transition-opacity duration-300 ease-in-out"
+          ></div>
+        </div>
         <span
-          class="self-center text-md font-semibold whitespace-nowrap text-white text-center"
+          class="self-center text-md font-semibold whitespace-nowrap text-white text-center transition-colors duration-300 ease-in-out group-hover:text-purple-500"
           >Iglesia Bautista <br />
           Su Gracia es Mayor</span
         >
@@ -87,7 +96,8 @@
       <div
         :class="[
           'items-center justify-between w-full md:flex md:w-auto md:order-1',
-          'absolute md:static top-full left-0 right-0 bg-gray-800 md:bg-transparent',
+          'absolute md:static top-full left-0 right-0 bg-gray-800 md:bg-transparent bg-opacity-80 backdrop-filter backdrop-blur-sm',
+          'pb-6 md:pb-0 p-4 sm:p-0',
           { hidden: !menuVisible, block: menuVisible },
         ]"
         id="navbar-sticky"
