@@ -170,16 +170,24 @@ export default {
   },
   methods: {
     toggleMenu() {
-      // Método para mostrar/ocultar el menú
       this.menuVisible = !this.menuVisible;
     },
     toggleDarkMode() {
-      // Método para cambiar entre modo claro y oscuro
+      const isDarkMode = !document.documentElement.classList.contains("dark");
       document.documentElement.classList.toggle("dark");
+      localStorage.setItem("darkMode", isDarkMode);
+    },
+    loadDarkModePreference() {
+      const darkMode = localStorage.getItem("darkMode");
+      if (darkMode === "true") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
     },
   },
   mounted() {
-    // Lifecycle hook, se ejecuta cuando el componente se monta en el DOM
+    this.loadDarkModePreference();
   },
 };
 </script>
