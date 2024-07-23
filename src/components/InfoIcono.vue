@@ -38,7 +38,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       tippy(this.$refs.tooltip1, {
-        content: "Hola mundo",
+        content: "Banner evento disponible",
         placement: "top",
         arrow: true,
       });
