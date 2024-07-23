@@ -4,55 +4,64 @@
     "titulo": "Culto de oracion",
     "hora": "10:00 am — 12:30 pm",
     "lugar": "Salón Comunal Asovivir",
-    "descripcion": "Servicio dominical semanal."
+    "descripcion": "Servicio dominical semanal.",
+    "infoAdiccional": false,
+    "banner": "https://picsum.photos/200/300"
   },
   {
     "fecha": "2024-08-04",
     "titulo": "Reunion de jovenes",
     "hora": "10:00 am — 12:30 pm",
     "lugar": "Salón Comunal Asovivir",
-    "descripcion": "Servicio dominical semanal."
+    "infoAdiccional": true,
+    "banner": "https://picsum.photos/200/300"
   },
   {
     "fecha": "2024-08-11",
     "titulo": "Reunion de damas",
     "hora": "10:00 am — 12:30 pm",
     "lugar": "Salón Comunal Asovivir",
-    "descripcion": "Servicio dominical semanal."
+    "infoAdiccional": true,
+    "banner": "https://picsum.photos/200/300"
   },
   {
     "fecha": "2024-08-18",
     "titulo": "Reunion de varones",
     "hora": "10:00 am — 12:30 pm",
     "lugar": "Salón Comunal Asovivir",
-    "descripcion": "Servicio dominical semanal."
+    "infoAdiccional": true,
+    "banner": "https://picsum.photos/200/300"
   },
   {
     "fecha": "2024-08-25",
     "titulo": "Servicio",
     "hora": "10:00 am — 12:30 pm",
     "lugar": "Salón Comunal Asovivir",
-    "descripcion": "Servicio dominical semanal."
+    "infoAdiccional": true,
+    "banner": "Servicio dominical semanal."
   },
   {
     "fecha": "2024-08-03",
     "titulo": "Servicio dominical",
     "hora": "10:00 am — 12:30 pm",
     "lugar": "Salón Comunal Asovivir",
-    "descripcion": "Servicio dominical semanal."
+    "infoAdiccional": true,
+    "banner": "Servicio dominical semanal."
   },
   {
     "fecha": "2024-07-19",
     "titulo": "Reunion varones",
     "hora": "10:00 am — 12:30 pm",
     "lugar": "Salón Comunal Asovivir",
-    "descripcion": "Servicio dominical semanal."
+    "infoAdiccional": true,
+    "banner": "Servicio dominical semanal."
   },
   {
     "fecha": "2024-07-20",
     "titulo": "Reunion varones",
     "hora": "10:00 am — 12:30 pm",
     "lugar": "Salón Comunal Asovivir",
-    "descripcion": "Servicio dominical semanal."
+    "infoAdiccional": true,
+    "banner": "Servicio dominical semanal."
   }
 ]

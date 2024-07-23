@@ -68,6 +68,23 @@
                   <div class="text-sm text-gray-600 text-center">
                     {{ evento.mes }}
                   </div>
+                  <!-- Badge -->
+                  <div
+                    v-if="evento.infoAdiccional"
+                    class="absolute -top-2 -right-2 bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-4 h-4"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </div>
               <h3 class="font-semibold mb-2 text-[14px] xl:text-xl">
@@ -113,11 +130,28 @@
             class="flex flex-col md:flex-row items-start md:items-center mb-4"
           >
             <div
-              class="text-5xl font-bold text-black border py-3 px-8 rounded-md shadow-md mr-6 mb-4 md:mb-0 border-t-teal-500 border-t-4"
+              class="text-5xl font-bold text-black border py-3 px-8 rounded-md shadow-md mr-6 mb-4 md:mb-0 border-t-teal-500 border-t-4 relative"
             >
               <div class="text-center">{{ proximoEvento.dia }}</div>
               <div class="text-lg text-gray-600 text-center">
                 {{ proximoEvento.mes }}
+              </div>
+              <!-- Badge -->
+              <div
+                v-if="proximoEvento.infoAdiccional"
+                class="absolute -top-2 -right-2 bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center"
+              >
+                <svg
+                  class="w-5 h-5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                  />
+                </svg>
               </div>
             </div>
             <div class="flex-grow">
@@ -141,10 +175,19 @@
                 {{ proximoEvento.descripcion }}
               </p>
 
-              <!-- Leer mas -->
-              <a href="#" class="text-blue-600 hover:text-blue-800 text-sm"
-                >Detalles</a
-              >
+              <!-- Detalles -->
+              <div v-if="proximoEvento.infoAdiccional">
+                <a
+                  href="#"
+                  @click.prevent="mostrarBanner"
+                  class="text-blue-600 hover:text-blue-800 text-sm"
+                >
+                  Banner disponible
+                </a>
+              </div>
+              <div v-else>
+                <span class="text-red-500 text-sm">Banner no disponible</span>
+              </div>
               <p
                 class="text-base md:text-lg font-semibold text-red-600 mt-4 dark:text-teal-600 flex items-center"
               >
@@ -159,30 +202,8 @@
               </p>
             </div>
           </div>
-          <!-- Organizador -->
-          <!-- <div class="mt-4 flex items-center">
-            <img
-              src="https://i.ibb.co/z4bPJTy/servicio.jpg"
-              alt="Organizador"
-              class="w-10 h-10 rounded-full mr-2"
-            />
-            <div>
-              <p class="font-semibold text-sm">Organizado por</p>
-              <p class="text-gray-600 text-sm">Nombre del Organizador</p>
-            </div>
-          </div> -->
-
-          <!-- compartir asistentes -->
-          <!-- <div class="mt-4 flex justify-between items-center">
-            <button
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out flex items-center"
-            >
-              <i class="fas fa-calendar-plus mr-2"></i> Añadir al calendario
-            </button>
-            <span class="text-gray-600">
-              <i class="fas fa-users mr-2"></i> 42 asistentes
-            </span>
-          </div> -->
+          <!-- 
+espacio organizador -->
         </div>
 
         <!-- Lista de eventos adicionales -->
@@ -193,13 +214,29 @@
             class="bg-white p-4 rounded-lg shadow flex items-center justify-between"
           >
             <div class="flex items-center">
-              <!-- cambiar colores -->
               <div
-                class="text-2xl font-bold text-black border py-2 px-4 rounded-md shadow-md mr-4 border-t-teal-500 border-t-4"
+                class="text-2xl font-bold text-black border py-2 px-4 rounded-md shadow-md mr-4 border-t-teal-500 border-t-4 relative"
               >
                 <div class="text-center">{{ evento.dia }}</div>
                 <div class="text-xs text-gray-600 text-center">
                   {{ evento.mes }}
+                </div>
+                <!-- Badge -->
+                <div
+                  v-if="evento.infoAdiccional"
+                  class="absolute -top-2 -right-2 bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+                    />
+                  </svg>
                 </div>
               </div>
               <div>
@@ -226,38 +263,65 @@
       v-if="eventoSeleccionado"
       class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
     >
-      <div class="bg-white p-8 rounded-lg shadow-xl max-w-md w-full">
-        <h2 class="text-2xl font-bold mb-4">
-          {{ eventoSeleccionado.titulo }}
-        </h2>
-        <p class="mb-2">
-          <strong>Fecha:</strong> {{ eventoSeleccionado.dia }} de
-          {{ eventoSeleccionado.mes }}
-        </p>
-        <p class="mb-2"><strong>Hora:</strong> {{ eventoSeleccionado.hora }}</p>
-        <p class="mb-2">
-          <strong>Lugar:</strong> {{ eventoSeleccionado.lugar }}
-        </p>
-
-        <p class="mb-2">
-          <strong>Descripción:</strong> {{ eventoSeleccionado.descripcion }}
-        </p>
-        <p class="mb-2 text-red-600 dark:text-teal-600">
-          <strong>Días restantes:</strong>
-          {{
-            eventoSeleccionado.diasRestantes === 0
-              ? "Hoy"
-              : eventoSeleccionado.diasRestantes === 1
-              ? "1 día"
-              : `${eventoSeleccionado.diasRestantes} días`
-          }}
-        </p>
-        <button
-          @click="cerrarModal"
-          class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300 dark:bg-teal-500 dark:hover:bg-teal-700"
-        >
-          Cerrar
-        </button>
+      <!-- Modal -->
+      <div
+        v-if="eventoSeleccionado"
+        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+      >
+        <div class="bg-white p-8 rounded-lg shadow-xl max-w-xl w-full">
+          <div class="flex flex-col md:flex-row">
+            <div
+              v-if="eventoSeleccionado.infoAdiccional"
+              class="md:w-1/2 mb-4 md:mb-0 md:mr-4"
+            >
+              <img
+                :src="eventoSeleccionado.banner"
+                alt="Imagen del evento"
+                class="w-full h-auto rounded-lg"
+              />
+            </div>
+            <div
+              :class="{
+                'md:w-1/2': eventoSeleccionado.infoAdiccional,
+                'w-full': !eventoSeleccionado.infoAdiccional,
+              }"
+            >
+              <h2 class="text-2xl font-bold mb-4">
+                {{ eventoSeleccionado.titulo }}
+              </h2>
+              <p class="mb-2">
+                <strong>Fecha:</strong> {{ eventoSeleccionado.dia }} de
+                {{ eventoSeleccionado.mes }}
+              </p>
+              <p class="mb-2">
+                <strong>Hora:</strong> {{ eventoSeleccionado.hora }}
+              </p>
+              <p class="mb-2">
+                <strong>Lugar:</strong> {{ eventoSeleccionado.lugar }}
+              </p>
+              <p class="mb-2">
+                <strong>Descripción:</strong>
+                {{ eventoSeleccionado.descripcion }}
+              </p>
+              <p class="mb-2 text-red-600 dark:text-teal-600">
+                <strong>Días restantes:</strong>
+                {{
+                  eventoSeleccionado.diasRestantes === 0
+                    ? "Hoy"
+                    : eventoSeleccionado.diasRestantes === 1
+                    ? "1 día"
+                    : `${eventoSeleccionado.diasRestantes} días`
+                }}
+              </p>
+            </div>
+          </div>
+          <button
+            @click="cerrarModal"
+            class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300 dark:bg-teal-500 dark:hover:bg-teal-700 mt-4"
+          >
+            Cerrar
+          </button>
+        </div>
       </div>
     </div>
   </div>
