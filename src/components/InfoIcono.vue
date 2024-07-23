@@ -9,6 +9,7 @@
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
       viewBox="0 0 20 20"
+      ref="tooltip1"
       :class="iconSizeClasses"
     >
       <path
@@ -19,6 +20,9 @@
 </template>
 
 <script>
+import tippy from "tippy.js";
+import "tippy.js/dist/tippy.css";
+
 export default {
   props: {
     show: {
@@ -30,6 +34,15 @@ export default {
       default: "small",
       validator: (value) => ["small", "medium", "large"].includes(value),
     },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      tippy(this.$refs.tooltip1, {
+        content: "Hola mundo",
+        placement: "top",
+        arrow: true,
+      });
+    });
   },
   computed: {
     sizeClasses() {
