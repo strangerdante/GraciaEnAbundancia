@@ -33,7 +33,7 @@
           :space-between="7"
           :pagination="{ clickable: true }"
           :navigation="false"
-          :grab-cursor="true"
+          :grab-cursor="false"
           class="mySwiper custom-swiper rounded-lg overflow-hidden"
           :breakpoints="{
             '420': {
