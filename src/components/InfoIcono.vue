@@ -1,0 +1,51 @@
+<template>
+  <div
+    v-if="show"
+    class="absolute -top-2 -right-2 bg-blue-500 text-white rounded-full flex items-center justify-center"
+    :class="sizeClasses"
+  >
+    <svg
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+      :class="iconSizeClasses"
+    >
+      <path
+        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+      />
+    </svg>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    show: {
+      type: Boolean,
+      default: false,
+    },
+    size: {
+      type: String,
+      default: "small",
+      validator: (value) => ["small", "medium", "large"].includes(value),
+    },
+  },
+  computed: {
+    sizeClasses() {
+      return {
+        "w-5 h-5": this.size === "small",
+        "w-6 h-6": this.size === "medium",
+        "w-7 h-7": this.size === "large",
+      };
+    },
+    iconSizeClasses() {
+      return {
+        "w-4 h-4": this.size === "small",
+        "w-5 h-5": this.size === "medium",
+        "w-6 h-6": this.size === "large",
+      };
+    },
+  },
+};
+</script>
