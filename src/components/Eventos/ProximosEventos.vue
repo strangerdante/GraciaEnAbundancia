@@ -101,9 +101,17 @@
                   />
                 </div>
               </div>
-              <h3 class="font-semibold mb-2 text-[14px] xl:text-xl">
+              <!-- Indicador de banner en el titulo -->
+              <h3
+                class="font-semibold mb-2 text-[14px] xl:text-xl flex items-center"
+              >
                 {{ evento.titulo }}
+                <span
+                  v-if="evento.banner !== null"
+                  class="ml-2 w-2 h-2 rounded-full bg-green-500"
+                ></span>
               </h3>
+
               <p class="text-sm text-gray-600 mb-2 flex items-center">
                 <i class="fas fa-clock mr-2"></i
                 >{{ obtenerDiaSemana(evento.fecha) }}, {{ evento.hora }}
@@ -183,8 +191,14 @@
               />
             </div>
             <div class="flex-grow">
-              <h2 class="font-bold text-xl md:text-2xl mb-2 text-gray-700">
+              <h2
+                class="font-bold text-xl md:text-2xl mb-2 text-gray-700 flex items-center"
+              >
                 {{ proximoEvento.titulo }}
+                <span
+                  v-if="proximoEvento.banner !== null"
+                  class="ml-2 w-2 h-2 rounded-full bg-green-500"
+                ></span>
               </h2>
               <p
                 class="text-base md:text-lg text-gray-600 flex items-center mb-2"
@@ -282,7 +296,13 @@ espacio organizador -->
                 />
               </div>
               <div>
-                <h3 class="font-semibold">{{ evento.titulo }}</h3>
+                <h3 class="font-semibold flex items-center">
+                  {{ evento.titulo }}
+                  <span
+                    v-if="evento.banner !== null"
+                    class="ml-2 w-2 h-2 rounded-full bg-green-500"
+                  ></span>
+                </h3>
                 <p class="text-sm text-gray-600">
                   {{ obtenerDiaSemana(evento.fecha) }}, {{ evento.hora }} -
                   {{ evento.lugar }}
