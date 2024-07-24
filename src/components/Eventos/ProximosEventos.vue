@@ -2,7 +2,7 @@
   <div
     class="bg-gray-100 dark:bg-slate-600 px-1 sm:px-6 lg:px-80 pb-10 transition duration-300 ease-in-out selection:bg-teal-500 selection:text-white"
   >
-    <div class="flex justify-between items-center mb-8">
+    <div class="flex justify-between items-center mb-8 px-3">
       <h2 class="text-3xl font-bold dark:text-white">Próximos eventos</h2>
       <button
         @click="toggleView"
