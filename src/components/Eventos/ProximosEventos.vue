@@ -119,7 +119,7 @@
             class="flex flex-col md:flex-row items-start md:items-center mb-4"
           >
             <div
-              class="text-5xl font-bold text-black border py-3 px-8 rounded-md shadow-md mr-6 mb-4 md:mb-0 border-t-teal-500 border-t-4 relative"
+              class="text-5xl font-bold text-black py-3 px-8 rounded-md shadow-md mr-6 mb-4 md:mb-0 border-t-teal-500 border-t-4 relative"
             >
               <div class="text-center">{{ proximoEvento.dia }}</div>
               <div class="text-lg text-gray-600 text-center">
