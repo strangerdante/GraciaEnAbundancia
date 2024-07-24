@@ -219,63 +219,73 @@ espacio organizador -->
       class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
     >
       <!-- Modal -->
-      <div
-        v-if="eventoSeleccionado"
-        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-      >
-        <div class="bg-white p-8 rounded-lg shadow-xl max-w-xl w-full">
-          <div class="flex flex-col md:flex-row">
-            <div
-              v-if="eventoSeleccionado.infoAdiccional"
-              class="md:w-1/2 mb-4 md:mb-0 md:mr-4"
-            >
-              <img
-                :src="eventoSeleccionado.banner"
-                alt="Imagen del evento"
-                class="w-full h-auto rounded-lg"
-              />
-            </div>
-            <div
-              :class="{
-                'md:w-1/2': eventoSeleccionado.infoAdiccional,
-                'w-full': !eventoSeleccionado.infoAdiccional,
-              }"
-            >
-              <h2 class="text-2xl font-bold mb-4">
-                {{ eventoSeleccionado.titulo }}
-              </h2>
-              <p class="mb-2">
-                <strong>Fecha:</strong> {{ eventoSeleccionado.dia }} de
-                {{ eventoSeleccionado.mes }}
-              </p>
-              <p class="mb-2">
-                <strong>Hora:</strong> {{ eventoSeleccionado.hora }}
-              </p>
-              <p class="mb-2">
-                <strong>Lugar:</strong> {{ eventoSeleccionado.lugar }}
-              </p>
-              <p class="mb-2">
-                <strong>Descripción:</strong>
-                {{ eventoSeleccionado.descripcion }}
-              </p>
-              <p class="mb-2 text-red-600 dark:text-teal-600">
-                <strong>Días restantes:</strong>
-                {{
-                  eventoSeleccionado.diasRestantes === 0
-                    ? "Hoy"
-                    : eventoSeleccionado.diasRestantes === 1
-                    ? "1 día"
-                    : `${eventoSeleccionado.diasRestantes} días`
-                }}
-              </p>
-            </div>
-          </div>
-          <button
-            @click="cerrarModal"
-            class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300 dark:bg-teal-500 dark:hover:bg-teal-700 mt-4"
+      <div class="bg-white p-8 rounded-lg shadow-xl max-w-xl w-full relative">
+        <!-- Icono Cerrar -->
+        <button
+          @click="cerrarModal"
+          class="absolute top-2 right-2 text-gray-600 hover:text-gray-800 transition duration-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-7 w-7"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            Cerrar
-          </button>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+
+        <div class="flex flex-col md:flex-row">
+          <div
+            v-if="eventoSeleccionado.infoAdiccional"
+            class="md:w-1/2 mb-4 md:mb-0 md:mr-4 flex justify-center"
+          >
+            <img
+              :src="eventoSeleccionado.banner"
+              alt="Imagen del evento"
+              class="w-auto h-2/3 rounded-lg"
+            />
+          </div>
+          <div
+            :class="{
+              'md:w-1/2': eventoSeleccionado.infoAdiccional,
+              'w-full': !eventoSeleccionado.infoAdiccional,
+            }"
+          >
+            <h2 class="text-2xl font-bold mb-4">
+              {{ eventoSeleccionado.titulo }}
+            </h2>
+            <p class="mb-2">
+              <strong>Fecha:</strong> {{ eventoSeleccionado.dia }} de
+              {{ eventoSeleccionado.mes }}
+            </p>
+            <p class="mb-2">
+              <strong>Hora:</strong> {{ eventoSeleccionado.hora }}
+            </p>
+            <p class="mb-2">
+              <strong>Lugar:</strong> {{ eventoSeleccionado.lugar }}
+            </p>
+            <p class="mb-2">
+              <strong>Descripción:</strong>
+              {{ eventoSeleccionado.descripcion }}
+            </p>
+            <p class="mb-2 text-red-600 dark:text-teal-600">
+              <strong>Días restantes:</strong>
+              {{
+                eventoSeleccionado.diasRestantes === 0
+                  ? "Hoy"
+                  : eventoSeleccionado.diasRestantes === 1
+                  ? "1 día"
+                  : `${eventoSeleccionado.diasRestantes} días`
+              }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
