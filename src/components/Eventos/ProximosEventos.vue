@@ -69,7 +69,11 @@
                     {{ evento.mes }}
                   </div>
                   <!-- Badge -->
-                  <InfoIcono :show="evento.infoAdiccional" size="small" />
+                  <InfoIcono
+                    :show="proximoEvento.infoAdiccional"
+                    size="small"
+                    :texto="proximoEvento.infoIconoTexto"
+                  />
                 </div>
               </div>
               <h3 class="font-semibold mb-2 text-[14px] xl:text-xl">
@@ -125,7 +129,7 @@
               <InfoIcono
                 :show="proximoEvento.infoAdiccional"
                 size="medium"
-                :texto="proximoEvento.infoIcono"
+                :texto="proximoEvento.infoIconoTexto"
               />
             </div>
             <div class="flex-grow">
@@ -196,7 +200,11 @@ espacio organizador -->
                   {{ evento.mes }}
                 </div>
                 <!-- Badge -->
-                <InfoIcono :show="evento.infoAdiccional" size="small" />
+                <InfoIcono
+                  :show="proximoEvento.infoAdiccional"
+                  size="small"
+                  :texto="proximoEvento.infoIconoTexto"
+                />
               </div>
               <div>
                 <h3 class="font-semibold">{{ evento.titulo }}</h3>

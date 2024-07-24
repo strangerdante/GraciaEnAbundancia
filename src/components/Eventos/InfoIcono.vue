@@ -38,13 +38,13 @@ export default {
     },
     texto: {
       type: String,
-      default: "Banner evento disponible",
+      default: null,
     },
   },
   mounted() {
     this.$nextTick(() => {
       tippy(this.$refs.tooltip1, {
-        content: this.texto,
+        content: this.tooltipText,
         placement: "top",
         arrow: true,
       });
@@ -64,6 +64,9 @@ export default {
         "w-5 h-5": this.size === "medium",
         "w-6 h-6": this.size === "large",
       };
+    },
+    tooltipText() {
+      return this.texto === null ? "Banner evento disponible" : this.texto;
     },
   },
 };
