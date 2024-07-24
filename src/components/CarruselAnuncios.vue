@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mx-auto px-4 sm:px-6 lg:px-80 py-10 bg-gray-100 dark:bg-slate-600 transition duration-300 ease-in-out"
+    class="mx-auto sm:px-6 lg:px-80 py-10 bg-gray-100 dark:bg-slate-600 transition duration-300 ease-in-out"
   >
     <h2 class="text-3xl font-bold dark:text-white mb-8">Anuncios</h2>
     <swiper
@@ -16,13 +16,13 @@
       }"
       :effect="'fade'"
       :fade-effect="{ crossFade: true }"
-      class="custom-swiper rounded-lg overflow-hidden"
+      class="custom-swiper sm:rounded-lg overflow-hidden"
     >
       <swiper-slide v-for="(image, index) in images" :key="index">
         <img
           :src="image"
           :alt="`Slide ${index + 1}`"
-          class="w-full h-auto object-cover rounded-lg mb-10"
+          class="w-full h-auto object-cover sm:rounded-lg mb-10"
         />
       </swiper-slide>
     </swiper>
