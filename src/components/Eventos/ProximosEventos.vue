@@ -252,10 +252,9 @@ espacio organizador -->
             />
           </svg>
         </button>
-
         <div class="flex flex-col md:flex-row">
           <div
-            v-if="eventoSeleccionado.infoAdiccional"
+            v-if="eventoSeleccionado.banner !== null"
             class="md:w-1/2 mb-4 md:mb-0 md:mr-4 flex justify-center"
           >
             <img
@@ -266,8 +265,8 @@ espacio organizador -->
           </div>
           <div
             :class="{
-              'md:w-1/2': eventoSeleccionado.infoAdiccional,
-              'w-full': !eventoSeleccionado.infoAdiccional,
+              'md:w-1/2': eventoSeleccionado.banner !== null,
+              'w-full': eventoSeleccionado.banner === null,
             }"
           >
             <h2 class="text-xl sm:text-2xl font-bold mb-2">
