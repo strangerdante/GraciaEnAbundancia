@@ -30,7 +30,7 @@
         <swiper
           :modules="modulos"
           :slides-per-view="2"
-          :space-between="7"
+          :space-between="6"
           :pagination="{ clickable: true }"
           :navigation="false"
           :grab-cursor="false"
@@ -103,13 +103,23 @@
               </div>
               <!-- Indicador de banner en el titulo -->
               <h3
-                class="font-semibold mb-2 text-[14px] xl:text-xl flex items-center"
+                class="font-semibold mb-2 text-[13px] xl:text-xl flex items-center"
               >
                 {{ evento.titulo }}
-                <span
+                <svg
                   v-if="evento.banner !== null"
-                  class="ml-2 w-2 h-2 rounded-full bg-green-500"
-                ></span>
+                  class="ml-2 w-4 h-4 text-gray-600"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <polyline points="21 15 16 10 5 21" />
+                </svg>
               </h3>
 
               <p class="text-sm text-gray-600 mb-2 flex items-center">
@@ -195,10 +205,20 @@
                 class="font-bold text-xl md:text-2xl mb-2 text-gray-700 flex items-center"
               >
                 {{ proximoEvento.titulo }}
-                <span
+                <svg
                   v-if="proximoEvento.banner !== null"
-                  class="ml-2 w-2 h-2 rounded-full bg-green-500"
-                ></span>
+                  class="ml-2 w-5 h-5 text-gray-600"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <polyline points="21 15 16 10 5 21" />
+                </svg>
               </h2>
               <p
                 class="text-base md:text-lg text-gray-600 flex items-center mb-2"
@@ -296,12 +316,23 @@ espacio organizador -->
                 />
               </div>
               <div>
+                <!-- Indicador de banner en el titulo -->
                 <h3 class="font-semibold flex items-center">
                   {{ evento.titulo }}
-                  <span
+                  <svg
                     v-if="evento.banner !== null"
-                    class="ml-2 w-2 h-2 rounded-full bg-green-500"
-                  ></span>
+                    class="ml-2 w-4 h-4 text-gray-600"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <polyline points="21 15 16 10 5 21" />
+                  </svg>
                 </h3>
                 <p class="text-sm text-gray-600">
                   {{ obtenerDiaSemana(evento.fecha) }}, {{ evento.hora }} -
