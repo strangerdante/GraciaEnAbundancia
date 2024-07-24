@@ -317,7 +317,7 @@ espacio organizador -->
               </div>
               <div>
                 <!-- Indicador de banner en el titulo -->
-                <h3 class="font-semibold flex items-center">
+                <h3 class="text-sm font-semibold flex items-center">
                   {{ evento.titulo }}
                   <svg
                     v-if="evento.banner !== null"
