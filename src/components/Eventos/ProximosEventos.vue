@@ -144,7 +144,32 @@
             class="flex flex-col md:flex-row items-start md:items-center mb-4"
           >
             <div
-              class="text-5xl font-bold text-black py-3 px-8 rounded-md shadow-md mr-6 mb-4 md:mb-0 border-t-teal-500 border-t-4 relative"
+              :class="[
+                'text-5xl font-bold text-black py-3 px-8 rounded-md shadow-md mr-6 mb-4 md:mb-0 relative',
+                proximoEvento.infoIconoTexto === 'Canasta de amor'
+                  ? 'border-t-red-500'
+                  : '',
+                proximoEvento.infoIconoTexto === 'Cena del Señor'
+                  ? 'border-t-red-700'
+                  : '',
+                proximoEvento.infoIconoTexto === 'Reunión de damas'
+                  ? 'border-t-pink-500'
+                  : '',
+                proximoEvento.infoIconoTexto === 'Domingo misionero'
+                  ? 'border-t-green-500'
+                  : '',
+                proximoEvento.infoIconoTexto === 'Culto de oración'
+                  ? 'border-t-violet-500'
+                  : '',
+                proximoEvento.infoIconoTexto !== 'Canasta de amor' &&
+                proximoEvento.infoIconoTexto !== 'Cena del Señor' &&
+                proximoEvento.infoIconoTexto !== 'Reunión de damas' &&
+                proximoEvento.infoIconoTexto !== 'Domingo misionero' &&
+                proximoEvento.infoIconoTexto !== 'Culto de oración'
+                  ? 'border-t-blue-500'
+                  : '',
+                'border-t-4',
+              ]"
             >
               <div class="text-center">{{ proximoEvento.dia }}</div>
               <div class="text-lg text-gray-600 text-center">
@@ -218,7 +243,32 @@ espacio organizador -->
           >
             <div class="flex items-center">
               <div
-                class="text-2xl font-bold text-black border py-2 px-4 rounded-md shadow-md mr-4 border-t-teal-500 border-t-4 relative"
+                :class="[
+                  'text-2xl font-bold text-black border py-2 px-4 rounded-md shadow-md mr-4 relative',
+                  evento.infoIconoTexto === 'Canasta de amor'
+                    ? 'border-t-red-500'
+                    : '',
+                  evento.infoIconoTexto === 'Cena del Señor'
+                    ? 'border-t-red-700'
+                    : '',
+                  evento.infoIconoTexto === 'Reunión de damas'
+                    ? 'border-t-pink-500'
+                    : '',
+                  evento.infoIconoTexto === 'Domingo misionero'
+                    ? 'border-t-green-500'
+                    : '',
+                  evento.infoIconoTexto === 'Culto de oración'
+                    ? 'border-t-violet-500'
+                    : '',
+                  evento.infoIconoTexto !== 'Canasta de amor' &&
+                  evento.infoIconoTexto !== 'Cena del Señor' &&
+                  evento.infoIconoTexto !== 'Reunión de damas' &&
+                  evento.infoIconoTexto !== 'Domingo misionero' &&
+                  evento.infoIconoTexto !== 'Culto de oración'
+                    ? 'border-t-blue-500'
+                    : '',
+                  'border-t-4',
+                ]"
               >
                 <div class="text-center">{{ evento.dia }}</div>
                 <div class="text-xs text-gray-600 text-center">
