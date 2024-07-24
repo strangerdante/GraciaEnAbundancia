@@ -56,7 +56,32 @@
             >
               <div class="flex items-center justify-center p-4">
                 <div
-                  class="relative text-3xl font-bold text-black border py-2 px-6 rounded-md shadow-md border-t-teal-500 border-t-4"
+                  :class="[
+                    'relative text-3xl font-bold text-black border py-2 px-6 rounded-md shadow-md',
+                    evento.infoIconoTexto === 'Canasta de amor'
+                      ? 'border-t-red-500'
+                      : '',
+                    evento.infoIconoTexto === 'Cena del Señor'
+                      ? 'border-t-red-700'
+                      : '',
+                    evento.infoIconoTexto === 'Reunión de damas'
+                      ? 'border-t-pink-500'
+                      : '',
+                    evento.infoIconoTexto === 'Domingo misionero'
+                      ? 'border-t-green-500'
+                      : '',
+                    evento.infoIconoTexto === 'Culto de oración'
+                      ? 'border-t-violet-500'
+                      : '',
+                    evento.infoIconoTexto !== 'Canasta de amor' &&
+                    evento.infoIconoTexto !== 'Cena del Señor' &&
+                    evento.infoIconoTexto !== 'Reunión de damas' &&
+                    evento.infoIconoTexto !== 'Domingo misionero' &&
+                    evento.infoIconoTexto !== 'Culto de oración'
+                      ? 'border-t-blue-500'
+                      : '',
+                    'border-t-4',
+                  ]"
                 >
                   <div
                     class="absolute top-1 left-3 w-1.5 h-1.5 bg-black rounded-full"
