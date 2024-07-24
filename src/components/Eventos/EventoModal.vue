@@ -53,7 +53,7 @@
             <strong>Descripción:</strong>
             {{ evento.descripcion }}
           </p>
-          <p class="text-red-600 dark:text-teal-600">
+          <p class="text-red-600 dark:text-blue-600">
             <strong>Días restantes:</strong>
             {{
               evento.diasRestantes === 0

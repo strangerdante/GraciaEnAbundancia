@@ -143,7 +143,7 @@
               </p>
               <button
                 @click="abrirModal(evento)"
-                class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300 dark:bg-teal-500 dark:hover:bg-teal-700"
+                class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300 dark:bg-teal-500 dark:hover:bg-teal-700"
               >
                 Detalles
               </button>
@@ -374,7 +374,7 @@ espacio organizador -->
             </div>
             <button
               @click="abrirModal(evento)"
-              class="bg-red-500 dark:bg-teal-500 text-white px-3 py-1 rounded-lg hover:bg-red-700 transition duration-300 text-sm"
+              class="bg-blue-500 dark:bg-teal-500 text-white px-3 py-1 rounded-lg hover:bg-blue-700 transition duration-300 text-sm"
             >
               Detalles
             </button>

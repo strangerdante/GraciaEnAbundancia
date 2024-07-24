@@ -1,7 +1,7 @@
 <template>
   <!-- Barra de navegación principal -->
   <nav
-    class="bg-gray-800 bg-opacity-80 backdrop-filter backdrop-blur-sm fixed w-full z-30 top-0 start-0 border-b border-gray-600 navbar selection:bg-teal-500 selection:text-white"
+    class="bg-blue-900 bg-opacity-80 backdrop-filter backdrop-blur-sm fixed w-full z-30 top-0 start-0 border-b border-gray-600 navbar selection:bg-blue-500 selection:text-white"
     style="list-style-type: none"
   >
     <!-- Contenedor principal de la barra de navegación -->
@@ -24,9 +24,9 @@
           ></div>
         </div>
         <span
-          class="self-center text-md font-semibold whitespace-nowrap text-white text-center transition-colors duration-300 ease-in-out group-hover:text-orange-500"
+          class="self-center text-md font-semibold whitespace-nowrap text-white text-center transition-colors duration-300 ease-in-out group-hover:text-yellow-500"
           >Iglesia Bautista <br />
-          Su Gracia es Mayor</span
+          Gracia en abundancia</span
         >
       </a>
 
@@ -35,11 +35,11 @@
         <!-- Botón de modo oscuro -->
         <button
           @click="toggleDarkMode"
-          class="h-10 w-10 rounded-lg p-2 hover:bg-gray-200 dark:hover:bg-gray-700 float-right"
+          class="h-10 w-10 rounded-lg p-2 hover:bg-gray-200 float-right"
         >
           <!-- Ícono para modo claro -->
           <svg
-            class="fill-teal-400 block dark:hidden"
+            class="fill-blue-400 block dark:hidden"
             fill="currentColor"
             viewBox="0 0 20 20"
           >
@@ -108,42 +108,42 @@
           <li>
             <a
               href="/#inicio"
-              class="ease-in duration-150 block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-teal-400 md:p-0 md:dark:hover:text-teal-400 hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              class="ease-in duration-150 block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-yellow-400 md:p-0 md:dark:hover:text-yellow-400 hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >Inicio</a
             >
           </li>
           <li>
             <a
               href="/#pastor"
-              class="ease-in duration-150 block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-teal-400 md:p-0 md:dark:hover:text-teal-400 hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              class="ease-in duration-150 block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-yellow-400 md:p-0 md:dark:hover:text-yellow-400 hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >Pastor</a
             >
           </li>
           <li>
             <a
               href="/#servicio"
-              class="ease-in duration-150 block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-teal-400 md:p-0 md:dark:hover:text-teal-400 hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              class="ease-in duration-150 block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-yellow-400 md:p-0 md:dark:hover:text-yellow-400 hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >Servicios</a
             >
           </li>
           <li>
             <a
               href="/#ministerios"
-              class="ease-in duration-150 block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-teal-400 md:p-0 md:dark:hover:text-teal-400 hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              class="ease-in duration-150 block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-yellow-400 md:p-0 md:dark:hover:text-yellow-400 hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >Ministerios</a
             >
           </li>
           <li>
             <a
               href="/confesion"
-              class="ease-in duration-150 block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-teal-400 md:p-0 md:dark:hover:text-teal-400 hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              class="ease-in duration-150 block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-yellow-400 md:p-0 md:dark:hover:text-yellow-400 hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >Confesion de fe</a
             >
           </li>
           <li>
             <a
               href="/preguntas"
-              class="ease-in duration-150 block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-teal-400 md:p-0 md:dark:hover:text-teal-400 hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              class="ease-in duration-150 block py-2 px-3 text-white rounded md:hover:bg-transparent md:hover:text-yellow-400 md:p-0 md:dark:hover:text-yellow-400 hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >Preguntas frecuentes</a
             >
           </li>

@@ -3,7 +3,7 @@
     <button
       v-show="isVisible"
       @click="scrollToTop"
-      class="fixed bottom-[85px] right-5 z-20 border-2 border-teal-400 py-3 px-4 rounded-lg text-teal-500 hover:bg-teal-400/50 hover:text-white transition-colors duration-300"
+      class="fixed bottom-[85px] right-5 z-20 border-2 border-blue-400 py-3 px-4 rounded-lg text-blue-500 hover:bg-blue-400/50 hover:text-white transition-colors duration-300"
       aria-label="Volver arriba"
     >
       <i class="fas fa-cross"></i>

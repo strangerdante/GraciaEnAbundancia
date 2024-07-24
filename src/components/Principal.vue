@@ -6,9 +6,6 @@
     <CarruselAnuncios />
     <ProximosEventos />
     <RedesSociales />
-    <Pastor />
-    <Servicios />
-    <Ministerios />
     <Ubicacion />
     <PieDePagina />
     <BotonTop />

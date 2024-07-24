@@ -1,9 +1,9 @@
 <template>
   <footer
-    class="w-full py-5 sm:py-10 px-4 relative bg-cover bg-center bg-no-repeat text-gray-200 selection:bg-teal-500 selection:text-white"
+    class="w-full py-5 sm:py-10 px-4 relative bg-cover bg-center bg-no-repeat text-gray-200 selection:bg-blue-500 selection:text-white"
     style="background-image: url('https://i.ibb.co/z4bPJTy/servicio.jpg')"
   >
-    <div class="absolute inset-0 bg-gray-800 opacity-90"></div>
+    <div class="absolute inset-0 bg-blue-900 opacity-90"></div>
     <div class="relative z-10">
       <h2 class="sr-only">Footer</h2>
       <div
@@ -30,7 +30,7 @@
             >
               <a
                 href="https://www.facebook.com/profile.php?id=100093713355114"
-                class="text-gray-200 hover:text-teal-400 transition duration-300"
+                class="text-gray-200 hover:text-blue-400 transition duration-300"
               >
                 <span class="sr-only">Facebook</span>
                 <svg
@@ -48,7 +48,7 @@
               </a>
               <a
                 href="https://www.youtube.com/channel/UCZYAQXzmnW0fxiNYWglTnBw"
-                class="ml-3 text-gray-200 hover:text-teal-400 transition duration-300"
+                class="ml-3 text-gray-200 hover:text-blue-400 transition duration-300"
               >
                 <span class="sr-only">YouTube</span>
                 <svg

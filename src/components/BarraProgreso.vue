@@ -12,7 +12,7 @@ export default {
   props: {
     color: {
       type: String,
-      default: "#4dc0b5", // Color por defecto
+      default: "#3b82f6", // Color por defecto
     },
   },
   setup(props) {

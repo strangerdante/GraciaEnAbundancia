@@ -63,21 +63,21 @@ export default {
 .custom-swiper {
   .swiper-button-next,
   .swiper-button-prev {
-    @apply text-teal-500;
+    @apply text-blue-500;
   }
   .swiper-button-next:hover,
   .swiper-button-prev:hover {
-    @apply text-teal-400;
+    @apply text-blue-400;
   }
   .swiper-pagination-bullet {
-    @apply bg-teal-400;
+    @apply bg-blue-400;
     width: 10px;
     height: 10px;
   }
   .swiper-pagination-bullet-active {
-    @apply bg-teal-500;
-    width: 10px;
-    height: 10px;
+    @apply bg-blue-500;
+    width: 12px;
+    height: 12px;
   }
 }
 </style>

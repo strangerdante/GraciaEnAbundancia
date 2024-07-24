@@ -14,7 +14,7 @@
     </p>
     <a
       href="/#inicio"
-      class="bg-teal-500 text-white hover:bg-teal-400 px-6 py-2 rounded mb-8 transition duration-300 ease-in-out transform hover:scale-105 inline-block"
+      class="bg-blue-500 text-white hover:bg-blue-400 px-6 py-2 rounded mb-8 transition duration-300 ease-in-out transform hover:scale-105 inline-block"
     >
       Sobre nosotros
     </a>
@@ -22,15 +22,17 @@
       <div
         v-for="(item, index) in preguntas"
         :key="index"
-        class="dark:p-0.5 dark:pt-0 dark:border-0 border-2 border-gray-200 rounded-lg bg-gray-100 dark:bg-gradient-to-tr from-teal-400 to-teal-800 dark:border-slate-600 overflow-hidden"
+        class="dark:p-0.5 dark:pt-0 dark:border-0 border-2 border-gray-200 rounded-lg bg-gray-100 dark:bg-gradient-to-tr from-blue-500 to-red-500 dark:border-slate-600 overflow-hidden"
       >
         <div
           class="h-full w-full dark:bg-slate-600/90 rounded-md transition duration-300 ease-in-out"
         >
+          <!-- Barra progeso -->
           <div
-            class="h-1 bg-teal-500 transition-all duration-300 ease-in-out"
+            class="h-1 bg-blue-500 transition-all duration-300 ease-in-out"
             :style="{ width: item.isOpen ? '100%' : '0%' }"
           ></div>
+
           <button
             @click="toggleItem(index)"
             class="w-full text-left flex items-start p-4 focus:outline-none"
@@ -43,7 +45,7 @@
             <div class="flex-shrink-0 w-5 mt-1">
               <svg
                 :class="{ 'rotate-180': item.isOpen }"
-                class="w-5 h-5 transition-transform duration-200 text-teal-500"
+                class="w-5 h-5 transition-transform duration-200 text-blue-500"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -68,7 +70,7 @@
               <span
                 v-for="(versiculo, vIndex) in item.versiculos"
                 :key="vIndex"
-                class="border-2 border-teal-600 rounded-lg text-xs sm:text-sm px-3 py-1 flex-shrink-0 text-teal-600 dark:text-teal-white dark:border-teal-400 dark:text-white hover:bg-teal-600 hover:text-white transition duration-300 cursor-pointer"
+                class="border-2 border-blue-600 rounded-lg text-xs sm:text-sm px-3 py-1 flex-shrink-0 text-blue-600 dark:border-blue-400 dark:text-white hover:bg-blue-600 hover:text-white transition duration-300 cursor-pointer"
               >
                 {{ versiculo }}
               </span>
