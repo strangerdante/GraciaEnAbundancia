@@ -70,9 +70,9 @@
                   </div>
                   <!-- Badge -->
                   <InfoIcono
-                    :show="proximoEvento.infoAdiccional"
+                    :show="evento.infoAdiccional"
                     size="small"
-                    :texto="proximoEvento.infoIconoTexto"
+                    :texto="evento.infoIconoTexto"
                   />
                 </div>
               </div>
@@ -201,9 +201,9 @@ espacio organizador -->
                 </div>
                 <!-- Badge -->
                 <InfoIcono
-                  :show="proximoEvento.infoAdiccional"
+                  :show="evento.infoAdiccional"
                   size="small"
-                  :texto="proximoEvento.infoIconoTexto"
+                  :texto="evento.infoIconoTexto"
                 />
               </div>
               <div>
