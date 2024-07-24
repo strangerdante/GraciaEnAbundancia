@@ -241,14 +241,20 @@
               <div v-if="proximoEvento.infoAdiccional">
                 <a
                   href="#"
-                  @click.prevent="mostrarBanner"
-                  class="text-blue-600 hover:text-blue-800 text-sm"
+                  @click.prevent="abrirModal(proximoEvento)"
+                  class="text-blue-600 hover:text-blue-800 text-sm cursor-pointer"
                 >
                   Banner disponible
                 </a>
               </div>
               <div v-else>
-                <span class="text-red-500 text-sm">Banner no disponible</span>
+                <a
+                  href="#"
+                  @click.prevent="abrirModal(proximoEvento)"
+                  class="text-red-500 text-sm cursor-pointer"
+                >
+                  Banner no disponible
+                </a>
               </div>
               <p
                 class="text-base md:text-lg font-semibold text-red-600 mt-4 dark:text-teal-600 flex items-center"
@@ -350,82 +356,11 @@ espacio organizador -->
         </div>
       </div>
     </div>
-
-    <!-- Modal -->
-    <div
+    <EventoModal
       v-if="eventoSeleccionado"
-      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-    >
-      <!-- Modal -->
-      <div class="bg-white p-8 rounded-lg shadow-xl max-w-xl w-full relative">
-        <!-- Icono Cerrar -->
-        <button
-          @click="cerrarModal"
-          class="absolute top-3 right-3 text-gray-600 hover:text-gray-800 transition duration-300"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-8 w-8"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-        <div class="flex flex-col md:flex-row">
-          <div
-            v-if="eventoSeleccionado.banner !== null"
-            class="md:w-1/2 mb-4 md:mb-0 md:mr-4 flex justify-center"
-          >
-            <img
-              :src="eventoSeleccionado.banner"
-              alt="Imagen del evento"
-              class="w-2/3 h-auto rounded-lg"
-            />
-          </div>
-          <div
-            :class="{
-              'md:w-1/2': eventoSeleccionado.banner !== null,
-              'w-full': eventoSeleccionado.banner === null,
-            }"
-          >
-            <h2 class="text-xl sm:text-2xl font-bold mb-2">
-              {{ eventoSeleccionado.titulo }}
-            </h2>
-            <p class="mb-2">
-              <strong>Fecha:</strong> {{ eventoSeleccionado.dia }} de
-              {{ eventoSeleccionado.mes }}
-            </p>
-            <p class="mb-2">
-              <strong>Hora:</strong> {{ eventoSeleccionado.hora }}
-            </p>
-            <p class="mb-2">
-              <strong>Lugar:</strong> {{ eventoSeleccionado.lugar }}
-            </p>
-            <p class="mb-2">
-              <strong>Descripción:</strong>
-              {{ eventoSeleccionado.descripcion }}
-            </p>
-            <p class="text-red-600 dark:text-teal-600">
-              <strong>Días restantes:</strong>
-              {{
-                eventoSeleccionado.diasRestantes === 0
-                  ? "Hoy"
-                  : eventoSeleccionado.diasRestantes === 1
-                  ? "1 día"
-                  : `${eventoSeleccionado.diasRestantes} días`
-              }}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+      :evento="eventoSeleccionado"
+      @cerrar="cerrarModal"
+    />
   </div>
 </template>
 
@@ -437,12 +372,14 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import InfoIcono from "./InfoIcono.vue";
+import EventoModal from "./EventoModal.vue";
 
 export default {
   components: {
     Swiper,
     SwiperSlide,
     InfoIcono,
+    EventoModal,
   },
   setup() {
     const eventos = ref([]);
