@@ -33,24 +33,28 @@
           ></div>
           <button
             @click="toggleItem(index)"
-            class="w-full text-left flex justify-between items-center p-4 focus:outline-none"
+            class="w-full text-left flex items-start p-4 focus:outline-none"
           >
-            <span class="text-sm sm:text-lg font-medium dark:text-white">{{
-              item.pregunta
-            }}</span>
-            <svg
-              :class="{ 'rotate-180': item.isOpen }"
-              class="w-5 h-5 transition-transform duration-200 text-teal-500"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
+            <span
+              class="text-sm sm:text-lg font-medium dark:text-white flex-grow mr-4"
             >
-              <path
-                fill-rule="evenodd"
-                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clip-rule="evenodd"
-              />
-            </svg>
+              {{ item.pregunta }}
+            </span>
+            <div class="flex-shrink-0 w-5 mt-1">
+              <svg
+                :class="{ 'rotate-180': item.isOpen }"
+                class="w-5 h-5 transition-transform duration-200 text-teal-500"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
           </button>
           <div
             v-if="item.isOpen"
