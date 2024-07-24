@@ -223,7 +223,7 @@ espacio organizador -->
         <!-- Icono Cerrar -->
         <button
           @click="cerrarModal"
-          class="absolute top-2 right-2 text-gray-600 hover:text-gray-800 transition duration-300"
+          class="absolute top-3 right-3 text-gray-600 hover:text-gray-800 transition duration-300"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -249,7 +249,7 @@ espacio organizador -->
             <img
               :src="eventoSeleccionado.banner"
               alt="Imagen del evento"
-              class="w-auto h-2/3 rounded-lg"
+              class="w-2/3 h-auto rounded-lg"
             />
           </div>
           <div

@@ -5,8 +5,8 @@
     "hora": "10:00 am — 12:30 pm",
     "lugar": "Salón Comunal Asovivir",
     "descripcion": "Servicio dominical semanal.",
-    "infoAdiccional": false,
-    "banner": "https://picsum.photos/200/300"
+    "infoAdiccional": true,
+    "banner": "https://i.ibb.co/b37HD9v/1242c4f0-e5cf-43f7-9d12-f2df6835dd94.jpg"
   },
   {
     "fecha": "2024-08-04",
@@ -14,7 +14,7 @@
     "hora": "10:00 am — 12:30 pm",
     "lugar": "Salón Comunal Asovivir",
     "infoAdiccional": true,
-    "banner": "https://picsum.photos/200/300"
+    "banner": "https://i.ibb.co/b37HD9v/1242c4f0-e5cf-43f7-9d12-f2df6835dd94.jpg"
   },
   {
     "fecha": "2024-08-11",
@@ -22,7 +22,7 @@
     "hora": "10:00 am — 12:30 pm",
     "lugar": "Salón Comunal Asovivir",
     "infoAdiccional": true,
-    "banner": "https://picsum.photos/200/300"
+    "banner": "https://i.ibb.co/b37HD9v/1242c4f0-e5cf-43f7-9d12-f2df6835dd94.jpg"
   },
   {
     "fecha": "2024-08-18",
@@ -30,7 +30,7 @@
     "hora": "10:00 am — 12:30 pm",
     "lugar": "Salón Comunal Asovivir",
     "infoAdiccional": true,
-    "banner": "https://picsum.photos/200/300"
+    "banner": "https://i.ibb.co/b37HD9v/1242c4f0-e5cf-43f7-9d12-f2df6835dd94.jpg"
   },
   {
     "fecha": "2024-08-25",
