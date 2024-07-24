@@ -122,7 +122,11 @@
                 {{ proximoEvento.mes }}
               </div>
               <!-- Badge -->
-              <InfoIcono :show="proximoEvento.infoAdiccional" size="medium" />
+              <InfoIcono
+                :show="proximoEvento.infoAdiccional"
+                size="medium"
+                :texto="proximoEvento.infoIcono"
+              />
             </div>
             <div class="flex-grow">
               <h2 class="font-bold text-xl md:text-2xl mb-2 text-gray-700">
@@ -258,7 +262,7 @@ espacio organizador -->
               'w-full': !eventoSeleccionado.infoAdiccional,
             }"
           >
-            <h2 class="text-2xl font-bold mb-4">
+            <h2 class="text-xl sm:text-2xl font-bold mb-2">
               {{ eventoSeleccionado.titulo }}
             </h2>
             <p class="mb-2">
@@ -275,7 +279,7 @@ espacio organizador -->
               <strong>Descripción:</strong>
               {{ eventoSeleccionado.descripcion }}
             </p>
-            <p class="mb-2 text-red-600 dark:text-teal-600">
+            <p class="text-red-600 dark:text-teal-600">
               <strong>Días restantes:</strong>
               {{
                 eventoSeleccionado.diasRestantes === 0

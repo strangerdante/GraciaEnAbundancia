@@ -1,8 +1,10 @@
 <template>
   <div
     v-if="show"
-    class="absolute -top-2 -right-2 bg-blue-500 text-white rounded-full flex items-center justify-center"
-    :class="sizeClasses"
+    :class="[
+      'absolute -top-2 -right-2 bg-blue-500 text-white rounded-full flex items-center justify-center',
+      sizeClasses,
+    ]"
   >
     <svg
       aria-hidden="true"
@@ -34,11 +36,15 @@ export default {
       default: "small",
       validator: (value) => ["small", "medium", "large"].includes(value),
     },
+    texto: {
+      type: String,
+      default: "Banner evento disponible",
+    },
   },
   mounted() {
     this.$nextTick(() => {
       tippy(this.$refs.tooltip1, {
-        content: "Banner evento disponible",
+        content: this.texto,
         placement: "top",
         arrow: true,
       });
