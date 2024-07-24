@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-gray-100 dark:bg-slate-600 px-4 sm:px-6 lg:px-80 pb-10 transition duration-300 ease-in-out selection:bg-teal-500 selection:text-white"
+    class="bg-gray-100 dark:bg-slate-600 px-2 sm:px-6 lg:px-80 pb-10 transition duration-300 ease-in-out selection:bg-teal-500 selection:text-white"
   >
     <div class="flex justify-between items-center mb-8">
       <h2 class="text-3xl font-bold dark:text-white">Próximos eventos</h2>
@@ -30,7 +30,7 @@
         <swiper
           :modules="modulos"
           :slides-per-view="2"
-          :space-between="6"
+          :space-between="4"
           :pagination="{ clickable: true }"
           :navigation="false"
           :grab-cursor="false"
@@ -103,7 +103,7 @@
               </div>
               <!-- Indicador de banner en el titulo -->
               <h3
-                class="font-semibold mb-2 text-[13px] xl:text-xl flex items-center"
+                class="font-semibold mb-2 text-[14px] xl:text-xl flex items-center"
               >
                 {{ evento.titulo }}
                 <svg
