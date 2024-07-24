@@ -5,7 +5,6 @@
     >
       Preguntas frecuentes
     </h1>
-
     <p class="text-lg mb-4 dark:text-white">
       Descubra qué esperar al visitarnos
     </p>
@@ -13,65 +12,63 @@
       Conozca más sobre nuestros valores y nuestra historia como iglesia
       visitando la página sobre nosotros.
     </p>
-
     <a
       href="/#inicio"
       class="bg-teal-500 text-white hover:bg-teal-400 px-6 py-2 rounded mb-8 transition duration-300 ease-in-out transform hover:scale-105 inline-block"
     >
       Sobre nosotros
     </a>
-
     <div class="space-y-6">
       <div
         v-for="(item, index) in preguntas"
         :key="index"
-        class="border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 ease-in-out"
+        class="dark:p-0.5 dark:pt-0 dark:border-0 border-2 border-gray-200 rounded-lg bg-gray-100 dark:bg-gradient-to-tr from-teal-400 to-teal-800 dark:border-slate-600 overflow-hidden"
       >
         <div
-          class="h-1 bg-teal-500 transition-all duration-300 ease-in-out"
-          :class="{ 'w-full': item.isOpen, 'w-0': !item.isOpen }"
-        ></div>
-
-        <button
-          @click="toggleItem(index)"
-          class="w-full text-left flex justify-between items-center p-4 bg-white dark:bg-gray-800 focus:outline-none"
+          class="h-full w-full dark:bg-slate-600/90 rounded-md transition duration-300 ease-in-out"
         >
-          <span class="text-sm sm:text-lg font-medium dark:text-white">{{
-            item.pregunta
-          }}</span>
-
-          <svg
-            :class="{ 'rotate-180': item.isOpen }"
-            class="w-5 h-5 transition-transform duration-200 text-teal-500"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-              clip-rule="evenodd"
-            />
-          </svg>
-        </button>
-
-        <div
-          v-if="item.isOpen"
-          class="p-4 bg-gray-50 dark:bg-gray-700 dark:text-white transition-all duration-300 ease-in-out"
-        >
-          <p>{{ item.respuesta }}</p>
-
           <div
-            v-if="item.versiculos"
-            class="flex flex-wrap border-t justify-start gap-2 border-gray-300 dark:border-gray-600 p-4 mt-6"
+            class="h-1 bg-teal-500 transition-all duration-300 ease-in-out"
+            :style="{ width: item.isOpen ? '100%' : '0%' }"
+          ></div>
+          <button
+            @click="toggleItem(index)"
+            class="w-full text-left flex justify-between items-center p-4 focus:outline-none"
           >
-            <span
-              v-for="(versiculo, vIndex) in item.versiculos"
-              :key="vIndex"
-              class="border-2 border-teal-600 rounded-lg text-xs sm:text-sm px-3 py-1 flex-shrink-0 text-teal-600 dark:text-teal-white dark:border-teal-400 dark:text-white hover:bg-teal-600 hover:text-white transition duration-300 cursor-pointer"
+            <span class="text-sm sm:text-lg font-medium dark:text-white">{{
+              item.pregunta
+            }}</span>
+            <svg
+              :class="{ 'rotate-180': item.isOpen }"
+              class="w-5 h-5 transition-transform duration-200 text-teal-500"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
             >
-              {{ versiculo }}
-            </span>
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+          <div
+            v-if="item.isOpen"
+            class="p-4 transition-all duration-300 ease-in-out"
+          >
+            <p class="dark:text-white">{{ item.respuesta }}</p>
+            <div
+              v-if="item.versiculos"
+              class="flex flex-wrap border-t justify-start gap-2 border-gray-300 dark:border-gray-600 p-4 mt-6"
+            >
+              <span
+                v-for="(versiculo, vIndex) in item.versiculos"
+                :key="vIndex"
+                class="border-2 border-teal-600 rounded-lg text-xs sm:text-sm px-3 py-1 flex-shrink-0 text-teal-600 dark:text-teal-white dark:border-teal-400 dark:text-white hover:bg-teal-600 hover:text-white transition duration-300 cursor-pointer"
+              >
+                {{ versiculo }}
+              </span>
+            </div>
           </div>
         </div>
       </div>
