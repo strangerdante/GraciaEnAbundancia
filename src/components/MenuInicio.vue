@@ -20,11 +20,11 @@
           ></div>
         </div>
         <span
-          class="self-center text-md font-semibold whitespace-nowrap text-white text-center transition-colors duration-300 ease-in-out group-hover:text-yellow-500 leading-tight"
+          class="self-center text-md whitespace-nowrap text-white text-center transition-colors duration-300 ease-in-out group-hover:text-yellow-500 leading-tight"
         >
-          GRACIA
+          <span class="font-colus">GRACIA</span>
           <br class="leading-[0.5]" />
-          <span class="text-sm block -mt-1">EN ABUNDANCIA</span>
+          <span class="text-sm block -mt-1 font-colus">EN ABUNDANCIA</span>
           <span class="text-xs block -mt-1">Iglesia Bautista</span>
         </span>
       </a>

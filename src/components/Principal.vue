@@ -74,3 +74,11 @@ export default {
   },
 };
 </script>
+
+<style>
+@import url("https://fonts.cdnfonts.com/css/colus");
+
+.font-colus {
+  font-family: "Colus", sans-serif;
+}
+</style>

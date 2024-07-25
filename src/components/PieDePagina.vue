@@ -1,7 +1,9 @@
 <template>
   <footer
     class="w-full py-5 sm:py-10 px-4 relative bg-cover bg-center bg-no-repeat text-gray-200 selection:bg-blue-500 selection:text-white"
-    style="background-image: url('https://i.ibb.co/z4bPJTy/servicio.jpg')"
+    style="
+      background-image: url('https://i.ibb.co/DzcDqP3/Captura-de-pantalla-2024-07-24-235010.png');
+    "
   >
     <div class="absolute inset-0 bg-blue-900 opacity-90"></div>
     <div class="relative z-10">
@@ -14,10 +16,10 @@
         >
           <h1 class="font-title text-center font-bold leading-tight">
             <span
-              class="block text-4xl sm:text-5xl md:text-6xl tracking-tighter"
+              class="block text-4xl sm:text-5xl md:text-6xl tracking-tighter font-colus"
               >GRACIA</span
             >
-            <span class="block text-xl sm:text-2xl md:text-3xl mt-1"
+            <span class="block text-xl sm:text-2xl md:text-3xl -mt-1 font-colus"
               >EN ABUNDANCIA</span
             >
             <span class="block text-sm sm:text-base md:text-lg mt-2"

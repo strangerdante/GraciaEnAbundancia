@@ -16,16 +16,14 @@
             class="mx-auto mb-6 w-24 h-24 sm:w-32 sm:h-32"
           />
           <div class="font-bold">
-            <p class="text-xl sm:text-2xl md:text-3xl mb-1">
-              Bienvenido Leonardo
-            </p>
+            <p class="text-xl sm:text-2xl md:text-3xl mb-1">Bienvenido a</p>
             <h1 class="leading-none">
               <span
-                class="block text-6xl sm:text-7xl md:text-8xl tracking-tighter"
+                class="block text-6xl sm:text-7xl md:text-8xl tracking-tighter font-colus"
                 >GRACIA</span
               >
               <span
-                class="block text-3xl sm:text-4xl md:text-5xl sm:-mt-1 md:-mt-2"
+                class="block text-3xl sm:text-4xl md:text-5xl sm:-mt-1 md:-mt-2 font-colus"
                 >EN ABUNDANCIA</span
               >
               <span

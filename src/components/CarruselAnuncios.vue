@@ -34,19 +34,27 @@
             class="w-full h-[250px] sm:h-[600px] sm:rounded-lg mb-10 object-cover"
           />
           <div
-            class="absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50"
+            v-if="slide.titulo || slide.descripcion || slide.textoBoton"
+            class="absolute inset-0 flex flex-col items-center justify-evenly text-white bg-black bg-opacity-50"
           >
-            <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-4">
-              {{ slide.title }}
+            <h3
+              v-if="slide.titulo"
+              class="text-xl sm:text-2xl font-bold mb-2 sm:mb-4"
+            >
+              {{ slide.titulo }}
             </h3>
-            <p class="text-sm sm:text-lg mb-4 sm:mb-6 px-4 sm:px-16">
-              {{ slide.description }}
+            <p
+              v-if="slide.descripcion"
+              class="text-sm sm:text-lg mb-4 sm:mb-6 px-4 sm:px-16"
+            >
+              {{ slide.descripcion }}
             </p>
             <button
+              v-if="slide.textoBoton"
               class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-              @click="handleButtonClick(slide.buttonLink)"
+              @click="handleButtonClick(slide.linkBoton)"
             >
-              {{ slide.buttonText }}
+              {{ slide.textoBoton }}
             </button>
           </div>
         </div>
@@ -82,29 +90,35 @@ export default {
         {
           image:
             "https://i.ibb.co/9Td3wVk/ben-white-W8-Qqn1-Pm-QH0-unsplash.jpg",
-          title: "Culto de oración",
-          description:
+          titulo: "Culto de oración",
+          descripcion:
             "Únete a nosotros cada miércoles a las 7 PM para un tiempo de oración comunitaria y fortalecimiento espiritual. Juntos, elevaremos nuestras voces al cielo.",
-          buttonText: "Leer más",
-          buttonLink: "/pagina1",
+          textoBoton: "Leer más",
+          linkBoton: "/pagina1",
         },
         {
           image:
             "https://i.ibb.co/KW60XdT/aaron-burden-9zs-HNt5-Opq-E-unsplash.jpg",
-          title: "Reunión de varones",
-          description:
+          titulo: "Reunión de varones",
+          descripcion:
             "Caballeros, los invitamos a nuestra reunión mensual este sábado. Compartiremos testimonios, estudiaremos la Palabra y nos apoyaremos mutuamente en nuestro caminar cristiano.",
-          buttonText: "Ver detalles",
-          buttonLink: "/pagina2",
+          textoBoton: "Ver detalles",
+          linkBoton: "/pagina2",
         },
         {
-          image:
-            "https://i.ibb.co/KW60XdT/aaron-burden-9zs-HNt5-Opq-E-unsplash.jpg",
-          title: "Reunión de damas",
-          description:
+          image: "https://i.ibb.co/b786r8G/biblia.jpg",
+          titulo: "Reunión de damas",
+          descripcion:
             "Queridas hermanas, las esperamos en nuestra reunión especial este viernes. Tendremos un tiempo de alabanza, estudio bíblico y compañerismo diseñado específicamente para mujeres de fe.",
-          buttonText: "Ver detalles",
-          buttonLink: "/pagina2",
+          textoBoton: "Ver detalles",
+          linkBoton: "/pagina2",
+        },
+        {
+          image: "https://i.ibb.co/b786r8G/biblia.jpg",
+          titulo: "",
+          descripcion: "",
+          textoBoton: "información",
+          linkBoton: "/nuevo-evento",
         },
       ],
     };
