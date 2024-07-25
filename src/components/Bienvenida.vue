@@ -18,7 +18,8 @@
           <div class="font-semibold">
             <p class="text-xl sm:text-2xl md:text-3xl mb-1">Bienvenido a</p>
             <h1 class="leading-none">
-              <span class="block text-6xl sm:text-7xl md:text-8xl font-colus"
+              <span
+                class="block text-6xl sm:text-7xl md:text-8xl font-colus text-yellow-500"
                 >GRACIA</span
               >
               <span
