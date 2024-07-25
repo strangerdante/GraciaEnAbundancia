@@ -141,9 +141,7 @@
                 <a href="#anuncios" class="hover:text-yellow-500">Anuncios</a>
               </li>
               <li>
-                <a href="#eventos" class="hover:text-yellow-500"
-                  >Proximos Eventos</a
-                >
+                <a href="#eventos" class="hover:text-yellow-500">Eventos</a>
               </li>
               <li>
                 <a
