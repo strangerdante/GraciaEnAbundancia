@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="w-full py-5 sm:py-10 px-4 relative bg-cover bg-center bg-no-repeat text-gray-200 selection:bg-blue-500 selection:text-white"
+    class="w-full py-5 sm:py-10 px-4 relative bg-cover bg-center bg-no-repeat text-gray-200"
     style="
       background-image: url('https://i.ibb.co/DzcDqP3/Captura-de-pantalla-2024-07-24-235010.png');
     "
@@ -105,7 +105,7 @@
             aria-hidden="true"
           />
         </div>
-        <div class="grid grid-cols-2 gap-5 text-gray-400">
+        <div class="grid grid-cols-2 gap-5 text-gray-300">
           <div
             class="col-span-2 md:col-span-1 pb-0 md:py-3 px-4 flex flex-col items-center sm:items-start"
           >
