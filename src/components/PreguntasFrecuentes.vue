@@ -6,11 +6,17 @@
       Preguntas frecuentes
     </h1>
     <p class="text-lg mb-4 dark:text-white">
-      Descubra qué esperar al visitarnos
+      En esta sección, responderemos a algunas de las preguntas más comunes que
+      nuestros miembros y visitantes tienen acerca de la Biblia y cómo es
+      interpretada y aplicada en nuestra iglesia Bautista. ¿Qué versión de la
+      Biblia utiliza la iglesia Bautista? Nuestra iglesia utiliza la versión
+      Reina-Valera 1960 para nuestras lecturas y estudios bíblicos. Esta versión
+      es ampliamente aceptada y respetada en la comunidad hispanohablante por su
+      fidelidad a los textos originales.
     </p>
     <p class="text-gray-600 mb-4 dark:text-white">
       Conozca más sobre nuestros valores y nuestra historia como iglesia
-      visitando la página sobre nosotros.
+      visitando la página conocenos.
     </p>
     <a
       href="/#inicio"

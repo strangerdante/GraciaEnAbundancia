@@ -6,11 +6,15 @@
       Confesión de fe
     </h1>
     <p class="text-lg mb-4 dark:text-white">
-      Descubra qué esperar al visitarnos
+      ¿Por qué es importante la Confesión de Fe? La Confesión de Fe es
+      importante porque proporciona una base doctrinal sólida para la enseñanza
+      y la predicación. Ayuda a garantizar la unidad doctrinal dentro de la
+      congregación y sirve como una guía para los nuevos miembros y visitantes
+      sobre lo que creemos y practicamos.
     </p>
     <p class="text-gray-600 mb-4 dark:text-white">
       Conozca más sobre nuestros valores y nuestra historia como iglesia
-      visitando la página sobre nosotros.
+      visitando la página conocenos.
     </p>
     <a
       href="/#inicio"
