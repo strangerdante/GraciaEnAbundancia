@@ -15,7 +15,7 @@
             alt="Logo de la Iglesia Bautista Gracia en Abundancia"
             class="mx-auto mb-6 w-24 h-24 sm:w-32 sm:h-32"
           />
-          <div class="font-bold">
+          <div class="font-semibold">
             <p class="text-xl sm:text-2xl md:text-3xl mb-1">Bienvenido a</p>
             <h1 class="leading-none">
               <span
