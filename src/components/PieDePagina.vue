@@ -14,15 +14,14 @@
         <div
           class="relative mt-14 sm:mt-0 px-5 flex flex-col justify-center items-center text-gray-200"
         >
-          <h1 class="font-title text-center font-semibold leading-tight">
-            <span
-              class="block text-4xl sm:text-5xl md:text-6xl tracking-tighter font-colus"
+          <h1 class="font-title text-center leading-tight">
+            <span class="block text-4xl sm:text-5xl md:text-6xl font-colus"
               >GRACIA</span
             >
             <span class="block text-xl sm:text-2xl md:text-3xl -mt-1 font-colus"
               >EN ABUNDANCIA</span
             >
-            <span class="block text-sm sm:text-base md:text-lg mt-2"
+            <span class="block text-sm sm:text-base md:text-lg mb-2"
               >Iglesia Bautista</span
             >
           </h1>
