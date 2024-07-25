@@ -39,7 +39,7 @@
             <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-4">
               {{ slide.title }}
             </h3>
-            <p class="text-sm sm:text-lg mb-4 sm:mb-6 px-16">
+            <p class="text-sm sm:text-lg mb-4 sm:mb-6 px-4 sm:px-16">
               {{ slide.description }}
             </p>
             <button
