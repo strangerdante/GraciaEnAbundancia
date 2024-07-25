@@ -16,7 +16,7 @@
       href="/#inicio"
       class="bg-blue-500 text-white hover:bg-blue-400 px-6 py-2 rounded mb-8 transition duration-300 ease-in-out transform hover:scale-105 inline-block"
     >
-      Sobre nosotros
+      Conocenos
     </a>
     <div class="space-y-6">
       <div
@@ -88,101 +88,33 @@ export default {
     return {
       preguntas: [
         {
-          pregunta: "1. ¿Cómo se alcanza la salvación?",
-          respuesta:
-            "La salvación es un don de la gracia de Dios, no es por obras religiosas que podamos hacer. Debemos creer en Jesucristo y recibirlo como nuestro salvador.",
-          versiculos: [
-            "Efesios 1:8-10",
-            "Hechos 13:48",
-            "Tito 3:4-7",
-            "Efesios 2:8-10",
-          ],
+          pregunta: "1. Ejemplo",
+          respuesta: "Ejemplo",
+          versiculos: ["versiculo", "versiculo", "versiculo"],
           isOpen: false,
         },
         {
-          pregunta: "2. ¿Creen en el cielo y en el infierno?",
-          respuesta:
-            "La Biblia dice que son los únicos lugares después de la muerte. El Cielo es para los salvos y el infierno para los condenados.",
-          versiculos: ["Mateo 25:31-46", "Mateo 23:33"],
+          pregunta: "2. Ejemplo",
+          respuesta: "Ejemplo",
+          versiculos: ["versiculo", "versiculo", "versiculo", "versiculo"],
           isOpen: false,
         },
         {
-          pregunta: "3. ¿Cuál es la diferencia entre orar y rezar?",
-          respuesta:
-            "Orar es conversar con Dios. Nos dirigimos a él como a nuestro Padre, contrariamente, rezar se ha convertido en repeticiones de fórmulas religiosas sin sentido. La oración conocida como el Padre nuestro es realmente una oración modelo.",
-          versiculos: ["Mateo 6:5-15"],
+          pregunta: "3. Ejemplo",
+          respuesta: "Ejemplo",
+          versiculos: ["versiculo", "versiculo", "versiculo"],
           isOpen: false,
         },
         {
-          pregunta: "4. ¿Qué sacramentos aceptan?",
-          respuesta:
-            "No tenemos sacramentos. Celebramos dos ordenanzas: La cena del Señor y el bautismo de creyentes.",
-          versiculos: ["Hechos 2:36-38", "1 Corintios 11:23-26"],
+          pregunta: "4. Ejemplo",
+          respuesta: "Ejemplo",
+          versiculos: ["versiculo", "versiculo"],
           isOpen: false,
         },
         {
-          pregunta: "5. Creen en la virgen María?",
-          respuesta:
-            "Sí, pero según la enseñanza de la Biblia. María fue el vaso de honra que Dios usó para la encarnación de su Hijo, pero en ningún momento fue nombrada mediadora entre Dios y los hombres, respetamos su memoria pero no es objeto de adoración.",
-          versiculos: ["1 Timoteo 2:5-6", "Lucas 1:46-48"],
-          isOpen: false,
-        },
-        {
-          pregunta: "6. ¿Por qué no se confiesan?",
-          respuesta:
-            "Nuestra confesión de pecados es directamente a Dios por medio de Jesucristo nuestro único mediador y salvador.",
-          versiculos: ["Hebreos 4:14-16"],
-          isOpen: false,
-        },
-        {
-          pregunta:
-            "7. ¿Tienen una sede y/o un líder mundial como otras religiones?",
-          respuesta:
-            "No. Nuestra sede es el local donde nos congregamos y nuestro único jefe es el Señor Jesucristo, y nuestros guías son los pastores que Él ha designado para representarlo. Hacemos parte de la Federación de Iglesias Bautistas de Colombia, pero como iglesia local somos autónomos en todo.",
-          versiculos: ["Efesios 4:11-16"],
-          isOpen: false,
-        },
-        {
-          pregunta:
-            "8. Se dice que ustedes los bautistas no creen en el poder actual del Espíritu Santo ¿por qué?",
-          respuesta:
-            "Es falso. Necesitamos de la obra del Espíritu Santo para ser regenerados, sin esta obra poderosa y milagrosa nadie puede llegar a ser cristiano. Además, el Espíritu Santo actúa en los creyentes, santificándolos diariamente. El cuerpo del creyente es templo del Espíritu Santo.",
-          versiculos: [
-            "Romanos 8:9",
-            "2 Tesalonicenses 2:13",
-            "1 Corintios 3:16",
-          ],
-          isOpen: false,
-        },
-        {
-          pregunta: "9. ¿Cuál es su posición frente al celibato?",
-          respuesta:
-            "La Biblia enseña que los pastores pueden casarse y tener hijos. El apóstol Pablo enseñó que el abstenerse de mujer y quedarse soltero es un don especial.",
-          versiculos: ["1 Corintios 7:7-9"],
-          isOpen: false,
-        },
-        {
-          pregunta: "10. ¿El diezmo es obligatorio?",
-          respuesta:
-            "No, el diezmo no es obligatorio, es voluntario en respuesta a la gracia de Dios. Hay suficientes pasajes bíblicos que nos enseñan su práctica. Bajo la economía de la gracia, se espera que todo creyente aporte de corazón dispuesto, no por norma impuesta, sino presentando el ejemplo del Señor Jesucristo.",
-          versiculos: [
-            "Levítico 27:30-35",
-            "Números 18:21",
-            "Malaquías 3",
-            "Lucas 11:42",
-            "Lucas 18:12",
-            "2 Corintios 9:7",
-            "2 Corintios 8:9",
-            "1 Corintios 16:2",
-          ],
-          isOpen: false,
-        },
-        {
-          pregunta:
-            "11. Hay muchos pastores millonarios ¿la religión es un negocio?",
-          respuesta:
-            "No debería serlo. Lamentablemente, muchos pastores han convertido la Iglesia en una empresa lucrativa y un negocio para sí mismos. No son iglesias del Señor Jesucristo quienes lo hacen. Por otra parte, las iglesias deben ser responsables de sostener generosamente a sus pastores.",
-          versiculos: ["2 Pedro 2:1-3", "1 Timoteo 5:17-18"],
+          pregunta: "5. Ejemplo",
+          respuesta: "Ejemplo",
+          versiculos: ["versiculo", "versiculo"],
           isOpen: false,
         },
       ],

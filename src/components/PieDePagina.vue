@@ -95,7 +95,7 @@
               </a>
             </span>
             <span class="py-4 text-xs"
-              >&copy;2023, Todos los derechos reservados.</span
+              >&copy;2024, Todos los derechos reservados.</span
             >
           </div>
 
@@ -131,27 +131,31 @@
             <nav
               class="flex justify-around md:flex-col font-medium list-none ml-4 gap-2"
             >
-              <li><a href="#inicio" class="hover:text-gray-200">Inicio</a></li>
-              <li><a href="#pastor" class="hover:text-gray-200">Pastor</a></li>
               <li>
-                <a href="#servicio" class="hover:text-gray-200">Servicios</a>
+                <a href="#inicio" class="hover:text-yellow-500">Inicio</a>
               </li>
               <li>
-                <a href="#ministerios" class="hover:text-gray-200"
-                  >Ministerios</a
+                <a href="#conocenos" class="hover:text-yellow-500">Conocenos</a>
+              </li>
+              <li>
+                <a href="#anuncios" class="hover:text-yellow-500">Anuncios</a>
+              </li>
+              <li>
+                <a href="#eventos" class="hover:text-yellow-500"
+                  >Proximos Eventos</a
                 >
               </li>
               <li>
                 <a
                   href="confesion.html"
-                  class="hover:text-gray-200 hidden lg:block"
+                  class="hover:text-yellow-500 hidden lg:block"
                   >Confesion de fe</a
                 >
               </li>
               <li>
                 <a
                   href="preguntas.html"
-                  class="hover:text-gray-200 hidden lg:block"
+                  class="hover:text-yellow-500 hidden lg:block"
                   >Preguntas frecuentes</a
                 >
               </li>

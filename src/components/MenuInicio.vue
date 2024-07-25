@@ -32,12 +32,14 @@
       <!-- Menú de navegación para pantallas grandes -->
       <div class="hidden md:flex items-center space-x-8">
         <a href="/#inicio" class="text-white hover:text-yellow-400">Inicio</a>
-        <a href="/#pastor" class="text-white hover:text-yellow-400">Pastor</a>
-        <a href="/#servicio" class="text-white hover:text-yellow-400"
-          >Servicios</a
+        <a href="/#conocenos" class="text-white hover:text-yellow-400"
+          >Conocenos</a
         >
-        <a href="/#ministerios" class="text-white hover:text-yellow-400"
-          >Ministerios</a
+        <a href="/#anuncios" class="text-white hover:text-yellow-400"
+          >Anuncios</a
+        >
+        <a href="/#eventos" class="text-white hover:text-yellow-400"
+          >Proximos Eventos</a
         >
         <a href="/confesion" class="text-white hover:text-yellow-400"
           >Confesión de fe</a
@@ -109,23 +111,23 @@
         </li>
         <li>
           <a
-            href="/#pastor"
+            href="/#conocenos"
             class="block py-2 px-4 text-white hover:bg-blue-800 rounded"
-            >Pastor</a
+            >Conocenos</a
           >
         </li>
         <li>
           <a
             href="/#servicio"
             class="block py-2 px-4 text-white hover:bg-blue-800 rounded"
-            >Servicios</a
+            >Anuncios</a
           >
         </li>
         <li>
           <a
             href="/#ministerios"
             class="block py-2 px-4 text-white hover:bg-blue-800 rounded"
-            >Ministerios</a
+            >Proximos Eventos</a
           >
         </li>
         <li>
