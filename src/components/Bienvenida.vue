@@ -16,7 +16,9 @@
             class="mx-auto mb-6 w-24 h-24 sm:w-32 sm:h-32"
           />
           <div class="font-bold">
-            <p class="text-xl sm:text-2xl md:text-3xl mb-1">Bienvenido a</p>
+            <p class="text-xl sm:text-2xl md:text-3xl mb-1">
+              Bienvenido Leonardo
+            </p>
             <h1 class="leading-none">
               <span
                 class="block text-6xl sm:text-7xl md:text-8xl tracking-tighter"
