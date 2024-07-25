@@ -45,13 +45,13 @@
             </h3>
             <p
               v-if="slide.descripcion"
-              class="text-sm sm:text-lg mb-4 sm:mb-6 px-4 sm:px-16"
+              class="text-sm sm:text-xl mb-4 sm:mb-6 px-4 sm:px-24"
             >
               {{ slide.descripcion }}
             </p>
             <button
               v-if="slide.textoBoton"
-              class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+              class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm sm:text-base"
               @click="handleButtonClick(slide.linkBoton)"
             >
               {{ slide.textoBoton }}
@@ -115,7 +115,7 @@ export default {
         },
         {
           image: "https://i.ibb.co/b786r8G/biblia.jpg",
-          titulo: "",
+          titulo: "Dia de lluvia",
           descripcion: "",
           textoBoton: "información",
           linkBoton: "/nuevo-evento",

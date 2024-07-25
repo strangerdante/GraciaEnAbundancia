@@ -13,14 +13,11 @@
         class="text-justify my-6 first-letter:text-7xl first-letter:text-blue-500 dark:first-letter:text-blue-400 first-letter:mr-3 first-letter:float-left text-lg text-gray-700 dark:text-gray-200 leading-relaxed font-serif"
       >
         Nos honra profundamente su presencia y su interés en conocer más sobre
-        nuestra iglesia Gracia En Abundancia Iglesia Bautista. Como pastor y
-        líderes de los diversos ministerios dedicados al crecimiento espiritual
-        y al servicio comunitario, nos comprometemos a servirle con excelencia,
-        integridad y amor fraternal. Nuestra misión es proclamar el evangelio de
-        Jesucristo y hacer discípulos, edificando vidas a través de la enseñanza
-        bíblica y el compañerismo cristiano. Anhelamos ser un faro de esperanza
-        en nuestra comunidad, reflejando el amor y la gracia abundante de
-        nuestro Señor.
+        nuestra iglesia Gracia En Abundancia Iglesia Bautista. Nuestra misión es
+        proclamar el evangelio de Jesucristo y hacer discípulos, edificando
+        vidas a través de la enseñanza bíblica y el compañerismo cristiano.
+        Anhelamos ser un faro de esperanza en nuestra comunidad, reflejando el
+        amor y la gracia abundante de nuestro Señor Jesucristo.
       </p>
       <div
         class="flex flex-wrap border-t justify-start gap-2 border-gray-300 dark:border-gray-600 p-4 mt-6"
