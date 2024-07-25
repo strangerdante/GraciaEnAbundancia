@@ -9,13 +9,29 @@
       ></div>
       <div class="absolute inset-0 bg-black opacity-30"></div>
       <div class="relative h-full flex items-center justify-center z-10">
-        <div class="text-center text-white p-5 selection:bg-teal-500">
-          <h1 class="text-4xl sm:text-5xl font-bold mb-4">
-            Bienvenido a nuestra iglesia
-          </h1>
-          <p class="text-xl sm:text-2xl">
-            Un lugar de fe, comunidad y crecimiento espiritual
-          </p>
+        <div class="text-center text-white p-5">
+          <img
+            src="https://i.ibb.co/Vv8tSFb/logo-sin-texto.png"
+            alt="Logo de la Iglesia Bautista Gracia en Abundancia"
+            class="mx-auto mb-6 w-24 h-24 sm:w-32 sm:h-32"
+          />
+          <div class="font-bold">
+            <p class="text-xl sm:text-2xl md:text-3xl mb-1">Bienvenido a</p>
+            <h1 class="leading-none">
+              <span
+                class="block text-6xl sm:text-7xl md:text-8xl tracking-tighter"
+                >GRACIA</span
+              >
+              <span
+                class="block text-3xl sm:text-4xl md:text-5xl sm:-mt-1 md:-mt-2"
+                >EN ABUNDANCIA</span
+              >
+              <span
+                class="block text-xl sm:text-2xl md:text-3xl mt-0 sm:mt-1 md:mt-2"
+                >Iglesia Bautista</span
+              >
+            </h1>
+          </div>
         </div>
       </div>
       <!-- Scroll/Swipe Indicator -->
@@ -58,7 +74,7 @@
 export default {
   data() {
     return {
-      heroImage: "https://i.ibb.co/vCWvVYb/principal.jpg",
+      heroImage: "https://i.ibb.co/f87nwPw/biblia2.jpg",
     };
   },
   mounted() {

@@ -12,8 +12,17 @@
         <div
           class="relative mt-14 sm:mt-0 px-5 flex flex-col justify-center items-center text-gray-200"
         >
-          <h1 class="font-title text-4xl text-center font-semibold mt-auto">
-            Iglesia Bautista su Gracia es Mayor
+          <h1 class="font-title text-center font-bold leading-tight">
+            <span
+              class="block text-4xl sm:text-5xl md:text-6xl tracking-tighter"
+              >GRACIA</span
+            >
+            <span class="block text-xl sm:text-2xl md:text-3xl mt-1"
+              >EN ABUNDANCIA</span
+            >
+            <span class="block text-sm sm:text-base md:text-lg mt-2"
+              >Iglesia Bautista</span
+            >
           </h1>
           <blockquote class="text-center">
             "Porque por gracia sois salvos por medio de la fe; y esto no de
@@ -29,7 +38,7 @@
               class="inline-flex mt-6 w-full justify-center md:justify-start md:w-auto"
             >
               <a
-                href="https://www.facebook.com/profile.php?id=100093713355114"
+                href="https://www.facebook.com/GraciaEnAbundanciaIB"
                 class="text-gray-200 hover:text-blue-400 transition duration-300"
               >
                 <span class="sr-only">Facebook</span>
@@ -47,7 +56,7 @@
                 </svg>
               </a>
               <a
-                href="https://www.youtube.com/channel/UCZYAQXzmnW0fxiNYWglTnBw"
+                href="https://youtube.com/@graciaenabundancia_ib"
                 class="ml-3 text-gray-200 hover:text-blue-400 transition duration-300"
               >
                 <span class="sr-only">YouTube</span>
@@ -64,11 +73,32 @@
                   ></path>
                 </svg>
               </a>
+              <a
+                href="https://instagram.com/graciaenabundancia_ib"
+                class="ml-3 text-gray-200 hover:text-blue-400 transition duration-300"
+              >
+                <span class="sr-only">Instagram</span>
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  class="w-6 h-6"
+                  viewBox="0 0 24 24"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"
+                  ></path>
+                </svg>
+              </a>
             </span>
             <span class="py-4 text-xs"
               >&copy;2023, Todos los derechos reservados.</span
             >
           </div>
+
           <span
             class="sm:hidden absolute -top-4 left-1/2 w-1/4 h-px bg-gray-400 transform -translate-x-1/2"
             aria-hidden="true"
@@ -152,13 +182,52 @@
             </h3>
             <div class="w-full h-px bg-gray-600 mb-4"></div>
             <ol>
-              <li>
-                Calle 70 Bis Sur #80-56 <br />
-                Salon comunal Asovivir, <br />
-                Bosa, Bogota
+              <li class="flex items-start mb-4">
+                <svg
+                  class="w-5 h-5 mr-2 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  ></path>
+                </svg>
+                <span>
+                  Carrera 35 #1C-30 <br />
+                  Bogotá, Colombia
+                </span>
               </li>
-              <br />
-              <li>Servicios de Adoración: <br />Domingos 10:00 hs</li>
+              <li class="flex items-start">
+                <svg
+                  class="w-5 h-5 mr-2 mt-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+                <span>
+                  Servicios de Adoración: <br />Domingos 8:00 am - <br />
+                  12:00 pm</span
+                >
+              </li>
             </ol>
           </div>
         </div>

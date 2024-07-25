@@ -20,7 +20,7 @@ redes sociales
             :href="social.url"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-gray-700 hover:text-teal-500 transition-colors duration-300"
+            class="text-gray-700 hover:text-blue-500 transition-colors duration-300"
           >
             <i :class="social.icon" class="text-3xl"></i>
             <span class="sr-only">{{ social.name }}</span>

@@ -9,10 +9,13 @@
     </h1>
     <div class="h-80 container border-2 p-2 rounded-lg mx-auto">
       <iframe
-        title="Ubicación del Salón Comunal de Asovivir"
-        aria-label="Mapa mostrando la ubicación del Salón Comunal de Asovivir"
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15907.669082240025!2d-74.1925392!3d4.60883!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb722505c69c6b9ee!2sSal%C3%B3n%20Comunal%20de%20Asovivir!5e0!3m2!1ses!2sco!4v1670274439288!5m2!1ses!2sco"
+        title="Ubicación de Gracia en Abundancia Iglesia Bautista"
+        aria-label="Mapa mostrando la ubicación de Gracia en Abundancia Iglesia Bautista"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.7896453539464!2d-74.11075472426384!3d4.602979895010661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99ac1fd6c305%3A0x59255c6a9ff7a5cb!2sGracia%20en%20Abundancia%20Iglesia%20Bautista!5e0!3m2!1sen!2s!4v1689874763054!5m2!1sen!2s"
         class="w-full h-full"
+        style="border: 0"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
     </div>
   </section>

@@ -6,7 +6,10 @@
     <swiper
       :slides-per-view="1"
       :space-between="30"
-      :navigation="true"
+      :navigation="{
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }"
       :pagination="{ clickable: true }"
       :modules="modules"
       :grab-cursor="true"
@@ -25,6 +28,12 @@
           class="w-full h-auto object-cover sm:rounded-lg mb-10"
         />
       </swiper-slide>
+      <div class="swiper-button-next custom-swiper-button">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+      <div class="swiper-button-prev custom-swiper-button">
+        <i class="fas fa-chevron-left"></i>
+      </div>
     </swiper>
   </div>
 </template>
@@ -61,13 +70,20 @@ export default {
 
 <style lang="postcss">
 .custom-swiper {
-  .swiper-button-next,
-  .swiper-button-prev {
-    @apply text-blue-500;
+  .custom-swiper-button {
+    @apply text-white bg-blue-500 rounded-full w-10 h-10 flex items-center justify-center opacity-75 transition-opacity duration-300;
+    &:hover {
+      @apply opacity-100;
+    }
+    &::after {
+      content: none;
+    }
   }
-  .swiper-button-next:hover,
-  .swiper-button-prev:hover {
-    @apply text-blue-400;
+  .swiper-button-next {
+    @apply right-4;
+  }
+  .swiper-button-prev {
+    @apply left-4;
   }
   .swiper-pagination-bullet {
     @apply bg-blue-400;
