@@ -1,6 +1,7 @@
 <template>
   <div
     v-if="evento"
+    @click="cerrarSiEsFondo"
     class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
   >
     <div class="bg-white p-8 rounded-lg shadow-xl max-w-xl w-full relative">
@@ -80,6 +81,12 @@ export default {
   methods: {
     cerrar() {
       this.$emit("cerrar");
+    },
+    cerrarSiEsFondo(event) {
+      // Cerrar solo si se hace clic en el fondo (no en el contenido del modal)
+      if (event.target === event.currentTarget) {
+        this.cerrar();
+      }
     },
   },
 };
