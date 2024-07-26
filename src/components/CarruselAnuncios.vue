@@ -17,7 +17,8 @@
       }"
       :pagination="{ clickable: true }"
       :modules="modules"
-      :grab-cursor="true"
+      :loop="true"
+      :grab-cursor="false"
       :autoplay="{
         delay: 3000,
         disableOnInteraction: false,
