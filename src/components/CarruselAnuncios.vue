@@ -1,73 +1,75 @@
 <template>
-  <div
-    class="mx-auto sm:px-6 lg:px-80 py-6 sm:py-10 bg-gray-100 dark:bg-slate-600 transition duration-300 ease-in-out"
-  >
-    <h2
-      class="text-2xl sm:text-3xl px-4 font-bold dark:text-white mb-6 sm:mb-8"
+  <section>
+    <div
+      class="mx-auto sm:px-6 lg:px-80 py-6 sm:py-10 bg-gray-100 dark:bg-slate-600 transition duration-300 ease-in-out"
     >
-      Anuncios
-    </h2>
-    <swiper
-      :slides-per-view="1"
-      :space-between="30"
-      :navigation="{
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-        hideOnMobile: true,
-      }"
-      :pagination="{ clickable: true }"
-      :modules="modules"
-      :loop="true"
-      :grab-cursor="false"
-      :autoplay="{
-        delay: 3000,
-        disableOnInteraction: false,
-      }"
-      :effect="'fade'"
-      :fade-effect="{ crossFade: true }"
-      class="custom-swiper sm:rounded-lg overflow-hidden"
-    >
-      <swiper-slide v-for="(slide, index) in slides" :key="index">
-        <div class="relative">
-          <img
-            :src="slide.image"
-            :alt="`Slide ${index + 1}`"
-            class="w-full h-[250px] sm:h-[600px] sm:rounded-lg mb-10 object-cover"
-          />
-          <div
-            v-if="slide.titulo || slide.descripcion || slide.textoBoton"
-            class="absolute inset-0 flex flex-col items-center justify-evenly text-white bg-black bg-opacity-50"
-          >
-            <h3
-              v-if="slide.titulo"
-              class="text-xl sm:text-2xl font-bold mb-2 sm:mb-4"
+      <h2
+        class="text-2xl sm:text-3xl px-4 font-bold dark:text-white mb-6 sm:mb-8"
+      >
+        Anuncios
+      </h2>
+      <swiper
+        :slides-per-view="1"
+        :space-between="30"
+        :navigation="{
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+          hideOnMobile: true,
+        }"
+        :pagination="{ clickable: true }"
+        :modules="modules"
+        :loop="true"
+        :grab-cursor="false"
+        :autoplay="{
+          delay: 3000,
+          disableOnInteraction: false,
+        }"
+        :effect="'fade'"
+        :fade-effect="{ crossFade: true }"
+        class="custom-swiper sm:rounded-lg overflow-hidden"
+      >
+        <swiper-slide v-for="(slide, index) in slides" :key="index">
+          <div class="relative">
+            <img
+              :src="slide.image"
+              :alt="`Slide ${index + 1}`"
+              class="w-full h-[250px] sm:h-[600px] sm:rounded-lg mb-10 object-cover"
+            />
+            <div
+              v-if="slide.titulo || slide.descripcion || slide.textoBoton"
+              class="absolute inset-0 flex flex-col items-center justify-evenly text-white bg-black bg-opacity-50"
             >
-              {{ slide.titulo }}
-            </h3>
-            <p
-              v-if="slide.descripcion"
-              class="text-sm sm:text-xl mb-4 sm:mb-6 px-4 sm:px-24"
-            >
-              {{ slide.descripcion }}
-            </p>
-            <button
-              v-if="slide.textoBoton"
-              class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm sm:text-base"
-              @click="handleButtonClick(slide.linkBoton)"
-            >
-              {{ slide.textoBoton }}
-            </button>
+              <h3
+                v-if="slide.titulo"
+                class="text-xl sm:text-2xl font-bold mb-2 sm:mb-4"
+              >
+                {{ slide.titulo }}
+              </h3>
+              <p
+                v-if="slide.descripcion"
+                class="text-sm sm:text-xl mb-4 sm:mb-6 px-4 sm:px-24"
+              >
+                {{ slide.descripcion }}
+              </p>
+              <button
+                v-if="slide.textoBoton"
+                class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm sm:text-base"
+                @click="handleButtonClick(slide.linkBoton)"
+              >
+                {{ slide.textoBoton }}
+              </button>
+            </div>
           </div>
+        </swiper-slide>
+        <div class="swiper-button-next custom-swiper-button">
+          <i class="fas fa-chevron-right"></i>
         </div>
-      </swiper-slide>
-      <div class="swiper-button-next custom-swiper-button">
-        <i class="fas fa-chevron-right"></i>
-      </div>
-      <div class="swiper-button-prev custom-swiper-button">
-        <i class="fas fa-chevron-left"></i>
-      </div>
-    </swiper>
-  </div>
+        <div class="swiper-button-prev custom-swiper-button">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+      </swiper>
+    </div>
+  </section>
 </template>
 
 <script>
