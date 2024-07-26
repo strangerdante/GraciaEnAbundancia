@@ -31,48 +31,55 @@
       <!-- Menú de navegación para pantallas grandes -->
       <div class="hidden md:flex items-center space-x-8">
         <a href="/#inicio" class="text-white hover:text-yellow-400">Inicio</a>
-        <div class="relative group">
-          <a
-            href="/conocenos"
-            class="text-white hover:text-yellow-400 flex items-center"
+        <div class="relative">
+          <button
+            class="flex items-center justify-between w-full py-2 px-3 font-medium text-white border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0"
+            @click="isOpen = !isOpen"
           >
-            Conocenos
+            Conócenos
             <svg
+              class="w-2.5 h-2.5 ms-3 transition-transform duration-200"
+              :class="{ 'rotate-180': isOpen }"
+              aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
-              class="h-4 w-4 ml-1"
-              viewBox="0 0 20 20"
-              fill="currentColor"
+              fill="none"
+              viewBox="0 0 10 6"
             >
               <path
-                fill-rule="evenodd"
-                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clip-rule="evenodd"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 4 4 4-4"
               />
             </svg>
-          </a>
+          </button>
           <div
-            class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300"
+            v-if="isOpen"
+            class="absolute z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
           >
-            <a
-              href="/conocenos/pastor"
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              >Pastor</a
-            >
-            <a
-              href="/conocenos/ministerio"
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              >Ministerio</a
-            >
-            <a
-              href="/conocenos/servicios"
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              >Servicios</a
-            >
-            <a
-              href="/conocenos/galeria"
-              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              >Galería</a
-            >
+            <ul class="py-2 text-sm text-gray-700">
+              <li>
+                <a href="/#conocenos" class="block px-4 py-2 hover:bg-gray-100"
+                  >Pastor</a
+                >
+              </li>
+              <li>
+                <a href="/#pastor" class="block px-4 py-2 hover:bg-gray-100"
+                  >Ministerios</a
+                >
+              </li>
+              <li>
+                <a href="/#ministerio" class="block px-4 py-2 hover:bg-gray-100"
+                  >Servicios</a
+                >
+              </li>
+              <li>
+                <a href="/#ministerio" class="block px-4 py-2 hover:bg-gray-100"
+                  >Galeria</a
+                >
+              </li>
+            </ul>
           </div>
         </div>
         <a href="/#anuncios" class="text-white hover:text-yellow-400"
@@ -165,12 +172,30 @@
           </a>
         </li>
         <li>
-          <a
-            href="/conocenos"
-            class="flex items-center py-2 px-4 text-white hover:bg-blue-800 rounded"
+          <div
+            @click="toggleConocenos"
+            class="flex items-center justify-between py-2 px-4 text-white hover:bg-blue-800 rounded cursor-pointer"
           >
+            <div class="flex items-center">
+              <svg
+                class="w-5 h-5 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                ></path>
+              </svg>
+              Conócenos
+            </div>
             <svg
-              class="w-5 h-5 mr-2"
+              :class="{ 'rotate-180': conocenosExpanded }"
+              class="w-4 h-4 transition-transform duration-200"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -180,12 +205,11 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                d="M19 9l-7 7-7-7"
               ></path>
             </svg>
-            Conócenos
-          </a>
-          <ul class="ml-4 mt-2 space-y-2">
+          </div>
+          <ul v-show="conocenosExpanded" class="ml-4 mt-2 space-y-2">
             <li>
               <a
                 href="/conocenos/pastor"
@@ -387,11 +411,16 @@ export default {
   data() {
     return {
       sidebarVisible: false,
+      isOpen: false,
+      conocenosExpanded: false,
     };
   },
   methods: {
     toggleSidebar() {
       this.sidebarVisible = !this.sidebarVisible;
+    },
+    toggleConocenos() {
+      this.conocenosExpanded = !this.conocenosExpanded;
     },
   },
 };
