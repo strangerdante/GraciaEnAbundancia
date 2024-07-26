@@ -34,7 +34,7 @@
         <div class="relative">
           <button
             class="flex items-center justify-between w-full py-2 px-3 font-medium text-white border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0"
-            @click="isOpen = !isOpen"
+            @click.stop="toggleMenu"
           >
             Conócenos
             <svg
@@ -415,12 +415,25 @@ export default {
       conocenosExpanded: false,
     };
   },
+  mounted() {
+    document.addEventListener("click", this.closeMenu);
+  },
+  beforeUnmount() {
+    document.removeEventListener("click", this.closeMenu);
+  },
   methods: {
     toggleSidebar() {
       this.sidebarVisible = !this.sidebarVisible;
     },
     toggleConocenos() {
       this.conocenosExpanded = !this.conocenosExpanded;
+    },
+    toggleMenu(event) {
+      event.stopPropagation();
+      this.isOpen = !this.isOpen;
+    },
+    closeMenu() {
+      this.isOpen = false;
     },
   },
 };
