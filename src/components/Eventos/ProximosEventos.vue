@@ -584,19 +584,30 @@ export default {
         // Fusiona los eventos generados con los de la API
         const eventosFusionados = fusionarEventos(eventosGenerados, eventosAPI);
 
-        // Procesa los eventos fusionados
-        eventos.value = eventosFusionados.map((evento) => ({
-          ...evento,
-          dia: evento.fecha.getUTCDate().toString().padStart(2, "0"),
-          mes: evento.fecha.toLocaleString("es", {
-            month: "long",
-            timeZone: "UTC",
-          }),
-          diasRestantes: Math.ceil(
-            (evento.fecha - today) / (1000 * 60 * 60 * 24)
-          ),
-          diaSemana: obtenerDiaSemana(evento.fecha),
-        }));
+        // Procesa los eventos fusionados y filtra los eventos antiguos
+        eventos.value = eventosFusionados
+          .map((evento) => {
+            const fechaEvento = new Date(evento.fecha);
+            const diasRestantes = Math.ceil(
+              (fechaEvento - today) / (1000 * 60 * 60 * 24)
+            );
+
+            return {
+              ...evento,
+              fecha: fechaEvento,
+              dia: fechaEvento.getUTCDate().toString().padStart(2, "0"),
+              mes: fechaEvento.toLocaleString("es", {
+                month: "long",
+                timeZone: "UTC",
+              }),
+              diasRestantes: diasRestantes,
+              diaSemana: obtenerDiaSemana(fechaEvento),
+            };
+          })
+          .filter((evento) => evento.diasRestantes >= -1) // Filtra eventos con diasRestantes >= -1
+          .sort(
+            (a, b) => a.fecha - b.fecha || a.titulo.localeCompare(b.titulo)
+          );
       } catch (err) {
         console.error("Error al cargar los eventos:", err);
         error.value =
