@@ -552,6 +552,24 @@ export default {
           });
         }
 
+        // Cumple iglesia
+        if (month === 7 && date === 12) {
+          // Nota: mes 7 es agosto en JavaScript
+          events.push({
+            id: `cumple-${year}-8-12`,
+            fecha: new Date(Date.UTC(year, month, date)),
+            titulo: "Cumple iglesia",
+            hora: "7:00 pm - 8:00 pm",
+            lugar: "Carrera 35 #1C-30",
+            descripcion:
+              "Celebramos un año más del nacimiento de nuestra iglesia",
+            infoAdiccional: true,
+            infoIconoTexto: "Cumple",
+            banner: null,
+            confeti: true, // Nueva propiedad para activar el confeti
+          });
+        }
+
         currentDate.setUTCDate(currentDate.getUTCDate() + 1);
       }
 
