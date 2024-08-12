@@ -122,15 +122,17 @@
                   <i class="fas fa-clock mr-2"></i
                   >{{ obtenerDiaSemana(evento.fecha) }}, {{ evento.hora }}
                 </p>
-                <p class="text-sm text-gray-600 mb-2 flex items-center">
+                <p class="text-sm text-gray-600 mb-2 flex">
                   <i
                     :class="{
                       'fas fa-map-marker-alt': evento.lugar,
                       'fas fa-link': evento.link,
                     }"
-                    class="mr-2"
+                    class="mr-2 mt-1 flex-shrink-0"
                   ></i>
-                  {{ evento.lugar || evento.link }}
+                  <span class="break-words">{{
+                    evento.lugar || evento.link
+                  }}</span>
                 </p>
                 <p
                   class="text-sm font-semibold text-gray-600 mb-4 dark:text-teal-600"
