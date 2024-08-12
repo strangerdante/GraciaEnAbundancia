@@ -4,26 +4,31 @@
     @click="cerrarSiEsFondo"
     class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
   >
-    <div class="bg-white p-8 rounded-lg shadow-xl max-w-xl w-full relative">
-      <button
-        @click="cerrar"
-        class="absolute top-3 right-3 text-gray-600 hover:text-gray-800 transition duration-300"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-8 w-8"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+    <div class="bg-white p-6 rounded-lg shadow-xl max-w-xl w-full relative">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl sm:text-2xl font-bold">
+          {{ evento.titulo }}
+        </h2>
+        <button
+          @click="cerrar"
+          class="text-gray-600 hover:text-gray-800 transition duration-300"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
       <div class="flex flex-col md:flex-row">
         <div
           v-if="evento.banner !== null"
@@ -60,9 +65,6 @@
             'w-full': evento.banner === null,
           }"
         >
-          <h2 class="text-xl sm:text-2xl font-bold mb-2">
-            {{ evento.titulo }}
-          </h2>
           <p class="mb-2">
             <strong>Fecha:</strong> {{ evento.dia }} de {{ evento.mes }}
           </p>
