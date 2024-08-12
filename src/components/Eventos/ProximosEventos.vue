@@ -123,7 +123,14 @@
                   >{{ obtenerDiaSemana(evento.fecha) }}, {{ evento.hora }}
                 </p>
                 <p class="text-sm text-gray-600 mb-2 flex items-center">
-                  <i class="fas fa-map-marker-alt mr-2"></i> {{ evento.lugar }}
+                  <i
+                    :class="{
+                      'fas fa-map-marker-alt': evento.lugar,
+                      'fas fa-link': evento.link,
+                    }"
+                    class="mr-2"
+                  ></i>
+                  {{ evento.lugar || evento.link }}
                 </p>
                 <p
                   class="text-sm font-semibold text-gray-600 mb-4 dark:text-teal-600"
@@ -229,8 +236,14 @@
               <p
                 class="text-base md:text-lg text-gray-600 flex items-center mb-2"
               >
-                <i class="fas fa-map-marker-alt mr-2"></i>
-                {{ proximoEvento.lugar }}
+                <i
+                  :class="{
+                    'fas fa-map-marker-alt': proximoEvento.lugar,
+                    'fas fa-link': proximoEvento.link,
+                  }"
+                  class="mr-2"
+                ></i>
+                {{ proximoEvento.lugar || proximoEvento.link }}
               </p>
               <p class="text-base md:text-lg my-2 text-gray-700 line-clamp-2">
                 {{ proximoEvento.descripcion }}
@@ -461,21 +474,37 @@ export default {
         if (day === 0) {
           const weekOfMonth = Math.floor((date - 1) / 7) + 1;
           let infoIconoTexto = "Servicio dominical";
+          let banner = "https://i.ibb.co/LzmwPvs/domingos.jpg";
+          let descripcion = "Servicio dominical semanal.";
 
-          if (weekOfMonth === 1) infoIconoTexto = "Cena del Señor";
-          else if (weekOfMonth === 3) infoIconoTexto = "Canasta de amor";
-          else if (date > 24) infoIconoTexto = "Domingo misionero";
-
+          if (weekOfMonth === 1) {
+            infoIconoTexto = "Cena del Señor"; // Cena del Señor
+            banner = "https://i.ibb.co/j5XSjXD/cena.jpg";
+            descripcion =
+              "Celebración mensual de la Cena del Señor. Un tiempo especial de comunión y remembranza.";
+          } else if (weekOfMonth === 3) {
+            infoIconoTexto = "Canasta de amor"; // Canasta de amor
+            banner =
+              "https://i.ibb.co/prVxsvq/ccb02c5d-aca0-4a1a-baa9-501c57e017c8.jpg";
+            descripcion =
+              "Domingo de ofrenda especial para apoyar a familias necesitadas de nuestra comunidad.";
+          } else if (date > 24) {
+            infoIconoTexto = "Domingo misionero"; // Domingo misionero
+            banner = null;
+            descripcion =
+              "Enfoque especial en nuestras misiones y misioneros alrededor del mundo.";
+          }
+          // Eventos domingos
           events.push({
             id: `domingo-${year}-${month + 1}-${date}`,
             fecha: new Date(Date.UTC(year, month, date)),
             titulo: "Servicio dominical",
             hora: "8:00 am — 12:30 pm",
             lugar: "Carrera 35 #1C-30",
-            descripcion: "Servicio dominical semanal.",
+            descripcion: descripcion,
             infoAdiccional: true,
             infoIconoTexto: infoIconoTexto,
-            banner: null,
+            banner: banner,
           });
         }
 
@@ -513,11 +542,11 @@ export default {
             fecha: new Date(Date.UTC(year, month, date)),
             titulo: "Culto de oración",
             hora: "7:00 pm - 8:00 pm",
-            lugar: "Reunión virtual",
-            descripcion: "Culto semanal de oración.",
+            link: "https://acortar.link/CultoDeOracionGAIB",
+            descripcion: "Culto semanal de oración. ",
             infoAdiccional: true,
             infoIconoTexto: "Culto de oración",
-            banner: null,
+            banner: "https://i.ibb.co/bWTbtrv/culto-oracion.jpg",
           });
         }
 
