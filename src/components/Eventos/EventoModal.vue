@@ -154,13 +154,29 @@ export default {
         this.imagenAmpliada = false;
       }
     },
-    guardarImagen() {
-      const link = document.createElement("a");
-      link.href = this.evento.banner;
-      link.download = `${this.evento.titulo}.jpg`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+    async guardarImagen() {
+      try {
+        // Fetch the image
+        const response = await fetch(this.evento.banner);
+        const blob = await response.blob();
+
+        // Create a blob URL
+        const blobUrl = URL.createObjectURL(blob);
+
+        // Create a link element and trigger the download
+        const link = document.createElement("a");
+        link.href = blobUrl;
+        link.download = `${this.evento.titulo}.jpg`; // You can change the extension if needed
+        document.body.appendChild(link);
+        link.click();
+
+        // Clean up
+        document.body.removeChild(link);
+        URL.revokeObjectURL(blobUrl);
+      } catch (error) {
+        console.error("Error al descargar la imagen:", error);
+        // You might want to show an error message to the user here
+      }
     },
   },
 };
