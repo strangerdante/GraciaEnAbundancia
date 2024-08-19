@@ -100,7 +100,7 @@
       <img
         :src="evento.banner"
         alt="Imagen ampliada del evento"
-        class="max-w-90vw max-h-90vh object-contain"
+        class="max-w-90vw max-h-90vh object-contain rounded-xl"
       />
     </div>
   </div>
