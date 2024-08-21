@@ -141,7 +141,7 @@
                       }"
                       class="mr-2 mt-1 flex-shrink-0"
                     ></i>
-                    <span class="mr-1 sm:mr-2 break-all">{{
+                    <span class="mr-[3px] sm:mr-[6px] break-all">{{
                       evento.lugar || evento.link
                     }}</span>
                   </p>
