@@ -2,7 +2,7 @@
   <div
     v-if="show"
     :class="[
-      'absolute -top-2 -right-2 rounded-full flex items-center justify-center',
+      'absolute -top-2 -right-2 rounded-full flex items-center justify-center hover:scale-110 transition duration-300 ease-in-out',
       sizeClasses,
       texto === 'Canasta de amor' ? 'bg-red-500' : 'bg-blue-500',
       texto === 'Cena del Señor' ? 'bg-red-700' : 'bg-blue-500',

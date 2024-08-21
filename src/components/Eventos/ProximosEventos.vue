@@ -141,7 +141,9 @@
                       }"
                       class="mr-2 mt-1 flex-shrink-0"
                     ></i>
-                    <span class="mr-2">{{ evento.lugar || evento.link }}</span>
+                    <span class="mr-2 break-words">{{
+                      evento.lugar || evento.link
+                    }}</span>
                   </p>
                   <p
                     class="text-sm font-semibold text-gray-600 mb-2 dark:text-white"
