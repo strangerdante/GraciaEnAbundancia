@@ -1,6 +1,14 @@
 <template>
   <div class="container mx-auto px-2 py-8 lg:px-32">
     <div v-if="error" class="text-red-500 text-center">{{ error }}</div>
+    <!-- Estado de carga -->
+    <div
+      v-else-if="loading"
+      class="flex flex-col justify-center items-center h-64"
+    >
+      <div class="loader mb-4"></div>
+      <p class="text-gray-700 dark:text-gray-300">Cargando videos...</p>
+    </div>
     <div v-else>
       <!-- Video destacado -->
       <div v-if="videos.length > 0" class="mb-8">
@@ -24,7 +32,6 @@
           </div>
         </div>
       </div>
-
       <!-- Carrusel de videos -->
       <h3 class="text-xl font-bold mb-4">Últimos videos</h3>
       <swiper
@@ -51,14 +58,16 @@
         }"
       >
         <swiper-slide v-for="video in videos.slice(1)" :key="video.id">
-          <div class="bg-white rounded-lg shadow-md overflow-hidden mb-12">
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden mb-12 h-80 sm:h-auto md:h-[350px] xl:h-96"
+          >
             <img
               :src="video.thumbnail"
               :alt="video.title"
               class="w-full h-46 object-cover"
             />
             <div class="p-4">
-              <h4 class="text-sm sm:text-lg font-semibold mb-2 truncate">
+              <h4 class="text-sm line-clamp-2 sm:text-lg font-semibold mb-2">
                 {{ video.title }}
               </h4>
               <p class="text-gray-600 text-sm mb-2">{{ video.author }}</p>
@@ -89,6 +98,7 @@ export default {
       channelId: "UCPP7f0ZyCyZo8I_qgwFqveQ",
       videos: [],
       error: null,
+      loading: true,
       modulos: [Navigation, Pagination],
     };
   },
@@ -98,6 +108,7 @@ export default {
   methods: {
     async fetchVideos() {
       try {
+        this.loading = true;
         const response = await fetch(
           `https://www.googleapis.com/youtube/v3/search?key=${this.apiKey}&channelId=${this.channelId}&part=snippet&type=video&order=date&maxResults=7`
         );
@@ -115,10 +126,31 @@ export default {
         }));
       } catch (err) {
         this.error = `Error al obtener los datos: ${err.message}`;
+      } finally {
+        this.loading = false;
       }
     },
   },
 };
 </script>
 
-<style></style>
+<style>
+.loader {
+  width: 50px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #3b82f6;
+  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+  to {
+    transform: rotate(1turn);
+  }
+}
+</style>
