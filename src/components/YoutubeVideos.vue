@@ -27,6 +27,12 @@
             >
               {{ videos[0].duration }}
             </div>
+            <div
+              v-if="videos[0].isShort"
+              class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-md text-xs font-bold"
+            >
+              Short
+            </div>
           </div>
           <div class="md:w-1/2 p-6">
             <h2 class="text-2xl font-bold mb-4">{{ videos[0].title }}</h2>
@@ -75,6 +81,12 @@
                 class="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded-md text-sm"
               >
                 {{ video.duration }}
+              </div>
+              <div
+                v-if="video.isShort"
+                class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-md text-xs font-bold"
+              >
+                Short
               </div>
             </div>
             <div class="px-2 pt-4">
@@ -182,17 +194,21 @@ export default {
         const contentDetailsData = await contentDetailsResponse.json();
 
         // Combinar los datos
-        this.videos = searchData.items.map((item, index) => ({
-          id: item.id.videoId,
-          title: item.snippet.title,
-          description: item.snippet.description,
-          thumbnail: item.snippet.thumbnails.high.url,
-          author: item.snippet.channelTitle,
-          date: new Date(item.snippet.publishedAt).toLocaleDateString(),
-          duration: this.formatDuration(
+        this.videos = searchData.items.map((item, index) => {
+          const durationInfo = this.formatDuration(
             contentDetailsData.items[index].contentDetails.duration
-          ),
-        }));
+          );
+          return {
+            id: item.id.videoId,
+            title: item.snippet.title,
+            description: item.snippet.description,
+            thumbnail: item.snippet.thumbnails.high.url,
+            author: item.snippet.channelTitle,
+            date: new Date(item.snippet.publishedAt).toLocaleDateString(),
+            duration: durationInfo.formatted,
+            isShort: durationInfo.totalSeconds < 120, // menos de 2 minutos
+          };
+        });
       } catch (err) {
         this.error = `Error al obtener los datos: ${err.message}`;
       } finally {
@@ -205,12 +221,20 @@ export default {
       const minutes = parseInt(match[2]) || 0;
       const seconds = parseInt(match[3]) || 0;
 
+      const totalSeconds = hours * 3600 + minutes * 60 + seconds;
+
       if (hours > 0) {
-        return `${hours}:${minutes.toString().padStart(2, "0")}:${seconds
-          .toString()
-          .padStart(2, "0")}`;
+        return {
+          formatted: `${hours}:${minutes.toString().padStart(2, "0")}:${seconds
+            .toString()
+            .padStart(2, "0")}`,
+          totalSeconds: totalSeconds,
+        };
       } else {
-        return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+        return {
+          formatted: `${minutes}:${seconds.toString().padStart(2, "0")}`,
+          totalSeconds: totalSeconds,
+        };
       }
     },
     openVideo(videoId) {
