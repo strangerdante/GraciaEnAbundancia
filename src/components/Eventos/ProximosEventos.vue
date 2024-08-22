@@ -98,6 +98,7 @@
                         class="absolute top-1 right-3 w-1.5 h-1.5 bg-black rounded-full"
                       ></div>
                       <div class="text-center">{{ evento.dia }}</div>
+                      <div class="w-full h-[1px] bg-gray-300 my-1"></div>
                       <div class="text-sm text-gray-600 text-center">
                         {{ evento.mes }}
                       </div>
