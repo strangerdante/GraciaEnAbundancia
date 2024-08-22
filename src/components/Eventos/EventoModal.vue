@@ -2,7 +2,7 @@
   <div
     v-if="evento"
     @click="cerrarSiEsFondo"
-    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    class="fixed inset-0 backdrop-blur-sm bg-gray-900/50 flex items-center justify-center z-50"
   >
     <div class="bg-white p-6 rounded-lg shadow-xl max-w-xl w-full relative">
       <div class="flex justify-between items-center mb-4">
