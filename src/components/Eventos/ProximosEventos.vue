@@ -751,6 +751,7 @@ export default {
   right: 0;
   width: 0;
   height: 0;
+  border-radius: 0 0 5px 0;
   border-style: solid;
   border-width: 0 0 17px 17px;
   border-color: transparent transparent #e0e0e0 transparent;
