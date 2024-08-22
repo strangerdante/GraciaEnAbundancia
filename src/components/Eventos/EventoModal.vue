@@ -122,6 +122,7 @@ export default {
   methods: {
     cerrar() {
       this.$emit("cerrar");
+      document.body.classList.remove("modal-open");
     },
     cerrarSiEsFondo(event) {
       if (event.target === event.currentTarget) {
@@ -140,6 +141,12 @@ export default {
       }
     },
   },
+  mounted() {
+    document.body.classList.add("modal-open");
+  },
+  beforeUnmount() {
+    document.body.classList.remove("modal-open");
+  },
 };
 </script>
 
@@ -149,5 +156,9 @@ export default {
 }
 .max-h-90vh {
   max-height: 90vh;
+}
+
+:global(body.modal-open) {
+  overflow: hidden;
 }
 </style>
