@@ -5,6 +5,7 @@
     <SobreNosotros />
     <CarruselAnuncios id="anuncios" />
     <ProximosEventos id="eventos" />
+    <YoutubeVideos />
     <RedesSociales />
     <Ubicacion />
     <PieDePagina />
@@ -25,9 +26,11 @@ import Ministerios from "./Ministerios.vue";
 import BotonTop from "./BotonTop.vue";
 import SobreNosotros from "./SobreNosotros.vue";
 import RedesSociales from "./RedesSociales.vue";
+import YoutubeVideos from "./YoutubeVideos.vue";
 
 export default {
   components: {
+    YoutubeVideos,
     PieDePagina,
     Ubicacion,
     Ministerios,

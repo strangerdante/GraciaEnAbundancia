@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-4 py-8 lg:px-32">
+  <div class="container mx-auto px-2 py-8 lg:px-32">
     <div v-if="error" class="text-red-500 text-center">{{ error }}</div>
     <div v-else>
       <!-- Video destacado -->
@@ -28,10 +28,13 @@
       <!-- Carrusel de videos -->
       <h3 class="text-xl font-bold mb-4">Últimos videos</h3>
       <swiper
-        :slides-per-view="4"
-        :space-between="30"
-        :navigation="true"
+        :modules="modulos"
+        :slides-per-view="2"
+        :space-between="4"
         :pagination="{ clickable: true }"
+        :navigation="false"
+        :grab-cursor="false"
+        class="mySwiper custom-swiper rounded-lg overflow-hidden pb-10"
         :breakpoints="{
           '420': {
             slidesPerView: 2,
@@ -48,11 +51,11 @@
         }"
       >
         <swiper-slide v-for="video in videos.slice(1)" :key="video.id">
-          <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="bg-white rounded-lg shadow-md overflow-hidden mb-12">
             <img
               :src="video.thumbnail"
               :alt="video.title"
-              class="w-full h-48 object-cover"
+              class="w-full h-46 object-cover"
             />
             <div class="p-4">
               <h4 class="text-sm sm:text-lg font-semibold mb-2 truncate">
@@ -86,6 +89,7 @@ export default {
       channelId: "UCPP7f0ZyCyZo8I_qgwFqveQ",
       videos: [],
       error: null,
+      modulos: [Navigation, Pagination],
     };
   },
   created() {
