@@ -13,7 +13,8 @@
       <!-- Video destacado -->
       <div v-if="videos.length > 0" class="mb-8">
         <div
-          class="flex flex-col md:flex-row bg-white rounded-lg shadow-md overflow-hidden"
+          class="flex flex-col md:flex-row bg-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+          @click="openVideo(videos[0].id)"
         >
           <div>
             <img
@@ -59,7 +60,8 @@
       >
         <swiper-slide v-for="video in videos.slice(1)" :key="video.id">
           <div
-            class="bg-white rounded-lg shadow-md overflow-hidden mb-12 h-80 sm:h-[365px] xl:h-[400px]"
+            class="bg-white rounded-lg shadow-md overflow-hidden mb-12 h-80 sm:h-[365px] xl:h-[400px] cursor-pointer"
+            @click="openVideo(video.id)"
           >
             <img
               :src="video.thumbnail"
@@ -78,6 +80,44 @@
           </div>
         </swiper-slide>
       </swiper>
+    </div>
+
+    <!-- Modal de video -->
+    <div
+      v-if="showModal"
+      class="fixed inset-0 backdrop-blur-sm bg-gray-900/90 flex items-center justify-center z-50"
+    >
+      <div class="p-14 px-4 rounded-lg w-full max-w-3xl relative">
+        <button
+          @click="closeModal"
+          class="absolute top-2 right-2 p-1 bg-gray-200 rounded-full hover:bg-gray-300 transition duration-300"
+          title="Cerrar"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <div class="relative pb-[56.25%] h-0">
+          <iframe
+            :src="`https://www.youtube.com/embed/${currentVideoId}`"
+            class="absolute top-0 left-0 w-full h-full rounded-xl"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -102,6 +142,8 @@ export default {
       error: null,
       loading: true,
       modulos: [Navigation, Pagination],
+      showModal: false,
+      currentVideoId: null,
     };
   },
   created() {
@@ -132,6 +174,15 @@ export default {
         this.loading = false;
       }
     },
+    openVideo(videoId) {
+      this.currentVideoId = videoId;
+      this.showModal = true;
+      document.body.classList.add("overflow-hidden");
+    },
+    closeModal() {
+      this.showModal = false;
+      document.body.classList.remove("overflow-hidden");
+    },
   },
 };
 </script>
@@ -154,5 +205,10 @@ export default {
   to {
     transform: rotate(1turn);
   }
+}
+
+/* Estilos adicionales para prevenir el scroll */
+body.overflow-hidden {
+  overflow: hidden;
 }
 </style>
