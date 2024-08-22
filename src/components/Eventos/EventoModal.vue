@@ -11,11 +11,12 @@
         </h2>
         <button
           @click="cerrar"
-          class="text-gray-600 hover:text-gray-800 transition duration-300"
+          class="p-1 bg-gray-200 rounded-full hover:bg-gray-300 transition duration-300"
+          title="Cerrar"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-8 w-8"
+            class="h-5 w-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

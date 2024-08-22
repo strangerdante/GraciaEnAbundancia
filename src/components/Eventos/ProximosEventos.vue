@@ -60,7 +60,7 @@
               <div
                 class="bg-white dark:bg-slate-600/85 rounded-lg shadow flex flex-col h-[340px] md:h-[330px] relative z-10"
               >
-                <div class="flex-grow py-2 px-2 sm:px-6">
+                <div class="flex-grow py-1 px-2 sm:px-6">
                   <div class="flex items-center justify-center p-4">
                     <div
                       :class="[
