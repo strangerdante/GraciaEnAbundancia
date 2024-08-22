@@ -10,6 +10,26 @@
       <p class="text-gray-700 dark:text-gray-300">Cargando videos...</p>
     </div>
     <div v-else>
+      <!-- Selector de listas de reproducción -->
+      <div class="mb-4">
+        <label for="playlist-select" class="mr-2">Filtrar por lista:</label>
+        <select
+          id="playlist-select"
+          v-model="selectedPlaylist"
+          @change="fetchVideos"
+          class="p-2 rounded-md border border-gray-300"
+        >
+          <option :value="null">Todos los videos</option>
+          <option
+            v-for="playlist in playlists"
+            :key="playlist.id"
+            :value="playlist.id"
+          >
+            {{ playlist.title }}
+          </option>
+        </select>
+      </div>
+
       <!-- Video destacado -->
       <div v-if="videos.length > 0" class="mb-8">
         <div
@@ -20,7 +40,7 @@
             <img
               :src="videos[0].thumbnail"
               :alt="videos[0].title"
-              class="w-full h-46 object-cover rounded-lg"
+              class="w-full h-[193px] sm:h-auto object-cover rounded-lg"
             />
             <div
               class="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded-md text-sm"
@@ -33,6 +53,12 @@
             >
               Short
             </div>
+            <!-- Nueva etiqueta "Nuevo" -->
+            <div
+              class="absolute top-2 left-2 bg-blue-500 text-white px-2 py-1 rounded-md text-xs font-bold"
+            >
+            Más reciente
+            </div>
           </div>
           <div class="md:w-1/2 p-6">
             <h2 class="text-2xl font-bold mb-4">{{ videos[0].title }}</h2>
@@ -41,9 +67,18 @@
           </div>
         </div>
       </div>
+
+      <!-- Mensaje cuando no hay videos -->
+      <div v-else-if="!loading" class="text-center text-gray-600 my-8">
+        No hay videos en esta lista de reproducción.
+      </div>
+
       <!-- Carrusel de videos -->
-      <h3 class="text-xl font-bold mb-4">Últimos videos</h3>
+      <h3 v-if="videos.length > 1" class="text-xl font-bold mb-4">
+        Últimos videos
+      </h3>
       <swiper
+        v-if="videos.length > 1"
         :modules="modulos"
         :slides-per-view="2"
         :space-between="4"
@@ -165,18 +200,39 @@ export default {
       modulos: [Navigation, Pagination],
       showModal: false,
       currentVideoId: null,
+      playlists: [],
+      selectedPlaylist: null,
     };
   },
   created() {
+    this.fetchPlaylists();
     this.fetchVideos();
   },
   methods: {
+    async fetchPlaylists() {
+      try {
+        const response = await fetch(
+          `https://www.googleapis.com/youtube/v3/playlists?part=snippet&channelId=${this.channelId}&key=${this.apiKey}&maxResults=10`
+        );
+        const data = await response.json();
+        this.playlists = data.items.map((item) => ({
+          id: item.id,
+          title: item.snippet.title,
+        }));
+      } catch (error) {
+        console.error("Error fetching playlists:", error);
+      }
+    },
     async fetchVideos() {
       try {
         this.loading = true;
-        const response = await fetch(
-          `https://www.googleapis.com/youtube/v3/search?key=${this.apiKey}&channelId=${this.channelId}&part=snippet&type=video&order=date&maxResults=7`
-        );
+        let url;
+        if (this.selectedPlaylist) {
+          url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${this.selectedPlaylist}&key=${this.apiKey}&maxResults=7`;
+        } else {
+          url = `https://www.googleapis.com/youtube/v3/search?key=${this.apiKey}&channelId=${this.channelId}&part=snippet&type=video&order=date&maxResults=7`;
+        }
+        const response = await fetch(url);
         const searchData = await response.json();
         if (searchData.error) {
           throw new Error(searchData.error.message);
@@ -184,7 +240,11 @@ export default {
 
         // Obtener los IDs de los videos
         const videoIds = searchData.items
-          .map((item) => item.id.videoId)
+          .map((item) =>
+            this.selectedPlaylist
+              ? item.snippet.resourceId.videoId
+              : item.id.videoId
+          )
           .join(",");
 
         // Hacer una segunda llamada para obtener la duración de los videos
@@ -199,7 +259,9 @@ export default {
             contentDetailsData.items[index].contentDetails.duration
           );
           return {
-            id: item.id.videoId,
+            id: this.selectedPlaylist
+              ? item.snippet.resourceId.videoId
+              : item.id.videoId,
             title: item.snippet.title,
             description: item.snippet.description,
             thumbnail: item.snippet.thumbnails.high.url,
