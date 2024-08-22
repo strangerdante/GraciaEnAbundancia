@@ -11,23 +11,43 @@
     </div>
     <div v-else>
       <!-- Selector de listas de reproducción -->
-      <div class="mb-4">
-        <label for="playlist-select" class="mr-2">Filtrar por lista:</label>
-        <select
-          id="playlist-select"
-          v-model="selectedPlaylist"
-          @change="fetchVideos"
-          class="p-2 rounded-md border border-gray-300"
+      <div class="mb-4 flex flex-col sm:flex-row sm:items-center">
+        <label
+          for="playlist-select"
+          class="mb-2 sm:mb-0 sm:mr-2 text-lg font-medium"
         >
-          <option :value="null">Todos los videos</option>
-          <option
-            v-for="playlist in playlists"
-            :key="playlist.id"
-            :value="playlist.id"
+          Filtrar por lista:
+        </label>
+        <div class="relative w-full sm:w-auto">
+          <select
+            id="playlist-select"
+            v-model="selectedPlaylist"
+            @change="fetchVideos"
+            class="w-full sm:w-auto appearance-none bg-white border border-gray-300 rounded-md py-3 px-4 pr-8 text-lg leading-tight focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-200"
           >
-            {{ playlist.title }}
-          </option>
-        </select>
+            <option :value="null">Todos los videos</option>
+            <option
+              v-for="playlist in playlists"
+              :key="playlist.id"
+              :value="playlist.id"
+            >
+              {{ playlist.title }}
+            </option>
+          </select>
+          <div
+            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+          >
+            <svg
+              class="fill-current h-4 w-4"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
 
       <!-- Video destacado -->
@@ -53,16 +73,18 @@
             >
               Short
             </div>
-            <!-- Nueva etiqueta "Nuevo" -->
+            <!-- Nueva etiqueta "Más reciente" -->
             <div
               class="absolute top-2 left-2 bg-blue-500 text-white px-2 py-1 rounded-md text-xs font-bold"
             >
-            Más reciente
+              Más reciente
             </div>
           </div>
           <div class="md:w-1/2 p-6">
-            <h2 class="text-2xl font-bold mb-4">{{ videos[0].title }}</h2>
-            <p class="text-gray-600 mb-4">{{ videos[0].description }}</p>
+            <h2 class="text-lg sm:text-2xl font-bold mb-2">
+              {{ videos[0].title }}
+            </h2>
+            <p class="text-gray-600 mb-2">{{ videos[0].description }}</p>
             <p class="text-sm text-gray-500">{{ videos[0].date }}</p>
           </div>
         </div>
