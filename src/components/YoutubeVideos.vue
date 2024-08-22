@@ -66,7 +66,7 @@
               :alt="video.title"
               class="w-full h-46 object-cover"
             />
-            <div class="p-4">
+            <div class="px-2 pt-4">
               <h4 class="text-sm line-clamp-2 sm:text-lg font-semibold mb-2">
                 {{ video.title }}
               </h4>
