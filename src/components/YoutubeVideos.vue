@@ -59,7 +59,7 @@
       >
         <swiper-slide v-for="video in videos.slice(1)" :key="video.id">
           <div
-            class="bg-white rounded-lg shadow-md overflow-hidden mb-12 h-80 sm:h-auto md:h-[350px] xl:h-96"
+            class="bg-white rounded-lg shadow-md overflow-hidden mb-12 h-80 sm:h-[365px] xl:h-[400px]"
           >
             <img
               :src="video.thumbnail"
@@ -67,7 +67,9 @@
               class="w-full h-46 object-cover"
             />
             <div class="px-2 pt-4">
-              <h4 class="text-sm line-clamp-2 sm:text-lg font-semibold mb-2">
+              <h4
+                class="text-sm line-clamp-3 sm:text-[16px] font-semibold mb-2"
+              >
                 {{ video.title }}
               </h4>
               <p class="text-gray-600 text-sm mb-2">{{ video.author }}</p>
