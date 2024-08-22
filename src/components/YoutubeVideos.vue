@@ -13,18 +13,20 @@
       <!-- Video destacado -->
       <div v-if="videos.length > 0" class="mb-8">
         <div
-          class="flex flex-col md:flex-row bg-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+          class="flex flex-col md:flex-row bg-white rounded-lg shadow-md overflow-hidden cursor-pointer relative"
           @click="openVideo(videos[0].id)"
         >
-          <div>
+          <div class="relative">
             <img
               :src="videos[0].thumbnail"
               :alt="videos[0].title"
-              class="w-full h-full object-cover rounded-lg"
+              class="w-full h-46 object-cover rounded-lg"
             />
             <div
-              class="absolute inset-0 flex items-center justify-center"
-            ></div>
+              class="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded-md text-sm"
+            >
+              {{ videos[0].duration }}
+            </div>
           </div>
           <div class="md:w-1/2 p-6">
             <h2 class="text-2xl font-bold mb-4">{{ videos[0].title }}</h2>
@@ -60,14 +62,21 @@
       >
         <swiper-slide v-for="video in videos.slice(1)" :key="video.id">
           <div
-            class="bg-white rounded-lg shadow-md overflow-hidden mb-12 h-80 sm:h-[365px] xl:h-[400px] cursor-pointer"
+            class="bg-white rounded-lg shadow-md overflow-hidden mb-12 h-80 sm:h-[365px] xl:h-[400px] cursor-pointer relative"
             @click="openVideo(video.id)"
           >
-            <img
-              :src="video.thumbnail"
-              :alt="video.title"
-              class="w-full h-46 object-cover"
-            />
+            <div class="relative">
+              <img
+                :src="video.thumbnail"
+                :alt="video.title"
+                class="w-full h-46 object-cover"
+              />
+              <div
+                class="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded-md text-sm"
+              >
+                {{ video.duration }}
+              </div>
+            </div>
             <div class="px-2 pt-4">
               <h4
                 class="text-sm line-clamp-3 sm:text-[16px] font-semibold mb-2"
@@ -156,22 +165,52 @@ export default {
         const response = await fetch(
           `https://www.googleapis.com/youtube/v3/search?key=${this.apiKey}&channelId=${this.channelId}&part=snippet&type=video&order=date&maxResults=7`
         );
-        const data = await response.json();
-        if (data.error) {
-          throw new Error(data.error.message);
+        const searchData = await response.json();
+        if (searchData.error) {
+          throw new Error(searchData.error.message);
         }
-        this.videos = data.items.map((item) => ({
+
+        // Obtener los IDs de los videos
+        const videoIds = searchData.items
+          .map((item) => item.id.videoId)
+          .join(",");
+
+        // Hacer una segunda llamada para obtener la duración de los videos
+        const contentDetailsResponse = await fetch(
+          `https://www.googleapis.com/youtube/v3/videos?key=${this.apiKey}&id=${videoIds}&part=contentDetails`
+        );
+        const contentDetailsData = await contentDetailsResponse.json();
+
+        // Combinar los datos
+        this.videos = searchData.items.map((item, index) => ({
           id: item.id.videoId,
           title: item.snippet.title,
           description: item.snippet.description,
           thumbnail: item.snippet.thumbnails.high.url,
           author: item.snippet.channelTitle,
           date: new Date(item.snippet.publishedAt).toLocaleDateString(),
+          duration: this.formatDuration(
+            contentDetailsData.items[index].contentDetails.duration
+          ),
         }));
       } catch (err) {
         this.error = `Error al obtener los datos: ${err.message}`;
       } finally {
         this.loading = false;
+      }
+    },
+    formatDuration(duration) {
+      const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+      const hours = parseInt(match[1]) || 0;
+      const minutes = parseInt(match[2]) || 0;
+      const seconds = parseInt(match[3]) || 0;
+
+      if (hours > 0) {
+        return `${hours}:${minutes.toString().padStart(2, "0")}:${seconds
+          .toString()
+          .padStart(2, "0")}`;
+      } else {
+        return `${minutes}:${seconds.toString().padStart(2, "0")}`;
       }
     },
     openVideo(videoId) {
