@@ -64,7 +64,7 @@
                   <div class="flex items-center justify-center p-4">
                     <div
                       :class="[
-                        'relative text-3xl font-bold text-black border py-2 px-6 rounded-md shadow-md bg-white',
+                        'relative text-3xl font-bold text-black border py-2 px-6 rounded-md shadow-md bg-white folded-corner',
                         evento.infoIconoTexto === 'Canasta de amor'
                           ? 'border-t-red-500'
                           : '',
@@ -195,7 +195,7 @@
             >
               <div
                 :class="[
-                  'text-5xl font-bold text-black py-3 px-8 rounded-md shadow-md mr-6 mb-4 md:mb-0 relative bg-white',
+                  'text-5xl font-bold text-black py-3 px-8 rounded-md shadow-md mr-6 mb-4 md:mb-0 relative bg-white folded-corner',
                   proximoEvento.infoIconoTexto === 'Canasta de amor'
                     ? 'border-t-red-500'
                     : '',
@@ -216,12 +216,13 @@
                   proximoEvento.infoIconoTexto !== 'Reunión de damas' &&
                   proximoEvento.infoIconoTexto !== 'Domingo misionero' &&
                   proximoEvento.infoIconoTexto !== 'Culto de oración'
-                    ? 'border-t-teal-500'
+                    ? 'border-t-blue-500'
                     : '',
                   'border-t-4',
                 ]"
               >
                 <div class="text-center">{{ proximoEvento.dia }}</div>
+                <div class="w-full h-[1px] bg-gray-300 my-1"></div>
                 <div class="text-lg text-gray-600 text-center">
                   {{ proximoEvento.mes }}
                 </div>
@@ -304,7 +305,7 @@
                   <a
                     href="#"
                     @click.prevent="abrirModal(proximoEvento)"
-                    class="text-red-500 dark:text-white text-sm cursor-pointer flex items-center"
+                    class="text-gray-500 dark:text-white text-sm cursor-pointer flex items-center"
                   >
                     Banner no disponible
                     <svg
@@ -323,7 +324,7 @@
                   </a>
                 </div>
                 <p
-                  class="text-base md:text-lg font-semibold text-teal-600 mt-4 dark:text-white flex items-center"
+                  class="text-base md:text-lg font-semibold text-blue-500 mt-4 dark:text-white flex items-center"
                 >
                   <i class="fas fa-hourglass-half mr-2"></i>
                   {{
@@ -378,12 +379,13 @@
                   evento.infoIconoTexto !== 'Reunión de damas' &&
                   evento.infoIconoTexto !== 'Domingo misionero' &&
                   evento.infoIconoTexto !== 'Culto de oración'
-                    ? 'border-t-teal-500'
+                    ? 'border-t-blue-500'
                     : '',
                   'border-t-4',
                 ]"
               >
                 <div class="text-center">{{ evento.dia }}</div>
+                <div class="w-full h-[1px] bg-gray-300 my-[0.5px]"></div>
                 <div class="text-xs text-gray-600 text-center">
                   {{ evento.mes }}
                 </div>
@@ -738,27 +740,20 @@ export default {
   }
 }
 
-.custom-swiper {
-  .swiper-button-next,
-  .swiper-button-prev {
-    @apply text-teal-500;
-  }
+.folded-corner {
+  position: relative;
+}
 
-  .swiper-button-next:hover,
-  .swiper-button-prev:hover {
-    @apply text-teal-400;
-  }
-
-  .swiper-pagination-bullet {
-    @apply bg-teal-400;
-    width: 10px;
-    height: 10px;
-  }
-
-  .swiper-pagination-bullet-active {
-    @apply bg-teal-500;
-    width: 10px;
-    height: 10px;
-  }
+.folded-corner::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 20px 20px;
+  border-color: transparent transparent #e0e0e0 transparent;
+  box-shadow: -2px -2px 3px rgba(0, 0, 0, 0.1);
 }
 </style>
