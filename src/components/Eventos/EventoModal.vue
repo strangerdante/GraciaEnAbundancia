@@ -4,14 +4,26 @@
     @click="cerrarSiEsFondo"
     class="fixed inset-0 backdrop-blur-sm bg-gray-900/50 flex items-center justify-center z-50"
   >
-    <div class="bg-white p-6 rounded-lg shadow-xl max-w-xl w-full relative">
+    <div
+      ref="modalContent"
+      @touchstart="iniciarArrastre"
+      @touchmove="arrastrar"
+      @touchend="finalizarArrastre"
+      class="bg-white p-6 rounded-lg shadow-xl w-full sm:max-w-xl relative transition-transform duration-300 ease-out max-h-90vh overflow-y-auto"
+      :style="{ transform: `translateY(${desplazamientoY}px)` }"
+    >
+      <!-- Indicador de arrastre (solo visible en móviles) -->
+      <div
+        class="w-16 h-1 bg-gray-300 rounded-full mx-auto mb-4 sm:hidden"
+      ></div>
+
       <div class="flex justify-between items-center mb-4">
-        <h2 class="text-xl sm:text-2xl font-bold">
+        <h2 class="text-xl sm:text-2xl font-bold flex-grow text-center">
           {{ evento.titulo }}
         </h2>
         <button
           @click="cerrar"
-          class="text-gray-600 hover:text-gray-800 transition duration-300"
+          class="hidden sm:block text-gray-600 hover:text-gray-800 transition duration-300"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -117,12 +129,22 @@ export default {
   data() {
     return {
       imagenAmpliada: false,
+      desplazamientoY: 0,
+      inicioY: 0,
+      umbralCierre: 100, // Píxeles que el usuario debe arrastrar para cerrar
     };
   },
   methods: {
     cerrar() {
+      this.toggleBodyScroll(false);
       this.$emit("cerrar");
-      document.body.classList.remove("modal-open");
+    },
+    toggleBodyScroll(disable) {
+      if (disable) {
+        document.body.classList.add("overflow-hidden");
+      } else {
+        document.body.classList.remove("overflow-hidden");
+      }
     },
     cerrarSiEsFondo(event) {
       if (event.target === event.currentTarget) {
@@ -140,12 +162,31 @@ export default {
         this.imagenAmpliada = false;
       }
     },
+    iniciarArrastre(event) {
+      this.inicioY = event.touches[0].clientY;
+    },
+    arrastrar(event) {
+      const currentY = event.touches[0].clientY;
+      const diferencia = currentY - this.inicioY;
+      if (diferencia > 0) {
+        // Solo permitir arrastre hacia arriba
+        this.desplazamientoY = diferencia;
+      }
+    },
+    finalizarArrastre() {
+      if (this.desplazamientoY > this.umbralCierre) {
+        this.cerrar();
+      } else {
+        this.desplazamientoY = 0;
+      }
+    },
   },
   mounted() {
-    document.body.classList.add("modal-open");
+    this.toggleBodyScroll(true);
   },
-  beforeUnmount() {
-    document.body.classList.remove("modal-open");
+
+  beforeDestroy() {
+    this.toggleBodyScroll(false);
   },
 };
 </script>
@@ -156,9 +197,5 @@ export default {
 }
 .max-h-90vh {
   max-height: 90vh;
-}
-
-:global(body.modal-open) {
-  overflow: hidden;
 }
 </style>
