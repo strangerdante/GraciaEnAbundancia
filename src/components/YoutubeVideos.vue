@@ -1,5 +1,8 @@
 <template>
   <div class="container mx-auto px-2 py-8 lg:px-32">
+    <div class="flex justify-between items-center mb-2">
+      <h2 class="text-3xl font-bold dark:text-white">Servicios</h2>
+    </div>
     <div
       v-if="error"
       class="flex items-start sm:items-center bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded"

@@ -2,11 +2,11 @@
   <div
     class="bg-gray-100 dark:bg-slate-600 px-1 sm:px-6 2xl:px-80 pb-10 transition duration-300 ease-in-out selection:bg-teal-500 selection:text-white"
   >
-    <div class="flex justify-between items-center mb-8 px-3">
+    <div class="flex justify-between items-center mb-8">
       <h2 class="text-3xl font-bold dark:text-white">Próximos eventos</h2>
       <button
         @click="toggleView"
-        class="text-2xl text-gray-700 dark:text-teal-500"
+        class="text-2xl text-gray-700 dark:text-teal-500 mr-1"
       >
         <i :class="isCarouselView ? 'fas fa-list' : 'fas fa-th'"></i>
       </button>

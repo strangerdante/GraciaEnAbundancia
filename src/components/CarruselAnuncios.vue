@@ -3,11 +3,9 @@
     <div
       class="mx-auto sm:px-6 2xl:px-80 py-6 sm:py-10 bg-gray-100 dark:bg-slate-600 transition duration-300 ease-in-out"
     >
-      <h2
-        class="text-2xl sm:text-3xl px-4 font-bold dark:text-white mb-6 sm:mb-8"
-      >
-        Anuncios
-      </h2>
+      <div class="flex justify-between items-center mb-2">
+        <h2 class="text-3xl font-bold dark:text-white ml-1">Anuncios</h2>
+      </div>
       <swiper
         :slides-per-view="1"
         :space-between="30"
