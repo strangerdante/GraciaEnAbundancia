@@ -73,14 +73,14 @@
       <!-- Video destacado -->
       <div v-if="videos.length > 0" class="mb-8">
         <div
-          class="flex flex-col md:flex-row bg-white rounded-lg shadow-md overflow-hidden cursor-pointer relative"
+          class="flex flex-col md:flex-row bg-white rounded-lg overflow-hidden cursor-pointer relative"
           @click="openVideo(videos[0].id)"
         >
           <div class="relative">
             <img
               :src="videos[0].thumbnail"
               :alt="videos[0].title"
-              class="w-full h-[193px] sm:h-auto object-cover rounded-lg"
+              class="w-full h-[193px] md:w-[690px] md:h-[390px] object-cover rounded-lg"
             />
             <div
               class="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded-md text-sm"
@@ -93,14 +93,15 @@
             >
               Short
             </div>
-            <!-- Nueva etiqueta "Más reciente" -->
             <div
               class="absolute top-2 left-2 bg-blue-500 text-white px-2 py-1 rounded-md text-xs font-bold"
             >
               Más reciente
             </div>
           </div>
-          <div class="md:w-1/2 p-6">
+          <div
+            class="hidden md:flex md:flex-col md:justify-evenly md:w-1/2 p-6"
+          >
             <h2 class="text-lg sm:text-2xl font-bold mb-2">
               {{ videos[0].title }}
             </h2>
@@ -145,7 +146,7 @@
       >
         <swiper-slide v-for="video in videos.slice(1)" :key="video.id">
           <div
-            class="bg-white rounded-lg shadow-md overflow-hidden mb-12 h-80 sm:h-[365px] xl:h-[400px] cursor-pointer relative"
+            class="bg-white rounded-lg shadow-md overflow-hidden mb-12 h-[300px] sm:h-[365px] xl:h-[400px] cursor-pointer relative"
             @click="openVideo(video.id)"
           >
             <div class="relative">
