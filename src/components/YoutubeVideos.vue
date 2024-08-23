@@ -2,11 +2,11 @@
   <div class="container mx-auto px-2 py-8 lg:px-32">
     <div
       v-if="error"
-      class="flex items-center bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+      class="flex items-start sm:items-center bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded"
       role="alert"
     >
       <svg
-        class="w-6 h-6 mr-2"
+        class="w-5 h-5 sm:w-6 sm:h-6 mt-1 sm:mt-0 mr-2 flex-shrink-0"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -19,7 +19,7 @@
           d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
         />
       </svg>
-      <span class="block sm:inline">{{ error }}</span>
+      <span class="text-sm sm:text-base">{{ error }}</span>
     </div>
     <!-- Estado de carga -->
     <div
