@@ -100,12 +100,14 @@
             </div>
           </div>
           <div
-            class="hidden md:flex md:flex-col md:justify-evenly md:w-1/2 p-6"
+            class="md:flex md:flex-col md:justify-evenly md:w-1/2 pt-2 sm:p-6"
           >
-            <h2 class="text-lg sm:text-2xl font-bold mb-2">
+            <h2 class="hidden md:block text-lg sm:text-2xl font-bold mb-2">
               {{ videos[0].title }}
             </h2>
-            <p class="text-gray-600 mb-2">{{ videos[0].description }}</p>
+            <p class="hidden md:block text-gray-600 mb-2">
+              {{ videos[0].description }}
+            </p>
             <p class="text-sm text-gray-500">{{ videos[0].date }}</p>
           </div>
         </div>
