@@ -74,7 +74,7 @@
       </div>
 
       <!-- Video destacado -->
-      <div v-if="videos.length > 0" class="mb-8">
+      <div v-if="videos.length > 0" class="mb-4">
         <div
           class="flex flex-col md:flex-row bg-white rounded-lg overflow-hidden cursor-pointer relative"
           @click="openVideo(videos[0].id)"
