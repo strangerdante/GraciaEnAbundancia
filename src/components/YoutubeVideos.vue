@@ -227,6 +227,52 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
 
+const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 horas en milisegundos
+
+function isLocalStorageAvailable() {
+  try {
+    const testKey = "__test__";
+    localStorage.setItem(testKey, testKey);
+    localStorage.removeItem(testKey);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+const storage =
+  typeof window !== "undefined" && isLocalStorageAvailable()
+    ? localStorage
+    : {
+        getItem: () => null,
+        setItem: () => {},
+      };
+
+function getCachedData(key) {
+  const cachedData = storage.getItem(key);
+  if (cachedData) {
+    try {
+      const { data, timestamp } = JSON.parse(cachedData);
+      return { data, timestamp };
+    } catch (e) {
+      console.error("Error parsing cached data:", e);
+    }
+  }
+  return null;
+}
+
+function setCachedData(key, data) {
+  const cacheObject = {
+    data: data,
+    timestamp: Date.now(),
+  };
+  try {
+    storage.setItem(key, JSON.stringify(cacheObject));
+  } catch (e) {
+    console.error("Error setting cached data:", e);
+  }
+}
+
 export default {
   components: {
     Swiper,
@@ -246,12 +292,20 @@ export default {
       selectedPlaylist: null,
     };
   },
-  created() {
+  mounted() {
     this.fetchPlaylists();
     this.fetchVideos();
   },
   methods: {
     async fetchPlaylists() {
+      const cachedData = getCachedData("playlists");
+      if (cachedData) {
+        this.playlists = cachedData.data;
+        if (Date.now() - cachedData.timestamp < CACHE_DURATION) {
+          return;
+        }
+      }
+
       try {
         const response = await fetch(
           `https://www.googleapis.com/youtube/v3/playlists?part=snippet&channelId=${this.channelId}&key=${this.apiKey}&maxResults=10`
@@ -261,11 +315,31 @@ export default {
           id: item.id,
           title: item.snippet.title,
         }));
+        setCachedData("playlists", this.playlists);
       } catch (error) {
         console.error("Error fetching playlists:", error);
       }
     },
-    async fetchVideos() {
+
+    async fetchVideos(useCache = true) {
+      const cacheKey = this.selectedPlaylist
+        ? `videos_${this.selectedPlaylist}`
+        : "videos_all";
+
+      if (useCache) {
+        const cachedData = getCachedData(cacheKey);
+        if (cachedData) {
+          this.videos = cachedData.data;
+          this.loading = false;
+
+          if (Date.now() - cachedData.timestamp < CACHE_DURATION) {
+            // Si los datos en caché son recientes, los usamos y actualizamos en segundo plano
+            this.fetchVideos(false);
+            return;
+          }
+        }
+      }
+
       try {
         this.loading = true;
         let url;
@@ -280,7 +354,6 @@ export default {
           throw new Error(searchData.error.message);
         }
 
-        // Obtener los IDs de los videos
         const videoIds = searchData.items
           .map((item) =>
             this.selectedPlaylist
@@ -289,13 +362,11 @@ export default {
           )
           .join(",");
 
-        // Hacer una segunda llamada para obtener la duración de los videos
         const contentDetailsResponse = await fetch(
           `https://www.googleapis.com/youtube/v3/videos?key=${this.apiKey}&id=${videoIds}&part=contentDetails`
         );
         const contentDetailsData = await contentDetailsResponse.json();
 
-        // Combinar los datos
         this.videos = searchData.items.map((item, index) => {
           const durationInfo = this.formatDuration(
             contentDetailsData.items[index].contentDetails.duration
@@ -310,15 +381,18 @@ export default {
             author: item.snippet.channelTitle,
             date: new Date(item.snippet.publishedAt).toLocaleDateString(),
             duration: durationInfo.formatted,
-            isShort: durationInfo.totalSeconds < 120, // menos de 2 minutos
+            isShort: durationInfo.totalSeconds < 120,
           };
         });
+
+        setCachedData(cacheKey, this.videos);
       } catch (err) {
         this.error = `Error al obtener los datos: ${err.message}`;
       } finally {
         this.loading = false;
       }
     },
+
     formatDuration(duration) {
       const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
       const hours = parseInt(match[1]) || 0;
@@ -341,14 +415,20 @@ export default {
         };
       }
     },
+
     openVideo(videoId) {
       this.currentVideoId = videoId;
       this.showModal = true;
       document.body.classList.add("overflow-hidden");
     },
+
     closeModal() {
       this.showModal = false;
       document.body.classList.remove("overflow-hidden");
+    },
+
+    handlePlaylistChange() {
+      this.fetchVideos();
     },
   },
 };
