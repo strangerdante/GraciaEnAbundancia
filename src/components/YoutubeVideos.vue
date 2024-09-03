@@ -151,14 +151,14 @@
       >
         <swiper-slide v-for="video in videos.slice(1)" :key="video.id">
           <div
-            class="bg-white rounded-lg shadow-md overflow-hidden mb-12 h-[300px] sm:h-[365px] xl:h-[400px] cursor-pointer relative"
+            class="bg-white rounded-lg border shadow-sm overflow-hidden mb-12 h-[300px] sm:h-[365px] xl:h-[400px] cursor-pointer relative"
             @click="openVideo(video.id)"
           >
-            <div class="relative">
+            <div class="relative overflow-hidden">
               <img
                 :src="video.thumbnail"
                 :alt="video.title"
-                class="w-full h-46 object-cover"
+                class="w-full h-46 object-cover transition-transform duration-300 hover:scale-110"
               />
               <div
                 class="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded-md text-sm"
