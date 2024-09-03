@@ -104,6 +104,13 @@
           </div>
           <div
             class="md:flex md:flex-col md:justify-evenly md:w-1/2 pt-2 sm:p-6"
+            :class="{ 'hidden md:block': true }"
+            :style="{
+              backgroundImage: 'url(/IsoLogo.svg)',
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+            }"
           >
             <h2 class="hidden md:block text-lg sm:text-2xl font-bold mb-2">
               {{ videos[0].title }}
@@ -214,11 +221,11 @@
         </button>
         <div class="relative pb-[56.25%] h-0">
           <iframe
-            :src="`https://www.youtube.com/embed/${currentVideoId}`"
+            src="https://youtube.com/embed/${currentVideoId}"
             class="absolute top-0 left-0 w-full h-full rounded-xl"
-            frameborder="0"
             allow="autoplay; encrypted-media"
             allowfullscreen
+            title="YouTube video player"
           ></iframe>
         </div>
       </div>
