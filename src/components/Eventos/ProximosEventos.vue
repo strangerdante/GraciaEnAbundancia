@@ -88,7 +88,7 @@ export default {
         "Viernes",
         "Sábado",
       ];
-      return dias[fecha.getUTCDay()];
+      return dias[fecha.getDay()];
     };
 
     const proximoEvento = computed(() => {
@@ -100,15 +100,14 @@ export default {
     });
 
     const generarEventos = (startDate, endDate) => {
-      // Genera eventos recurrentes para el período especificado (8 días)
       const events = [];
       const currentDate = new Date(startDate);
 
       while (currentDate <= endDate) {
-        const year = currentDate.getUTCFullYear();
-        const month = currentDate.getUTCMonth();
-        const date = currentDate.getUTCDate();
-        const day = currentDate.getUTCDay();
+        const year = currentDate.getFullYear();
+        const month = currentDate.getMonth();
+        const date = currentDate.getDate();
+        const day = currentDate.getDay();
 
         // Eventos dominicales
         if (day === 0) {
@@ -118,26 +117,25 @@ export default {
           let descripcion = "Servicio dominical semanal.";
 
           if (weekOfMonth === 1) {
-            infoIconoTexto = "Cena del Señor"; // Cena del Señor
+            infoIconoTexto = "Cena del Señor";
             banner = "https://i.ibb.co/j5XSjXD/cena.jpg";
             descripcion =
               "Celebración mensual de la Cena del Señor. Un tiempo especial de comunión y remembranza.";
           } else if (weekOfMonth === 3) {
-            infoIconoTexto = "Canasta de amor"; // Canasta de amor
+            infoIconoTexto = "Canasta de amor";
             banner =
               "https://i.ibb.co/prVxsvq/ccb02c5d-aca0-4a1a-baa9-501c57e017c8.jpg";
             descripcion =
               "Domingo de ofrenda especial para apoyar a familias necesitadas de nuestra comunidad.";
           } else if (date > 24) {
-            infoIconoTexto = "Domingo misionero"; // Domingo misionero
+            infoIconoTexto = "Domingo misionero";
             banner = null;
             descripcion =
               "Enfoque especial en nuestras misiones y misioneros alrededor del mundo.";
           }
-          // Eventos domingos
           events.push({
             id: `domingo-${year}-${month + 1}-${date}`,
-            fecha: new Date(Date.UTC(year, month, date)),
+            fecha: new Date(year, month, date),
             titulo: "Servicio dominical",
             hora: "8:00 am — 12:30 pm",
             lugar: "Carrera 35 #1C-30",
@@ -152,7 +150,7 @@ export default {
         if (day === 6 && date > 24) {
           events.push({
             id: `varones-${year}-${month + 1}-${date}`,
-            fecha: new Date(Date.UTC(year, month, date)),
+            fecha: new Date(year, month, date),
             titulo: "Reunión de varones",
             hora: "3:30 pm - 5:30 pm",
             lugar: "Por confirmar",
@@ -164,7 +162,7 @@ export default {
 
           events.push({
             id: `damas-${year}-${month + 1}-${date}`,
-            fecha: new Date(Date.UTC(year, month, date)),
+            fecha: new Date(year, month, date),
             titulo: "Reunión de damas",
             hora: "3:30 pm - 5:30 pm",
             lugar: "Por confirmar",
@@ -179,7 +177,7 @@ export default {
         if (day === 3) {
           events.push({
             id: `oracion-${year}-${month + 1}-${date}`,
-            fecha: new Date(Date.UTC(year, month, date)),
+            fecha: new Date(year, month, date),
             titulo: "Culto de oración",
             hora: "7:00 pm - 8:00 pm",
             link: "https://acortar.link/CultoDeOracionGAIB",
@@ -192,10 +190,9 @@ export default {
 
         // Cumple iglesia
         if (month === 7 && date === 12) {
-          // Nota: mes 7 es agosto en JavaScript
           events.push({
             id: `cumple-${year}-8-12`,
-            fecha: new Date(Date.UTC(year, month, date)),
+            fecha: new Date(year, month, date),
             titulo: "Cumple iglesia",
             hora: "7:00 pm - 8:00 pm",
             lugar: "Carrera 35 #1C-30",
@@ -204,11 +201,11 @@ export default {
             infoAdiccional: true,
             infoIconoTexto: "Cumple",
             banner: null,
-            confeti: true, // Nueva propiedad para activar el confeti
+            confeti: true,
           });
         }
 
-        currentDate.setUTCDate(currentDate.getUTCDate() + 1);
+        currentDate.setDate(currentDate.getDate() + 1);
       }
 
       return events;
@@ -217,26 +214,22 @@ export default {
     const fusionarEventos = (eventosGenerados, eventosAPI) => {
       const eventosMap = new Map();
 
-      // Agrega todos los eventos generados al mapa
       eventosGenerados.forEach((evento) => {
         const key = `${evento.fecha.toISOString().split("T")[0]}-${evento.id}`;
         eventosMap.set(key, evento);
       });
 
-      // Sobreescribe o agrega los eventos de la API
       eventosAPI.forEach((eventoAPI) => {
         const fecha = new Date(eventoAPI.fecha);
         const key = `${eventoAPI.fecha}-${eventoAPI.id || ""}`;
 
         if (eventosMap.has(key)) {
-          // Sobreescribe el evento existente
           eventosMap.set(key, {
             ...eventosMap.get(key),
             ...eventoAPI,
             fecha: fecha,
           });
         } else {
-          // Agrega el nuevo evento de la API
           eventosMap.set(key, {
             ...eventoAPI,
             fecha: fecha,
@@ -244,7 +237,6 @@ export default {
         }
       });
 
-      // Convierte el mapa de vuelta a un array y ordena los eventos
       return Array.from(eventosMap.values()).sort(
         (a, b) => a.fecha - b.fecha || a.titulo.localeCompare(b.titulo)
       );
@@ -254,23 +246,20 @@ export default {
       try {
         cargando.value = true;
         const today = new Date();
-        today.setUTCHours(0, 0, 0, 0);
+        today.setHours(0, 0, 0, 0);
         const endDate = new Date(today);
-        endDate.setUTCDate(endDate.getUTCDate() + 15); // Eventos de 15 días
+        endDate.setDate(endDate.getDate() + 15);
 
         const eventosGenerados = generarEventos(today, endDate);
 
-        // Obtiene eventos de la API
         const respuesta = await fetch("/eventos.json");
         if (!respuesta.ok) {
           throw new Error("Error al obtener los eventos");
         }
         const eventosAPI = await respuesta.json();
 
-        // Fusiona los eventos generados con los de la API
         const eventosFusionados = fusionarEventos(eventosGenerados, eventosAPI);
 
-        // Procesa los eventos fusionados y filtra los eventos antiguos
         eventos.value = eventosFusionados
           .map((evento) => {
             const fechaEvento = new Date(evento.fecha);
@@ -281,16 +270,16 @@ export default {
             return {
               ...evento,
               fecha: fechaEvento,
-              dia: fechaEvento.getUTCDate().toString().padStart(2, "0"),
-              mes: fechaEvento.toLocaleString("es", {
+              dia: fechaEvento.getDate().toString().padStart(2, "0"),
+              mes: fechaEvento.toLocaleString("es-CO", {
                 month: "long",
-                timeZone: "UTC",
+                timeZone: "America/Bogota",
               }),
               diasRestantes: diasRestantes,
               diaSemana: obtenerDiaSemana(fechaEvento),
             };
           })
-          .filter((evento) => evento.diasRestantes >= -1) // Filtra eventos con diasRestantes >= -1
+          .filter((evento) => evento.diasRestantes >= -1)
           .sort(
             (a, b) => a.fecha - b.fecha || a.titulo.localeCompare(b.titulo)
           );
