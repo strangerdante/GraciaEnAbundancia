@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, watch } from "vue";
 import { eventos } from "../../lib/api.ts";
 import EventForm from "./EventForm.vue";
 
@@ -78,6 +78,15 @@ const closeForm = () => {
   editingEvent.value = null;
 };
 
+// Watch for changes in formMode to handle scroll
+watch(formMode, (newMode) => {
+  if (newMode !== "closed") {
+    document.body.classList.add("overflow-hidden");
+  } else {
+    document.body.classList.remove("overflow-hidden");
+  }
+});
+
 onMounted(() => {
   loadEvents();
 });
@@ -87,13 +96,15 @@ onMounted(() => {
   <div class="container mx-auto px-2 py-8 mt-24">
     <div class="sticky top-0 z-10 bg-white pb-4">
       <div class="flex justify-between items-center mb-6">
-        <h2 class="text-3xl font-bold text-gray-800">Gestión de Eventos</h2>
+        <h2 class="text-xl sm:text-3xl font-bold text-gray-800">
+          Gestión de Anuncios
+        </h2>
         <button
           v-if="formMode === 'closed'"
           @click="formMode = 'create'"
-          class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300"
+          class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300 text-sm"
         >
-          Nuevo Evento
+          Agregar Anuncio
         </button>
       </div>
 
@@ -124,19 +135,23 @@ onMounted(() => {
       <!-- Modal -->
       <div
         v-if="formMode !== 'closed'"
-        class="bg-white p-4 rounded-lg shadow-lg border border-gray-200"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto pt-44"
       >
-        <h3 class="text-lg font-semibold mb-4">
-          {{ formMode === "edit" ? "Editar Evento" : "Nuevo Evento" }}
-        </h3>
-        <EventForm
-          :event="editingEvent || {}"
-          :isEdit="formMode === 'edit'"
-          @submit="
-            formMode === 'edit' ? handleUpdate($event) : handleCreate($event)
-          "
-          @cancel="closeForm"
-        />
+        <div
+          class="bg-white p-6 rounded-lg shadow-lg border border-gray-200 w-full max-w-md mx-4"
+        >
+          <h3 class="text-lg font-semibold mb-4">
+            {{ formMode === "edit" ? "Editar Evento" : "Nuevo Evento" }}
+          </h3>
+          <EventForm
+            :event="editingEvent || {}"
+            :isEdit="formMode === 'edit'"
+            @submit="
+              formMode === 'edit' ? handleUpdate($event) : handleCreate($event)
+            "
+            @cancel="closeForm"
+          />
+        </div>
       </div>
     </div>
 
