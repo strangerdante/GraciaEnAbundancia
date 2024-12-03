@@ -6,7 +6,12 @@
       <div class="flex justify-between items-center mb-2">
         <h2 class="text-3xl font-bold dark:text-white ml-1">Anuncios</h2>
       </div>
+
+      <div v-if="error" class="text-red-500 text-center mb-4">{{ error }}</div>
+      <div v-if="isLoading" class="text-center py-4">Cargando anuncios...</div>
+
       <swiper
+        v-else-if="slides.length"
         :slides-per-view="1"
         :space-between="30"
         :navigation="{
@@ -39,13 +44,13 @@
             >
               <h3
                 v-if="slide.titulo"
-                class="text-xl sm:text-2xl font-bold mb-2 sm:mb-4"
+                class="text-xl sm:text-2xl font-bold mb-2 sm:mb-4 text-center"
               >
                 {{ slide.titulo }}
               </h3>
               <p
                 v-if="slide.descripcion"
-                class="text-sm sm:text-xl mb-4 sm:mb-6 px-4 sm:px-24"
+                class="text-sm sm:text-xl mb-4 sm:mb-6 px-4 sm:px-24 text-center"
               >
                 {{ slide.descripcion }}
               </p>
@@ -66,11 +71,14 @@
           <i class="fas fa-chevron-left"></i>
         </div>
       </swiper>
+
+      <div v-else class="text-center py-4">No hay anuncios disponibles</div>
     </div>
   </section>
 </template>
 
 <script>
+import { ref, onMounted } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
@@ -78,57 +86,55 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import "swiper/css/effect-fade";
+import { eventos } from "../lib/api"; // Asume que tienes este import configurado
 
 export default {
   components: {
     Swiper,
     SwiperSlide,
   },
-  data() {
-    return {
-      modules: [Navigation, Pagination, Autoplay, EffectFade],
-      slides: [
-        {
-          image:
-            "https://i.ibb.co/9Td3wVk/ben-white-W8-Qqn1-Pm-QH0-unsplash.jpg",
-          titulo: "Culto de oración",
-          descripcion:
-            "Únete a nosotros cada miércoles a las 7 PM para un tiempo de oración comunitaria y fortalecimiento espiritual. Juntos, elevaremos nuestras voces al cielo.",
-          textoBoton: "Leer más",
-          linkBoton: "/pagina1",
-        },
-        {
-          image:
-            "https://i.ibb.co/KW60XdT/aaron-burden-9zs-HNt5-Opq-E-unsplash.jpg",
-          titulo: "Reunión de varones",
-          descripcion:
-            "Caballeros, los invitamos a nuestra reunión mensual este sábado. Compartiremos testimonios, estudiaremos la Palabra y nos apoyaremos mutuamente en nuestro caminar cristiano.",
-          textoBoton: "Ver detalles",
-          linkBoton: "/pagina2",
-        },
-        {
-          image: "https://i.ibb.co/b786r8G/biblia.jpg",
-          titulo: "Reunión de damas",
-          descripcion:
-            "Queridas hermanas, las esperamos en nuestra reunión especial este viernes. Tendremos un tiempo de alabanza, estudio bíblico y compañerismo diseñado específicamente para mujeres de fe.",
-          textoBoton: "Ver detalles",
-          linkBoton: "/pagina2",
-        },
-        {
-          image: "https://i.ibb.co/b786r8G/biblia.jpg",
-          titulo: "Dia de lluvia",
-          descripcion: "",
-          textoBoton: "información",
-          linkBoton: "/nuevo-evento",
-        },
-      ],
+  setup() {
+    const slides = ref([]);
+    const error = ref("");
+    const isLoading = ref(false);
+    const modules = [Navigation, Pagination, Autoplay, EffectFade];
+
+    const loadEvents = async () => {
+      try {
+        isLoading.value = true;
+        const response = await eventos.getAll();
+
+        // Mapea los eventos de la API al formato del carrusel
+        slides.value = response.data.map((evento) => ({
+          image: evento.image || "https://placeholder.com/350x250", // Placeholder si no hay imagen
+          titulo: evento.titulo,
+          descripcion: evento.descripcion,
+          textoBoton: evento.textoBoton,
+          linkBoton: evento.linkBoton || "#",
+        }));
+      } catch (err) {
+        error.value = "Error al cargar los anuncios";
+        console.error(err);
+      } finally {
+        isLoading.value = false;
+      }
     };
-  },
-  methods: {
-    handleButtonClick(link) {
+
+    const handleButtonClick = (link) => {
       console.log(`Navegando a: ${link}`);
-      // this.$router.push(link); // Descomenta esta línea si estás usando vue-router
-    },
+      // Descomentar si estás usando vue-router
+      // this.$router.push(link);
+    };
+
+    onMounted(loadEvents);
+
+    return {
+      slides,
+      error,
+      isLoading,
+      modules,
+      handleButtonClick,
+    };
   },
 };
 </script>

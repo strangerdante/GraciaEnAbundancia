@@ -1,0 +1,10 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AdminEventList from '../../components/panel/AdminEventList.vue';
+---
+
+<Layout title="Admin - Gestión de Eventos">
+  <main class="container mx-auto px-4 py-8">
+    <AdminEventList client:load />
+  </main>
+</Layout>

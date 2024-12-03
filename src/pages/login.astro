@@ -1,0 +1,10 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LoginForm from "../components/panel/LoginForm.vue";
+---
+
+<Layout title="Login">
+  <main class="container mx-auto px-4 py-8">
+    <LoginForm client:load />
+  </main>
+</Layout>
