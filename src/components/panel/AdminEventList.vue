@@ -1,4 +1,3 @@
-I'll provide the entire Vue component with the updated modal section: ```vue
 <script setup lang="ts">
 import { ref, onMounted, watch } from "vue";
 import { eventos } from "../../lib/api.ts";
@@ -179,10 +178,15 @@ onMounted(() => {
 
     <div v-else class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
       <div
-        v-for="evento in eventList"
+        v-for="(evento, index) in eventList"
         :key="evento.id"
-        class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+        class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 relative"
       >
+        <div
+          class="absolute top-2 right-2 bg-blue-500 text-white rounded-lg w-8 h-8 flex items-center justify-center text-sm font-bold"
+        >
+          {{ index + 1 }}
+        </div>
         <div class="flex flex-col h-full">
           <div class="flex-grow">
             <h3 class="text-xl font-bold text-gray-800 mb-2">
