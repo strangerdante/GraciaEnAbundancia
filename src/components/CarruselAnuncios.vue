@@ -8,8 +8,13 @@
       </div>
 
       <div v-if="error" class="text-red-500 text-center mb-4">{{ error }}</div>
-      <div v-if="isLoading" class="text-center py-4">Cargando anuncios...</div>
-
+      <div
+        v-else-if="isLoading"
+        class="flex flex-col justify-center items-center h-64"
+      >
+        <div class="loader mb-4"></div>
+        <p class="text-gray-700 dark:text-gray-300">Cargando anuncios...</p>
+      </div>
       <swiper
         v-else-if="slides.length"
         :slides-per-view="1"
@@ -86,7 +91,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import "swiper/css/effect-fade";
-import { eventos } from "../lib/api"; // Asume que tienes este import configurado
+import { eventos } from "../lib/api";
 
 export default {
   components: {
@@ -140,6 +145,19 @@ export default {
 </script>
 
 <style lang="postcss">
+.loader {
+  width: 50px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #3b82f6;
+  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+  animation: l3 1s infinite linear;
+}
 .custom-swiper {
   .custom-swiper-button {
     @apply text-white bg-blue-500 rounded-full w-10 h-10 flex items-center justify-center opacity-75 transition-opacity duration-300;

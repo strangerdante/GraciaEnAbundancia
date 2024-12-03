@@ -41,6 +41,16 @@ const imageOptions = [
     label: "Imagen biblia 3",
     url: "https://i.ibb.co/b786r8G/biblia.jpg",
   },
+  {
+    value: "damas",
+    label: "Imagen damas",
+    url: "https://i.ibb.co/MBTgMV7/damas.jpg",
+  },
+  {
+    value: "misionero",
+    label: "Imagen misionero",
+    url: "https://i.ibb.co/nCJpgjQ/misionero.jpg",
+  },
   { value: "custom", label: "Imagen personalizada" },
 ];
 
@@ -116,27 +126,18 @@ const handleSubmit = () => {
         <label class="block text-sm font-semibold text-gray-700 mb-2"
           >Imagen</label
         >
-        <div class="grid grid-cols-3 gap-3">
-          <div
+        <select
+          v-model="selectedImageOption"
+          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300"
+        >
+          <option
             v-for="option in imageOptions"
             :key="option.value"
-            class="flex items-center space-x-2"
+            :value="option.value"
           >
-            <input
-              type="radio"
-              :id="option.value"
-              v-model="selectedImageOption"
-              :value="option.value"
-              class="text-blue-600 focus:ring-blue-500 border-gray-300"
-            />
-            <label
-              :for="option.value"
-              class="text-sm text-gray-700 cursor-pointer"
-            >
-              {{ option.label }}
-            </label>
-          </div>
-        </div>
+            {{ option.label }}
+          </option>
+        </select>
 
         <!-- Preview of selected image -->
         <div v-if="formData.image" class="mt-4 flex justify-center">

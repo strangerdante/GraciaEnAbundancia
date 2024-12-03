@@ -84,7 +84,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container mx-auto px-4 py-8 mt-24">
+  <div class="container mx-auto px-2 py-8 mt-24">
     <div class="sticky top-0 z-10 bg-white pb-4">
       <div class="flex justify-between items-center mb-6">
         <h2 class="text-3xl font-bold text-gray-800">Gestión de Eventos</h2>
@@ -121,10 +121,10 @@ onMounted(() => {
           </svg>
         </span>
       </div>
-
+      <!-- Modal -->
       <div
         v-if="formMode !== 'closed'"
-        class="bg-white p-6 rounded-lg shadow-lg border border-gray-200"
+        class="bg-white p-4 rounded-lg shadow-lg border border-gray-200"
       >
         <h3 class="text-lg font-semibold mb-4">
           {{ formMode === "edit" ? "Editar Evento" : "Nuevo Evento" }}
