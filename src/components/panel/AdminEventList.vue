@@ -135,10 +135,10 @@ onMounted(() => {
       <!-- Modal -->
       <div
         v-if="formMode !== 'closed'"
-        class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto pt-52 pb-4"
+        class="fixed top-28 inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto py-4"
       >
         <div
-          class="bg-white p-6 rounded-lg shadow-lg border border-gray-200 w-full max-w-md mx-4"
+          class="bg-white p-6 rounded-lg shadow-lg border border-gray-200 w-full max-w-md mx-4 mt-auto mb-auto"
         >
           <h3 class="text-lg font-semibold mb-4">
             {{ formMode === "edit" ? "Editar Evento" : "Nuevo Evento" }}
