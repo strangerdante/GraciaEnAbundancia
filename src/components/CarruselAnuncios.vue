@@ -22,12 +22,12 @@
         :pagination="{ clickable: true }"
         :modules="modules"
         :loop="true"
-        :grab-cursor="false"
+        :grab-cursor="true"
         :autoplay="{
-          delay: 3000,
+          delay: 5000,
           disableOnInteraction: false,
         }"
-        :effect="'fade'"
+        :effect="'creative'"
         :fade-effect="{ crossFade: true }"
         class="custom-swiper sm:rounded-lg overflow-hidden"
       >
@@ -44,13 +44,13 @@
             >
               <h3
                 v-if="slide.titulo"
-                class="text-xl sm:text-2xl font-bold mb-2 sm:mb-4 text-center"
+                class="text-2xl sm:text-3xl font-bold mb-2 sm:mb-4 text-center"
               >
                 {{ slide.titulo }}
               </h3>
               <p
                 v-if="slide.descripcion"
-                class="text-sm sm:text-xl mb-4 sm:mb-6 px-4 sm:px-24 text-center"
+                class="text-base sm:text-2xl mb-4 sm:mb-6 px-4 sm:px-24 text-center text-white font-medium drop-shadow-lg bg-black/30 rounded-lg p-2"
               >
                 {{ slide.descripcion }}
               </p>
