@@ -1,3 +1,4 @@
+I'll provide the entire Vue component with the updated modal section: ```vue
 <script setup lang="ts">
 import { ref, onMounted, watch } from "vue";
 import { eventos } from "../../lib/api.ts";
@@ -132,16 +133,35 @@ onMounted(() => {
           </svg>
         </span>
       </div>
+
       <!-- Modal -->
       <div
         v-if="formMode !== 'closed'"
         class="fixed top-28 inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 overflow-y-auto py-4"
       >
         <div
-          class="bg-white p-6 rounded-lg shadow-lg border border-gray-200 w-full max-w-md mx-4 mt-auto mb-auto"
+          class="bg-white p-6 rounded-lg shadow-lg border border-gray-200 w-full max-w-md mx-4 mt-auto mb-auto relative"
         >
+          <button
+            @click="closeForm"
+            class="absolute top-4 right-4 text-gray-600 hover:text-gray-800 transition duration-300"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
           <h3 class="text-lg font-semibold mb-4">
-            {{ formMode === "edit" ? "Editar Evento" : "Nuevo Evento" }}
+            {{ formMode === "edit" ? "Editar Anuncio" : "Nuevo Anuncio" }}
           </h3>
           <EventForm
             :event="editingEvent || {}"
@@ -155,7 +175,7 @@ onMounted(() => {
       </div>
     </div>
 
-    <div v-if="isLoading" class="text-center py-4">Cargando eventos...</div>
+    <div v-if="isLoading" class="text-center py-4">Cargando anuncios...</div>
 
     <div v-else class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
       <div
