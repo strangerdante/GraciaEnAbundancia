@@ -13,7 +13,8 @@ const loadEvents = async () => {
   try {
     isLoading.value = true;
     const response = await eventos.getAll();
-    eventList.value = response.data;
+    // Ordenar los eventos por ID en orden descendente
+    eventList.value = response.data.sort((a, b) => b.id - a.id);
   } catch (err) {
     error.value = "Error al cargar los eventos";
   } finally {

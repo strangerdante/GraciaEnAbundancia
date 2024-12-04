@@ -9,7 +9,7 @@ const props = defineProps({
       descripcion: "",
       textoBoton: "",
       linkBoton: "",
-      image: "",
+      image: "https://i.ibb.co/hcqMNSY/james-lee-0-YQz7-M2fc-YY-unsplash.jpg", // Default image
     }),
   },
   isEdit: {
@@ -21,11 +21,16 @@ const props = defineProps({
 const emit = defineEmits(["submit", "cancel"]);
 
 const formData = ref({ ...props.event });
-const selectedImageOption = ref("none");
+const selectedImageOption = ref("");
 const customImageUrl = ref("");
+const defaultImageUrl = "https://i.ibb.co/FxQKF5N/fondo-logo.jpg";
 
 const imageOptions = [
-  { value: "none", label: "Ninguna" },
+  {
+    value: "default",
+    label: "Imagen predeterminada",
+    url: defaultImageUrl,
+  },
   {
     value: "biblia1",
     label: "Imagen biblia 1",
@@ -69,7 +74,9 @@ watch(
         customImageUrl.value = newEvent.image;
       }
     } else {
-      selectedImageOption.value = "none";
+      // Default to the predefined default image
+      selectedImageOption.value = "default";
+      formData.value.image = defaultImageUrl;
       customImageUrl.value = "";
     }
   },
@@ -79,14 +86,12 @@ watch(
 // Update formData.image when selection changes
 watch([selectedImageOption, customImageUrl], () => {
   if (selectedImageOption.value === "custom") {
-    formData.value.image = customImageUrl.value;
-  } else if (selectedImageOption.value === "none") {
-    formData.value.image = "";
+    formData.value.image = customImageUrl.value || defaultImageUrl;
   } else {
     const selected = imageOptions.find(
       (option) => option.value === selectedImageOption.value
     );
-    formData.value.image = selected?.url || "";
+    formData.value.image = selected?.url || defaultImageUrl;
   }
 });
 
@@ -109,7 +114,6 @@ const handleSubmit = () => {
           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300"
         />
       </div>
-
       <div>
         <label class="block text-sm font-semibold text-gray-700 mb-2"
           >Descripción</label
@@ -121,7 +125,6 @@ const handleSubmit = () => {
           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300"
         ></textarea>
       </div>
-
       <div>
         <label class="block text-sm font-semibold text-gray-700 mb-2"
           >Imagen</label
@@ -138,16 +141,14 @@ const handleSubmit = () => {
             {{ option.label }}
           </option>
         </select>
-
         <!-- Preview of selected image -->
-        <div v-if="formData.image" class="mt-4 flex justify-center">
+        <div class="mt-4 flex justify-center">
           <img
             :src="formData.image"
             alt="Vista previa"
             class="h-48 w-full object-cover rounded-lg shadow-md"
           />
         </div>
-
         <!-- Custom image URL input -->
         <div v-if="selectedImageOption === 'custom'" class="mt-4">
           <input
@@ -158,7 +159,6 @@ const handleSubmit = () => {
           />
         </div>
       </div>
-
       <div>
         <label class="block text-sm font-semibold text-gray-700 mb-2">
           Texto del botón
@@ -170,7 +170,6 @@ const handleSubmit = () => {
           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300"
         />
       </div>
-
       <div>
         <label class="block text-sm font-semibold text-gray-700 mb-2">
           Link del botón
@@ -182,7 +181,6 @@ const handleSubmit = () => {
           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300"
         />
       </div>
-
       <div class="flex justify-end space-x-4">
         <button
           type="button"

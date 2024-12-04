@@ -109,9 +109,12 @@ export default {
         isLoading.value = true;
         const response = await eventos.getAll();
 
-        // Mapea los eventos de la API al formato del carrusel
-        slides.value = response.data.map((evento) => ({
-          image: evento.image || "https://placeholder.com/350x250", // Placeholder si no hay imagen
+        // Ordena los eventos por ID en orden descendente
+        const sortedEvents = response.data.sort((a, b) => b.id - a.id);
+
+        // Mapea los eventos ordenados al formato del carrusel
+        slides.value = sortedEvents.map((evento) => ({
+          image: evento.image, // Placeholder si no hay imagen
           titulo: evento.titulo,
           descripcion: evento.descripcion,
           textoBoton: evento.textoBoton,
@@ -127,8 +130,6 @@ export default {
 
     const handleButtonClick = (link) => {
       console.log(`Navegando a: ${link}`);
-      // Descomentar si estás usando vue-router
-      // this.$router.push(link);
     };
 
     onMounted(loadEvents);
