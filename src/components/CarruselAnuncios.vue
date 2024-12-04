@@ -129,7 +129,9 @@ export default {
     };
 
     const handleButtonClick = (link) => {
-      console.log(`Navegando a: ${link}`);
+      if (link && link !== "#") {
+        window.location.href = link;
+      }
     };
 
     onMounted(loadEvents);
