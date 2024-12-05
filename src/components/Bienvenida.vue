@@ -8,6 +8,15 @@
         :style="{ backgroundImage: `url(${heroImage})` }"
       ></div>
       <div class="absolute inset-0 bg-black opacity-30"></div>
+
+      <!-- Lens Flare Animation -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="lens-flare lens-flare-1"></div>
+        <div class="lens-flare lens-flare-2"></div>
+        <div class="lens-flare lens-flare-3"></div>
+        <div class="lens-flare lens-flare-4"></div>
+      </div>
+
       <div class="relative h-full flex items-center justify-center z-10">
         <div class="text-center text-white p-5">
           <img
@@ -132,5 +141,126 @@ export default {
 }
 .sm\:hidden svg {
   animation: swipeAnimation 2s infinite;
+}
+
+/* Lens Flare Animation */
+.lens-flare {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  filter: blur(20px);
+  opacity: 0.7;
+  mix-blend-mode: screen;
+}
+
+.lens-flare-1 {
+  background: radial-gradient(circle, #001e62 0%, rgba(0, 30, 98, 0) 70%);
+  animation: lensFlareAnimation1 20s ease-in-out infinite;
+}
+
+.lens-flare-2 {
+  background: radial-gradient(circle, #6e2b62 0%, rgba(110, 43, 98, 0) 70%);
+  animation: lensFlareAnimation2 20s ease-in-out infinite;
+}
+
+.lens-flare-3 {
+  background: radial-gradient(circle, #a50034 0%, rgba(165, 0, 52, 0) 70%);
+  animation: lensFlareAnimation3 20s ease-in-out infinite;
+}
+
+@keyframes lensFlareAnimation1 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+    top: 25%;
+    left: 25%;
+  }
+  25% {
+    transform: translate(-50%, -50%) scale(1.2);
+    top: 75%;
+    left: 75%;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1);
+    top: 50%;
+    left: 50%;
+  }
+  75% {
+    transform: translate(-50%, -50%) scale(1.5);
+    top: 25%;
+    left: 75%;
+  }
+}
+
+@keyframes lensFlareAnimation2 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+    top: 75%;
+    left: 25%;
+  }
+  25% {
+    transform: translate(-50%, -50%) scale(0.8);
+    top: 25%;
+    left: 75%;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+    top: 50%;
+    left: 50%;
+  }
+  75% {
+    transform: translate(-50%, -50%) scale(1);
+    top: 75%;
+    left: 25%;
+  }
+}
+
+@keyframes lensFlareAnimation3 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    top: 50%;
+    left: 50%;
+  }
+  25% {
+    transform: translate(-50%, -50%) scale(1.5);
+    top: 25%;
+    left: 25%;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.8);
+    top: 75%;
+    left: 75%;
+  }
+  75% {
+    transform: translate(-50%, -50%) scale(1.2);
+    top: 50%;
+    left: 25%;
+  }
+}
+
+@keyframes lensFlareAnimation4 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    top: 75%;
+    left: 75%;
+  }
+  25% {
+    transform: translate(-50%, -50%) scale(1);
+    top: 50%;
+    left: 25%;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    top: 25%;
+    left: 75%;
+  }
+  75% {
+    transform: translate(-50%, -50%) scale(0.8);
+    top: 50%;
+    left: 50%;
+  }
 }
 </style>
